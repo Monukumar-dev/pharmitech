@@ -1,0 +1,567 @@
+:root{ --active-color:#22c55e; }
+/************************************/
+/*** 	   General css		  ***/
+/************************************/
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* for text effect gsap */
+.text-effect {
+  overflow: hidden;
+}
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+/* END for text effect gsap */
+
+
+.wow {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.wow.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-truncate-2 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.loading-container, .loading {
+    height: 200px;
+    width: 200px;
+}
+#loading-icon {
+    max-width: 150px;
+}
+.page-header {
+    padding: 120px 0;
+    background-image: url("../images/services/waterclean.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative;
+
+    .container {
+        z-index: 99;
+        position: relative;
+    }
+}
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    /* background-color: rgba(7, 158, 215, 0.8); */
+    background-color: rgba(0,0,0,0.7);
+    mix-blend-mode: multiply;
+}
+
+.google-map-iframe {
+    height: auto;
+}
+
+/************************************/
+/*** 	 Header	  ***/
+/************************************/
+.navbar-brand img {
+    max-height: 60px;
+}
+
+.hero-silver {
+    margin-top: -120px;
+}
+
+.hero-silver::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, black 30%, transparent 100%);
+    opacity: 0.5;
+}
+
+.main-menu ul li a {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.1em;
+    padding: 15px 10px !important;
+    color: #fff;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+}
+
+header.main-header .header-sticky {
+    margin-inline: 20px;
+}
+header.main-header .header-sticky.active {
+    background: var(--primary-color);
+}
+
+.main-menu ul li a:hover, .main-menu ul li a:focus {
+    color: var(--accent-color);
+}
+
+.hero-company-slider-silver img {
+    height: 50px;
+    width: auto;
+}
+
+.btn-default-silver.outline {
+    background: transparent !important;
+    border-color: #fff;
+    color: #fff;
+    border: 1px solid;
+}
+
+.btn-default-silver.outline::before {
+    right: -54px;
+    background-color: transparent;
+}
+
+/************************************/
+/*** 	 Footer  ***/
+/************************************/
+.footer-links-silver ul li {
+    line-height: 18px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+
+/************************************/
+/*** 	 HOMEPAGE  ***/
+/************************************/
+.about-us-counter-list-silver {
+    margin: 0;
+}
+.what-we-do-item-header .icon-box i {
+    font-size: 2rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.what-we-do-item:hover .what-we-do-item-header .icon-box i {
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.hero-silver::before {
+    background: linear-gradient(180deg, rgba(16, 43, 50, 0.5) 31.75%, rgba(16, 43, 50, 0.80) 68.76%);
+    z-index: 1;
+}
+
+.CoreSecBox{
+    max-width:1200px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:26px;
+
+.card {
+    position:relative;
+    background:#fff;
+    border-radius:18px;
+    padding:30px 30px 30px 80px;
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    overflow:hidden;
+    transition:.35s ease;
+    min-height:120px;
+    justify-content: center;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 25px 55px rgba(0,0,0,.12);
+}
+
+/* SIDE ACCENT */
+.card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:60px;
+    height:100%;
+    border-radius:18px 0 0 18px;
+}
+
+/* CURVE CUT */
+.card::after{
+    content:"";
+    position:absolute;
+    left:40px;
+    top:0;
+    width:60px;
+    height:100%;
+    background:#fff;
+    border-radius:40px 0 0 40px;
+}
+/* TEXT */
+.card h3{
+    margin:0;
+    font-size:17px;
+    font-weight:700;
+    line-height:1.4;
+    color:#222;
+    z-index: 99;
+}
+}
+
+
+/* NUMBER */
+.step{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:26px;
+    font-weight:700;
+    color:#fff;
+    z-index:2;
+}
+
+
+
+/* COLORS */
+.c1::before{background:#ff3d3d;}
+.c2::before{background:#ff9800;}
+.c3::before{background:#2ecc71;}
+.c4::before{background:#2196f3;}
+.c5::before{background:#1bb6a3;}
+.c6::before{background:#9c6ade;}
+.c7::before{background:#3f51b5;}
+.c8::before{background:#455a64;}
+.c9::before{background:#8d6e63;}
+
+/* ENTRANCE ANIMATION */
+.card{
+    animation:slideUp .6s ease both;
+}
+@keyframes slideUp{
+    from{opacity:0; transform:translateY(24px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Section */
+.tech-section{
+    padding:80px 0;
+    background:linear-gradient(135deg,#f7fbff,#eef3f8);
+    position: relative;
+    background-image: url(../images/cleanroom-wall-ceiling-door.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    align-content: end;
+    min-height: 450px;
+    overflow: hidden;
+}
+.tech-section::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.tech-parallax-bg {
+  position: absolute;
+  inset: -20%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: -1;
+}
+
+.tech-section .container {
+  position: relative;
+  z-index: 3;
+}
+
+/* Left text */
+.tech-left {
+    transform: scale(1.3) translateX(-80px);
+}
+.tech-small{
+    font-size:20px;
+    color:#1c7ed6;
+    margin-bottom:10px;
+}
+
+.tech-title{
+    font-size:40px;
+    font-weight:600;
+    line-height:1.2;
+}
+
+.tech-title span{
+    color:#1c7ed6;
+    font-weight:700;
+}
+
+.tech-sub{
+    font-size:26px;
+    margin-top:10px;
+}
+
+/* Right acronym list */
+.tech-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.tech-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.tech-circle{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1c7ed6,#3b8beb);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:18px;
+    box-shadow:0 8px 18px rgba(28,126,214,.35);
+}
+
+.tech-text{
+    font-size:20px;
+    font-weight:500;
+    color:#222;
+}
+
+.intro-video-box-silver::before {
+    z-index: 1;
+}
+.post-item-content-silver h2 {
+    height: 56px;
+}
+
+
+/* Responsive */
+@media(max-width:768px){
+    .tech-title{font-size:32px;}
+    .tech-sub{font-size:22px;}
+}
+
+.company-supports-logo img {
+    max-width: 130px;
+    height: auto;
+}
+
+
+/* CALL TO ACTION CARD */
+.callToAction{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    min-height:420px;
+    background:
+      linear-gradient(120deg, rgba(16, 43, 50, 1), rgba(16, 43, 50, 0.1)),
+      url("https://pharmintech.net/images/cleanroom-wall-ceiling&doors/cleanroom-wall-ceiling&doors1min.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* OVERLAY */
+.cta-overlay {
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size:20px 20px;
+    z-index:1;
+    pointer-events:none;
+}
+
+/* CONTENT */
+.cta-content{
+    position:relative;
+    z-index:5;
+    color:#fff;
+    padding:60px;
+    max-width:min(100%, 45rem);
+}
+
+/* TEXT */
+.cta-title{
+    font-size:46px;
+    font-weight:800;
+    line-height:1.15;
+    color: #fff;
+}
+.cta-title span{
+    color: var(--accent-color);
+}
+
+.cta-text{
+    font-size:18px;
+    opacity:.95;
+    margin:20px 0 30px;
+}
+
+/* BUTTONS */
+.cta-btn {
+    position:relative;
+    z-index:10;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:14px;
+    font-weight:600;
+    font-size:16px;
+    border:none;
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.cta-btn-primary{
+    background:#fde047;
+    color:#000;
+}
+
+.cta-btn-outline{
+    background:rgba(255,255,255,.2);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.4);
+}
+.cta-btn-whatsapp{
+    background:#25d366;
+    color:#fff;
+}
+
+.cta-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+
+
+
+
+
+.services-section {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  transition:background 0.6s ease;
+  overflow:hidden;
+  border-radius: 20px;
+  padding-inline: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.services-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.6s ease, background-image 0s;
+  z-index: 0;
+}
+
+.services-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* overlay */
+}
+
+.services-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* WRAPPER */
+.service-wrapper {
+  height:210px; /* 3 items */
+  overflow:hidden;
+  position:relative;
+
+  .service-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+  
+}
+
+  .service-item {
+  padding-top: 1rem;
+  height:70px;
+  display:flex;
+  align-items:center;
+  font-size:36px;
+  font-weight:600;
+  color:#cbd5e1;
+  transition:all 0.35s ease;
+  display: block;
+  width: 100%;
+  overflow: visible !important;
+  border-radius: 0 !important;
+}
+
+.service-item.active{
+  color:var(--active-color);
+  transform:scale(1);
+}
+}
+
+
+
+
+@media(max-width:768px){
+  .service-item{font-size:20px}
+}
+
+@media(max-width:991px){
+    .cta-content{padding:40px 30px;}
+    .cta-title{font-size:34px;}
+}
+
+
+@media only screen and (max-width: 1440px) {
+    .about-counter-item-silver {
+        width: calc(25% - 40px);
+    }
+
+    .hero-content-silver .about-counter-item-silver {
+        width: calc(30% - 40px);
+    }
+}

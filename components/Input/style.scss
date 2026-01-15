@@ -1,0 +1,88 @@
+/* styles.css or styles.scss */
+.input-styled {
+  @apply bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus:outline-none mb-2;
+}
+.input-styled-focus {
+  @apply focus:border-primary focus:drop-shadow;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.form-group {
+  position: relative;
+  label {
+    font-size: 0.8rem;
+    --tw-text-opacity: 1;
+    color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+  }
+  .error {
+    font-size: 0.75rem;
+    color:#B42318;
+  }
+  
+}
+.eye {
+  cursor: pointer;
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.w-45 {
+  width: 45%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+.required {
+  color:#dc3545;
+}
+.error {
+  font-size: 0.75rem;
+  color:#dc3545;
+}
+.label{
+  font-size: 0.8rem;
+    --tw-text-opacity: 1;
+    color: rgb(55, 65, 81, var(--tw-text-opacity, 1));
+}
+input.input-styled::-webkit-input-placeholder {
+  color: #667085;
+  opacity: 0.8;
+}
+
+input.input-styled::-moz-placeholder {
+  color: #667085;
+  opacity: 0.8;
+}
+
+input.input-styled:-ms-input-placeholder {
+  color: #667085;
+  opacity: 0.8;
+}
+
+input.input-styled::placeholder {
+  color: #667085;
+  opacity: 0.8;
+}
+
+input.input-styled {
+  color: #344054;
+}
+
+input.input-disabled{
+  border: 1px solid #D1D5DB;
+  background:  #F9FAFB;
+}
