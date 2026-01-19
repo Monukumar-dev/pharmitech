@@ -81,11 +81,11 @@ useEffect(() => {
   return (
     <>
       <PageHeader
-        title="Contact Careers"
+        title="Contact Customer"
         backgroundImage="/images/services/HVAC-Design2.jpg"
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "careers" }
+          { label: "Customer" }
         ]}
       />
 
