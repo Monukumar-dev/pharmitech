@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as url from "../../utlis/Url";
+import * as url from "../../utils/Url";
 import {
   clearLocalStorage,
   getLocalStorageItem,

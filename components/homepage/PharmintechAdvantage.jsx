@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux";
 import TextEffect from "@/components/TextEffect";
 
-export default function WhatWeDo() {
+export default function PharmintechAdvantage() {
 
   const homeData = useSelector((state) => state.home.homeData);
   

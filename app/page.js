@@ -11,7 +11,7 @@ import { fetchTestimonials } from "@/store/slices/testimonialSlice";
 import HomepageBanner from "@/components/homepage/HomepageBanner"
 import CoreServices from "@/components/homepage/CoreServices"
 import TechSection from "@/components/homepage/TechSection"
-import WhatWeDo from "@/components/homepage/WhatWeDo"
+import PharmintechAdvantage from "@/components/homepage/PharmintechAdvantage"
 import OurServices from "@/components/homepage/OurServices"
 import WhatWeDoSilver from "@/components/homepage/WhatWeDoSilver"
 import IntroVideoBoxSilver from "@/components/homepage/IntroVideoBoxSilver"
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
       <CoreServices />
       <TechSection />
-      <WhatWeDo />
+      <PharmintechAdvantage />
       <OurServices />
       <WhatWeDoSilver />
       <IntroVideoBoxSilver />

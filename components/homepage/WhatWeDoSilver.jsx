@@ -81,9 +81,9 @@ export default function WhatWeDoSilver() {
 
               <div className="what-we-list-silver wow fadeInUp" data-wow-delay="0.4s">
                 <ul>
-                  {homeData?.what_we_do?.points.map((items,i)=>(
-                  <li key={i}>{items}</li>
-                ))}
+                  {homeData?.what_we_do?.points.map((items, i) => (
+                    <li key={i}>{items}</li>
+                  ))}
                 </ul>
               </div>
 

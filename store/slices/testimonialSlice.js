@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-import * as url from "../../utlis/Url";
+import * as url from "../../utils/Url";
 
 export const fetchTestimonials = createAsyncThunk(
   "testimonials/fetch",

@@ -19,7 +19,7 @@ export default function HomepageBanner() {
   const banners = useSelector((state) => state.home.banners);
   const homeData = useSelector((state) => state.home.homeData);
   const clients = useSelector((state) => state.client.clients);
-  console.log(clients);
+
   
   if (!banners.length) return null;
 

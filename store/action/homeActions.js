@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { request } from "@/services/Request";
-import * as url from "@/utlis/Url";
-
-
+import * as url from "../../utils/Url";
 
 
 // ----------------------------
@@ -11,22 +9,16 @@ import * as url from "@/utlis/Url";
 const API = request(url.BASE_URL);
 
 
-
 // 1️⃣ Async action (API call)
 export const fetchHomePageData = createAsyncThunk(
   "home/fetchHomePageData",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("https://pharmintechbackend.webiknows.in/api/homepage");
-      const data = await response.json();
-      //const data = await API.get("/api/homepage");
-
-
+      const data = await API.get("/api/homepage");
       if (!data.status) {
         return rejectWithValue(data.message);
       }
-
-      return data.data; // <-- ONLY homepage data
+      return data.data; 
     } catch (error) {
       return rejectWithValue("Something went wrong");
     }
@@ -40,10 +32,9 @@ export const fetchBanners = createAsyncThunk(
   "home/fetchBanners",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("https://pharmintechbackend.webiknows.in/api/banners"); 
-      const data = await res.json();
-
-      if (!data.success) {
+      const data = await API.get("/api/banners");
+      
+      if (!data.status) {
         return rejectWithValue(data.message);
       }
 
@@ -53,3 +44,4 @@ export const fetchBanners = createAsyncThunk(
     }
   }
 );
+

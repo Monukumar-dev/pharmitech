@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 export default function IntroVideoBoxSilver() {
+  
   useParallax(".tech-parallax-bg", 420)
   
   const homeData = useSelector((state) => state.home.homeData);

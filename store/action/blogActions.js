@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { request } from "@/services/Request";
-import * as url from "../../utlis/Url";
+import * as url from "../../utils/Url";
 
 
 /* -------------------- FETCH BLOGS -------------------- */
