@@ -14,6 +14,7 @@ import blogReducer from "./blogSlice";
 import clientReducer from "./clientSlice";
 import contactReducer from "./contactSlice";
 import testimonialReducer from "./testimonialSlice";
+import servicesReducer from "./servicesSlice";
 
 const appReducer = combineReducers({
   home: homeReducer,
@@ -21,6 +22,7 @@ const appReducer = combineReducers({
   client: clientReducer,
   contact: contactReducer,
   testimonials: testimonialReducer,
+  services: servicesReducer,
   global: globalReducer,
   //company: companyReducer,
   //productDetails: productDetailsReducer,

@@ -1,6 +1,6 @@
 //import { Tooltip } from 'antd';
 import { useState } from 'react';
-import { notUndefinedAndNull, undefinedOrNull } from "../../utlis/Validation";
+import { notUndefinedAndNull, undefinedOrNull } from "../../utils/Validation";
 
 
 import './style.scss';
