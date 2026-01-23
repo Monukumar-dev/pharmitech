@@ -9,7 +9,6 @@ import { fetchServiceBySlug } from "../../../store/action/servicesAction";
 import OurClient from "../../../components/OurClient"
 import { fetchClients } from "@/store/slices/clientSlice";
 import ServiceSidebar from "./ServiceSidebar"
-import CleanroomPanels from "./CleanroomPanels";
 
 export default function ServiceDetails({ params }) {
 
@@ -51,6 +50,7 @@ export default function ServiceDetails({ params }) {
                 <p className="wow fadeInUp">
                   This system includes a variety of features to improve cleanroom efficiency and user-friendliness, such as return air risers, covings, pressure gauges, cleanroom phones, and melaphones.
                 </p>
+                <h2 class="text-anime-style-3">Features & Specifications</h2>
                 <div className="table-responsive">
                 <table className="table table-borderless align-middle mb-0 wow fadeInUp">
                   <tbody>
