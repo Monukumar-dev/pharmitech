@@ -4,7 +4,7 @@ import {
   clearLocalStorage,
   getLocalStorageItem,
   setLocalStorageItem,
-} from "@/utlis/localStorage";
+} from "@/utils/localStorage";
 import { request } from "@/services/Request";
 
 // ----------------------------

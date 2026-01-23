@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "@/utlis/Url";
+import { BASE_URL } from "@/utils/Url";
 
 export const getProductByAlias = createAsyncThunk(
   "product/getProductDetails",

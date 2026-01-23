@@ -27,7 +27,7 @@ export default function ServiceDetails({ params }) {
 
       <div className="page-service-single">
       <div className="container">
-        <div className="row">
+        <div className="row flex-column-reverse flex-lg-row">
           <div className="col-lg-4">
             <ServiceSidebar />
           </div>

@@ -1,5 +1,5 @@
 // utils/getAuthHeaders.js
-import { getOrCreateGuestToken } from "@/utlis/guestToken";
+import { getOrCreateGuestToken } from "@/utils/guestToken";
 
 export const getAuthHeaders = () => {
   const user = JSON.parse(localStorage.getItem("user-info")); 

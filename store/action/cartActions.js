@@ -1,8 +1,8 @@
 // store/cartActions.js
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "@/utlis/Url";
-import { getAuthHeaders } from "@/utlis/getAuthHeaders";
+import { BASE_URL } from "@/utils/Url";
+import { getAuthHeaders } from "@/utils/getAuthHeaders";
 
 // ✅ Add product to cart
 export const addToCart = createAsyncThunk(

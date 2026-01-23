@@ -1,6 +1,6 @@
 import { userLogout } from "@/store/action/authActions";
 import { resetLoginData } from "@/store/slices/authSlice";
-import * as url from "@/utlis/Url";
+import * as url from "@/utils/Url";
 import { getLocalStorageItem } from "./localStorage";
 
 export function isLoggedIn() {
