@@ -1,4 +1,5 @@
 :root{ --active-color:#22c55e; }
+
 /************************************/
 /*** 	   General css		  ***/
 /************************************/
@@ -38,12 +39,22 @@ html, body {
   transform: translateY(0);
 }
 
+.text-truncate-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .text-truncate-2 {
   display: -webkit-box !important;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 1.4;
 }
+
+
 
 .loading-container, .loading {
     height: 200px;

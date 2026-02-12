@@ -19,6 +19,15 @@ export function formatDateDMY(dateString) {
   return `${day}-${month}-${year}`;
 }
 
+export function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
+
+
 
 export const toCapitalize = (str) => {
     return str[0].toUpperCase() + str.substr(1).toLowerCase();

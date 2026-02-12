@@ -10,6 +10,8 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import useParallax from "@/hooks/useParallax"
 
+import Button from "@/components/UI/Button/Button"
+
 
 
 export default function HomepageBanner() {
@@ -70,15 +72,10 @@ export default function HomepageBanner() {
                       </div>
                     ))}
                   </div>
-
-                  {/* CTA */}
                   <div className="hero-btn-silver wow fadeInUp" data-wow-delay="0.4s">
-                    <Link
-                      href={banners[0].button_url}
-                      className="btn-default-silver btn-highlighted-silver"
-                    >
-                      {banners[0].button_name}
-                    </Link>
+                    <Button href={banners[0].button_url} variant="primary" >
+                        {banners[0].button_name}
+                    </Button>
                   </div>
                 </div>
               </div>

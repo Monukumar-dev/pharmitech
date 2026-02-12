@@ -1,0 +1,323 @@
+/* ===============================
+   Color Variables
+================================= */
+:root {
+
+  --color-primary: #079ed7;
+  --color-primary-hover: #0689bc;
+
+  --color-secondary: #102B32;
+  --color-secondary-hover: #1a3d47;
+
+  --color-accent: #cfef00;
+  --color-accent-hover: #c4e201;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-primary-light: rgba(7, 158, 215, 0.1);
+}
+
+
+/* ===============================
+   Arrow Button Base Styles
+================================= */
+.arrow-btn {
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arrow-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.arrow-btn:active {
+  transform: scale(0.95);
+}
+
+/* Button Text */
+.arrow-btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Arrow Icon */
+.arrow-btn-icon {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+
+.arrow-btn:hover .arrow-btn-icon {
+  transform: translateX(5px);
+}
+
+.arrow-btn-icon-left {
+  transform: rotate(180deg);
+}
+
+.arrow-btn:hover .arrow-btn-icon-left {
+  transform: rotate(180deg) translateX(5px);
+}
+
+
+/* ===============================
+   Variants
+================================= */
+
+/* Primary */
+.arrow-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.arrow-btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Secondary */
+.arrow-btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.arrow-btn-secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+/* Accent */
+.arrow-btn-accent {
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+.arrow-btn-accent:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Outline Primary */
+.arrow-btn-outline-primary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.arrow-btn-outline-primary:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Outline Secondary */
+.arrow-btn-outline-secondary {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+}
+
+.arrow-btn-outline-secondary:hover {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* Outline Accent */
+.arrow-btn-outline-accent {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.arrow-btn-outline-accent:hover {
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+/* Ghost */
+.arrow-btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.arrow-btn-ghost:hover {
+  background: var(--color-primary-light);
+}
+
+
+/* ===============================
+   Size Variants
+================================= */
+.arrow-btn-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.arrow-btn-sm .arrow-btn-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.arrow-btn-md {
+  padding: 10px 20px;
+  font-size: 15px;
+  gap: 10px;
+}
+
+.arrow-btn-md .arrow-btn-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.arrow-btn-lg {
+  padding: 14px 28px;
+  font-size: 17px;
+  gap: 12px;
+}
+
+.arrow-btn-lg .arrow-btn-icon {
+  width: 40px;
+  height: 40px;
+}
+
+
+/* ===============================
+   Rounded Variants
+================================= */
+.arrow-btn-rounded-none {
+  border-radius: 0;
+}
+
+.arrow-btn-rounded-sm {
+  border-radius: 6px;
+}
+
+.arrow-btn-rounded-md {
+  border-radius: 12px;
+}
+
+.arrow-btn-rounded-lg {
+  border-radius: 24px;
+}
+
+.arrow-btn-rounded-full {
+  border-radius: 100px;
+}
+
+
+/* ===============================
+   Disabled State
+================================= */
+.arrow-btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.arrow-btn-disabled:hover {
+  transform: none;
+}
+
+.arrow-btn-disabled:hover .arrow-btn-icon {
+  transform: none;
+}
+
+
+/* ===============================
+   Responsive
+================================= */
+@media (max-width: 640px) {
+  .arrow-btn-sm {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .arrow-btn-sm .arrow-btn-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .arrow-btn-md {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .arrow-btn-md .arrow-btn-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .arrow-btn-lg {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .arrow-btn-lg .arrow-btn-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+/* ===============================
+   Accessibility
+================================= */
+@media (prefers-reduced-motion: reduce) {
+  .arrow-btn,
+  .arrow-btn-icon {
+    transition: none;
+    animation: none;
+  }
+
+  .arrow-btn:active {
+    transform: none;
+  }
+
+  .arrow-btn:hover .arrow-btn-icon {
+    transform: none;
+  }
+}
+
+
+/* ===============================
+   Loading State (Optional)
+================================= */
+.arrow-btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.arrow-btn-loading .arrow-btn-text {
+  opacity: 0.6;
+}
+
+.arrow-btn-loading .arrow-btn-icon {
+  animation: arrow-btn-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes arrow-btn-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+
+/* ===============================
+   Without Arrow
+================================= */
+.arrow-btn:not(:has(.arrow-btn-icon)) {
+  gap: 0;
+}

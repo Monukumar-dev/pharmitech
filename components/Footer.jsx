@@ -86,7 +86,7 @@ export default function Footer() {
             </div>
 
             <div className="col-xl-9">
-              <div className="row footer-links-box-silver flex-nowrap">
+              <div className="row footer-links-box-silver gap-0 flex-nowrap">
 
                 <div className="col-md-3 footer-links-silver ps-md-5">
                   <h3>Quick Links</h3>
@@ -149,10 +149,13 @@ export default function Footer() {
                 </p>
               </div>
               <div className="col-md-5">
-                <ul className="footer-privacy-policy-silver">
+                <div className="footer-privacy-policy-silver">
+                  <ul className="">
                   <li><Link href="#">Terms & Conditions</Link></li>
                   <li><Link href="#">Privacy Policy</Link></li>
                 </ul>
+                </div>
+                
               </div>
             </div>
           </div>

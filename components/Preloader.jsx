@@ -1,22 +1,6 @@
-'use client'
-
-import { useEffect, useState } from "react"
-
-export default function Preloader() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 1200)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (!loading) return null
-
+export default function Preloader(props) {
   return (
-    <div className="preloader">
+    <div className="preloader" style={{opacity:props.opacity?props.opacity:1}}>
       <div className="loading-container">
         <div className="loading"></div>
         <div id="loading-icon">
@@ -24,5 +8,5 @@ export default function Preloader() {
         </div>
       </div>
     </div>
-  )
+  );
 }

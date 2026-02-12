@@ -42,4 +42,30 @@ a {
 }
 
 
+.custom-accordion .accordion-item {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion-icon {
+  font-size: 22px;
+}
+
+.accordion-body {
+  padding-top: 10px;
+  color: #666;
+}
+
+
 

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchBanners, fetchHomePageData } from "@/store/action/homeActions";
-import { fetchBlogs } from "@/store/action/blogActions";
+import { fetchHomepageBlogs } from "@/store/action/blogActions";
 import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchTestimonials } from "@/store/slices/testimonialSlice";
 
@@ -21,13 +21,13 @@ import OurClient from "@/components/OurClient";
 import PdfDownloadSection from "@/components/PdfDownloadSection"
 
 import TextEffect from "@/components/TextEffect";
+import Preloader  from "@/components/Preloader";
 
 
 export default function Home() {
 
   const dispatch = useDispatch();
   const { loading, error, homeData } = useSelector((state) => state.home);
-  const { blogs } = useSelector((state) => state.blog);
   const clients = useSelector((state) => state.client.clients);
   const { list:testimonialsList } = useSelector((state) => state.testimonials);
 
@@ -35,12 +35,6 @@ export default function Home() {
     dispatch(fetchHomePageData());
     dispatch(fetchBanners());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (!blogs || blogs.length === 0) {
-      dispatch(fetchBlogs());
-    }
-  }, [dispatch, blogs]);
 
   useEffect(() => {
     if (!clients.length) {
@@ -55,7 +49,7 @@ export default function Home() {
     }
 }, [dispatch, testimonialsList]);
 
-  if (loading) return <div>Loading homepage...</div>;
+  if (loading) return <Preloader />;
   if (error) return <div className="text-danger">{error}</div>;
 
 

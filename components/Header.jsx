@@ -46,7 +46,7 @@ export default function Header() {
                   </li>
 
                   <li className="nav-item">
-                    <Link className="nav-link" href="/about">About Us</Link>
+                    <Link className="nav-link" href="/about-us">About Us</Link>
                   </li>
 
                   {/* Turnkey Solutions */}
@@ -88,7 +88,7 @@ export default function Header() {
                     <ul>
                       <li><Link className="nav-link" href="#">Case Studies</Link></li>
                       <li><Link className="nav-link" href="#">Clientele</Link></li>
-                      <li><Link className="nav-link" href="#">Blogs</Link></li>
+                      <li><Link className="nav-link" href="/blogs">Blogs</Link></li>
                       <li><Link className="nav-link" href="#">Events</Link></li>
                     </ul>
                   </li>

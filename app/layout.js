@@ -4,7 +4,6 @@ import './globals.css'
 
 import { ReduxProvider } from "@/store/provider";
 
-import Preloader from "@/components/Preloader"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import LegacyScripts from "@/components/LegacyScripts"
@@ -54,10 +53,8 @@ export default function RootLayout({ children }) {
 
       <body>
         <ReduxProvider>
-          {/* <TextEffectProvider /> */}
           <FancyboxProvider>
           <CustomCursor />
-          <Preloader />
           <Header />
           <WowProvider>
           {children}

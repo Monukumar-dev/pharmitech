@@ -4,15 +4,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import useParallax from "@/hooks/useParallax";
 import TextEffect from "@/components/TextEffect";
+import { fetchTestimonials } from "@/store/slices/testimonialSlice";
+import { useEffect } from "react";
 
 export default function OurTestimonialsSilver() {
+
   useParallax(".tech-parallax-bg", 820)
+  
+  const dispatch = useDispatch();
 
   const { status, data, list, error } = useSelector((state) => state.testimonials);
+
+  useEffect(() => {
+      if (!list || list.length === 0) {
+        dispatch(fetchTestimonials());
+      }
+  }, [dispatch, list]);
 
   return (
     <div className="our-testimonials-silver bg-section dark-section parallaxie">

@@ -11744,17 +11744,17 @@ header.main-header.header-elite .navbar{
 	margin-bottom: 0;
 }
 
-.footer-privacy-policy-silver{
+.footer-privacy-policy-silver {
 	text-align: right;
 }
 
-.footer-privacy-policy-silver ul{
+.footer-privacy-policy-silver ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.footer-privacy-policy-silver ul li{
+.footer-privacy-policy-silver ul li {
 	position: relative;
 	display: inline-block;
 	color: var(--white-color);
