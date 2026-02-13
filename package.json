@@ -20,7 +20,8 @@
     "react-dom": "19.2.3",
     "react-redux": "^9.2.0",
     "sass": "^1.97.1",
-    "swiper": "^12.0.3"
+    "swiper": "^12.0.3",
+    "yet-another-react-lightbox": "^3.29.1"
   },
   "devDependencies": {
     "@types/node": "^20",

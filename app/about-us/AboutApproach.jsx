@@ -1,5 +1,5 @@
 
-
+import Button from "@/components/UI/Button/Button";
 import TextEffect from "../../components/TextEffect";
 
 export default function AboutApproach() {
@@ -24,9 +24,7 @@ export default function AboutApproach() {
                 </div>
 
                 <div className="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                  <a href="/contact" className="btn-default">
-                    Learn More
-                  </a>
+                  <Button variant="primary" href="/contact" >Learn More</Button>
                 </div>
               </div>
             </div>

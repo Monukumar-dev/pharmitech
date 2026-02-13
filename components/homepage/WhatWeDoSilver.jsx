@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 import useImageReveal from "@/hooks/useImageReveal"
 import TextEffect from "@/components/TextEffect";
+import Button from "../UI/Button/Button";
 
 
 
@@ -88,9 +89,9 @@ export default function WhatWeDoSilver() {
               </div>
 
               <div className="what-we-btn-silver wow fadeInUp" data-wow-delay="0.6s">
-                <a href={homeData?.what_we_do?.button?.url} className="btn-default-silver">
+                <Button variant="primary" href={homeData?.what_we_do?.button?.url} >
                   {homeData?.what_we_do?.button?.text}
-                </a>
+                </Button>
               </div>
             </div>
           </div>

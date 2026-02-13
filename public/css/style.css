@@ -9,6 +9,10 @@ html, body {
   overflow-y: auto;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /* for text effect gsap */
 .text-effect {
   overflow: hidden;
@@ -552,6 +556,17 @@ header.main-header .header-sticky.active {
   color:var(--active-color);
   transform:scale(1);
 }
+}
+
+
+.image-count {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 6px;
 }
 
 

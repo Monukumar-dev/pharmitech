@@ -1,4 +1,5 @@
 import TextEffect from "../../components/TextEffect";
+import Button from "@/components/UI/Button/Button";
 
 export default function WhyChooseUs() {
   return (
@@ -84,9 +85,7 @@ export default function WhyChooseUs() {
                   className="why-choose-btn-elite wow fadeInUp"
                   data-wow-delay="1s"
                 >
-                  <a href="/contact" className="btn-default-elite">
-                    Get Started Now
-                  </a>
+                  <Button variant="primary" href="/contact" >Get Started Now</Button>
                 </div>
 
               </div>

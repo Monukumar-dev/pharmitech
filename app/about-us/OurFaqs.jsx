@@ -1,5 +1,6 @@
 import TextEffect from "../../components/TextEffect";
 import Accordion from "../../components/Accordion";
+import Button from "@/components/UI/Button/Button";
 
 export default function OurFaqs() {
   const faqData = [
@@ -47,9 +48,7 @@ export default function OurFaqs() {
               </div>
 
               <div className="our-faqs-btn">
-                <a href="/faqs" className="btn-default">
-                  View all FAQs
-                </a>
+                <Button variant="primary" href="/faqs" >View all FAQs</Button>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ export default function ServiceDetails({ params }) {
   return (
     <>
       <PageHeader
-        title="Cleanroom Modular Wall & Ceiling Panels "
+        title="Cleanroom Modular Wall & Ceiling Panels Monu"
         backgroundImage="/images/services/clean-room-wall-ceiling-panels.jpg"
         breadcrumbs={[
           { label: "Home", href: "/" },

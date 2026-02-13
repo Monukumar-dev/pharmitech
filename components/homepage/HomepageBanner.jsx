@@ -73,7 +73,7 @@ export default function HomepageBanner() {
                     ))}
                   </div>
                   <div className="hero-btn-silver wow fadeInUp" data-wow-delay="0.4s">
-                    <Button href={banners[0].button_url} variant="primary" >
+                    <Button href={banners[0].button_url} variant="secondary" >
                         {banners[0].button_name}
                     </Button>
                   </div>

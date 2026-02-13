@@ -18,7 +18,7 @@ export default function BlogDetails() {
   const { slug } = useParams();
   const { blogDetails, loading ,error  } = useSelector((state) => state.blog);
 
-  console.log("blogDetails", blogDetails);
+  //console.log("blogDetails", blogDetails);
   
 useEffect(() => {
   if (slug || !blogDetails ) {

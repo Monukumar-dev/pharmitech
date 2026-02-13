@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import Button from "@/components/UI/Button/Button";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -86,10 +87,10 @@ export default function Header() {
                   <li className="nav-item submenu">
                     <a className="nav-link">Insights</a>
                     <ul>
-                      <li><Link className="nav-link" href="#">Case Studies</Link></li>
-                      <li><Link className="nav-link" href="#">Clientele</Link></li>
+                      <li><Link className="nav-link" href="/case-studies">Case Studies</Link></li>
+                      <li><Link className="nav-link" href="/clientele">Clientele</Link></li>
                       <li><Link className="nav-link" href="/blogs">Blogs</Link></li>
-                      <li><Link className="nav-link" href="#">Events</Link></li>
+                      <li><Link className="nav-link" href="/events">Events</Link></li>
                     </ul>
                   </li>
 
@@ -109,9 +110,9 @@ export default function Header() {
 
               {/* CTA Button */}
               <div className="header-btn">
-                <Link href="/contact" className="btn-default-silver outline">
-                  Request a Quote
-                </Link>
+                <Button href="/contact" variant="primary">
+                      Request a Quote
+                </Button>
               </div>
 
             </div>

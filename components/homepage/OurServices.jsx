@@ -1,5 +1,6 @@
 'use client'
 import TextEffect from "@/components/TextEffect";
+import Button from "../UI/Button/Button";
 
 export default function OurServices() {
   return (
@@ -11,9 +12,6 @@ export default function OurServices() {
           <div className="col-lg-12">
             <div className="section-title section-title-center">
               <h3 className="wow fadeInUp">Our services</h3>
-              {/* <h2 className="text-effect" data-cursor="-opaque">
-                From Inspiring Workspaces to Essential Amenities – We Deliver Every Detail
-              </h2> */}
               <TextEffect text="From Inspiring Workspaces to Essential Amenities – We Deliver Every Detail" />
             </div>
           </div>
@@ -23,8 +21,6 @@ export default function OurServices() {
         <div className="row">
           <div className="col-lg-12">
             <div className="services-list">
-
-              {/* SERVICE ITEM 1 */}
               <div className="service-item wow fadeInUp">
                 <div className="service-image">
                   <a href="#" data-cursor-text="View">
@@ -124,9 +120,7 @@ export default function OurServices() {
           {/* FOOTER BUTTON */}
           <div className="col-lg-12">
             <div className="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
-              <a href="/contact" className="btn-default-silver">
-                View All Services
-              </a>
+              <Button variant="primary" href="/services" >View All Services</Button>
             </div>
           </div>
         </div>

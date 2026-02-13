@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Input from "../../../components/Input/Input"
 import PageHeader from "../../../components/PageHeader"
 import OurClient from "../../../components/OurClient"
+import Button from "@/components/UI/Button/Button";
 
 import { useDispatch, useSelector } from "react-redux";
 import { submitContact, resetContact } from "@/store/slices/contactSlice";
@@ -267,9 +268,13 @@ export default function page() {
 
                       {/* Submit */}
                       <div className="col-md-12">
-                        <button type="submit" className="btn-default" disabled={loading}>
-                          <span>{loading ? "Applying..." : "Apply Now"}</span>
-                        </button>
+                        {/* <button type="submit" className="btn-default" disabled={loading}>
+                          <span></span>
+                        </button> */}
+
+                        <Button type="submit" variant="primary" disabled={loading}>
+                            {loading ? "Applying..." : "Apply Now"}
+                        </Button>
 
                         {success && (
                           <p className="text-success mt-3">

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Input from "../../../components/Input/Input"
 import PageHeader from "../../../components/PageHeader"
 import OurClient from "../../../components/OurClient"
+import Button from "@/components/UI/Button/Button";
 
 
 import { useDispatch, useSelector } from "react-redux";
@@ -231,9 +232,9 @@ A-417, Tower-II, Lodha Supremus, Road no. 22, Wagle Estate,Thane-400604, Maharas
 
                       {/* Submit */}
                       <div className="col-md-12">
-                        <button type="submit" className="btn-default" disabled={loading}>
-                          <span>{loading ? "Sending..." : "Send Message"}</span>
-                        </button>
+                        <Button type="submit" variant="primary" disabled={loading}>
+                          {loading ? "Sending..." : "Send Message"}
+                        </Button>
                         {success && <p className="text-success mt-3">Message sent successfully!</p>}
                         {error && <p className="text-danger mt-3">{error}</p>}
                       </div>
