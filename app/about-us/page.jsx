@@ -1,65 +1,101 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import PageHeader from "@/components/PageHeader"
-import OurClient from "../../components/OurClient";
-
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchClients } from "@/store/slices/clientSlice";
+
+import PageHeader from "@/components/PageHeader";
+import OurClient from "@/components/OurClient";
+import OurTestimonials from "@/components/homepage/OurTestimonials";
+
 import AboutWorkspace from "./AboutWorkspace";
 import AboutApproach from "./AboutApproach";
 import WhyChooseUs from "./WhyChooseUs";
 import IntroVideo from "./IntroVideo";
 import OurTeam from "./OruTeam";
-import OurTestimonials from "@/components/homepage/OurTestimonials";
 import OurFaqs from "./OurFaqs";
 
+import { fetchClients } from "@/store/slices/clientSlice";
+import { fetchAboutPage } from "@/store/slices/aboutSlice";
 
 export default function AboutUs() {
-
   const dispatch = useDispatch();
-  const clients = useSelector((state) => state.client.clients);
-  const { loading, success, error } = useSelector((state) => state.contact);
 
-  //if (!clients || clients.length === 0) return null;
+  const { aboutData, loading, error } = useSelector((state) => state.about);
+
+  const clients = useSelector((state) => state.client.clients);
+
+  console.log("aboutData", aboutData);
   
 
+  // 🔥 Fetch About Data
   useEffect(() => {
-    if (!clients.length) {
+    dispatch(fetchAboutPage());
+  }, [dispatch]);
+
+  // 🔥 Fetch Clients Only If Empty
+  useEffect(() => {
+    if (!clients?.length) {
       dispatch(fetchClients());
     }
   }, [dispatch, clients]);
 
+  // =============================
+  // Loading & Error UI (Premium)
+  // =============================
+
+  if (loading) {
+    return (
+      <div className="text-center py-5">
+        <div className="spinner-border text-dark" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-5 text-danger">
+        {error}
+      </div>
+    );
+  }
+
   return (
     <>
       <PageHeader
-        title="About us"
+        title={aboutData?.name || "About Us"}
         backgroundImage="/images/hero-bg-image-silver111.jpg"
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "About us" }
+          { label: aboutData?.name || "About Us" }
         ]}
       />
 
-      <AboutWorkspace />
-      <AboutApproach />
-      <WhyChooseUs />
-      <IntroVideo />
-      <OurTeam />
-      <OurTestimonials />
-      <OurFaqs />
+      {/* 🔥 Pass API Data Down */}
+      <AboutWorkspace content={aboutData?.content} />
 
-      {/* Page Contact Us Start */}
-      <div className="">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 pb-5">
-              <OurClient />
-            </div>
-          </div>
-        </div>
+      <AboutApproach
+        vision={aboutData?.vision}
+        mission={aboutData?.mission}
+      />
+
+      <WhyChooseUs
+        businessScope={aboutData?.business_scope}
+      />
+
+      <IntroVideo />
+
+      <OurTeam directors={aboutData?.board_of_directors?.members} />
+
+      <OurTestimonials />
+
+      <OurFaqs
+        industries={aboutData?.industries_served}
+      />
+
+      {/* Clients */}
+      <div className="container pb-5">
+        <OurClient />
       </div>
     </>
-  )
+  );
 }

@@ -42,7 +42,7 @@ export default function HomepageBanner() {
               {/* Hero Content */}
               <div className="hero-content-silver">
                 <div className="section-title">
-                  <h3 className="wow fadeInUp">{banners[0].title}</h3>
+                  <h3 className="wow fadeInUp mt-4">{banners[0].title}</h3>
 
                   <h1 className="text-anime-style-3" data-cursor="-opaque">
                     {banners[0].heading}
@@ -54,10 +54,18 @@ export default function HomepageBanner() {
                 </div>
 
                 <div className="hero-body-silver">
+                 
                   {/* Counters */}
-                  <div className="about-us-counter-list-silver wow fadeInUp" data-wow-delay="0.6s">
+                  <div className="d-flex gap-0">
+                     <img className="wow fadeInUp" height="auto" width="180px" src="images/icons/homeBannerCounter1.png" alt="" />
+                     <img className="wow fadeInUp" height="auto" width="180px" src="images/icons/homeBannerCounter2.png" alt="" />
+                     <img className="wow fadeInUp" height="auto" width="180px" src="images/icons/homeBannerCounter3.png" alt="" />
+                  </div>
+                  {/* <div className="about-us-counter-list-silver wow fadeInUp" data-wow-delay="0.6s">
                     {homeData?.banner_metrics?.map((item, i) => (
                       <div className="about-counter-item-silver" key={i}>
+                        
+                        <div className="LaurelwreathText text-center">
                         {item.value ? (
                           <>
                             <h2 className="text-light">
@@ -68,10 +76,11 @@ export default function HomepageBanner() {
                         ) : (
                           item.label && <h4 className="text-light">{item.label}</h4>
                         )}
+                        </div>
 
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                   <div className="hero-btn-silver wow fadeInUp" data-wow-delay="0.4s">
                     <Button href={banners[0].button_url} variant="secondary" >
                         {banners[0].button_name}

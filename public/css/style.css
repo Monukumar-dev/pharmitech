@@ -569,6 +569,11 @@ header.main-header .header-sticky.active {
     border-radius: 6px;
 }
 
+.ProductDetailsSidebar {
+    background: var(--primary-color) url(../images/hero-company-slider-corner-shape-silver.svg) no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
 
 
 

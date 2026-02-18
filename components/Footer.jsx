@@ -98,7 +98,7 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                <div className="col-md-5 footer-links-silver">
+                <div className="col-md-4 footer-links-silver">
                   <h3>Industries We Serve</h3>
                   <ul>
                     <li><Link href="#">Pharmaceutical Facilities</Link></li>
@@ -113,10 +113,21 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                <div className="col-md-4 footer-links-silver footer-newsletter-form-silver">
-                  <h3>Subscribe Our Newsletter</h3>
+                <div className="col-md-5 footer-links-silver footer-newsletter-form-silver">
+                  <h3>Locations</h3>
+                  <div className="google-map-iframe mt-0">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.9315792570687!2d72.94512997381999!3d19.198190548127894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bb9141de06bb%3A0xd14cb2e05b0a20e3!2sPharmintech%20Turnkey%20Solutions%20Private%20Limited!5e0!3m2!1sen!2sin!4v1767168215499!5m2!1sen!2sin"
+                      width="100%"
+                      style={{ height: "250px", border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
 
-                  <form onSubmit={(e) => e.preventDefault()}>
+                  </div>
+
+                  {/* <form onSubmit={(e) => e.preventDefault()}>
                     <div className="form-group">
                       <input
                         type="email"
@@ -128,9 +139,9 @@ export default function Footer() {
                         <i className="fa-regular fa-paper-plane"></i>
                       </button>
                     </div>
-                  </form>
-
+                  </form> 
                   <p>* Subscribe now for workspace tips and community updates.</p>
+                  */}
                 </div>
 
               </div>

@@ -1,18 +1,16 @@
 export default function TeamCard({
   image,
   name,
-  role,
+  experience_years,
+  profile,
   delay = "0s",
 }) {
   return (
-    <div
-      className="team-item wow fadeInUp"
-      data-wow-delay={delay}
-    >
+    <div className="team-item wow fadeInUp" data-wow-delay={delay} >
       <div className="team-image">
         <a href="#" data-cursor-text="View">
           <figure>
-            <img src={image} alt={name} />
+            <img height="400px" width='auto' src={image} alt={name} />
           </figure>
         </a>
       </div>
@@ -22,8 +20,10 @@ export default function TeamCard({
           <h3>
             <a href="#">{name}</a>
           </h3>
-          <p>{role}</p>
+          <p>{experience_years}</p>
+          <p>{profile}</p>
         </div>
+        
 
         <div className="team-social-list">
           <ul>

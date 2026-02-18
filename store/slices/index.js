@@ -10,6 +10,7 @@ import globalReducer from './globalSlice';
 //import productDetailsReducer from "./productDetailsSlice";
 //import reviewReducer from "./prodReviewSlice";
 import homeReducer from "./homeSlice";
+import aboutReducer from "./aboutSlice";
 import blogReducer from "./blogSlice";
 import clientReducer from "./clientSlice";
 import contactReducer from "./contactSlice";
@@ -18,6 +19,7 @@ import servicesReducer from "./servicesSlice";
 
 const appReducer = combineReducers({
   home: homeReducer,
+  about: aboutReducer,
   blog: blogReducer,
   client: clientReducer,
   contact: contactReducer,

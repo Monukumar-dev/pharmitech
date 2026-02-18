@@ -1,21 +1,20 @@
 import Link from "next/link";
+import Button from "@/components/UI/Button/Button";
 
 export default function ServiceSidebar() {
   return (
     <div className="page-single-sidebar">
       <div className="page-category-list wow fadeInUp">
-        <h3>Discover Our Services</h3>
+        {/* <h3>Discover Our Services</h3> */}
+        <h3>Modular Cleanroom</h3>
         <ul>
-          <li><Link href="#">Filters & Terminal Boxes</Link></li>
-          <li><Link href="#">Cleanroom Doors & Windows</Link></li>
-          <li><Link href="#">Cleanroom Equipment </Link></li>
-          <li><Link href="#">Cleanroom Furniture</Link></li>
-          <li><Link href="#">Cleanroom Flooring</Link></li>
+          <li><Link href="#">Cleanroom Wall, Ceiling & Riser Panels</Link></li>
           <li><Link href="#">Mobile Cleanroom</Link></li>
+          <li><Link href="#">Cleanroom Doors & Windows</Link></li>
         </ul>
       </div>
 
-      <div className="sidebar-cta-box wow fadeInUp" data-wow-delay="0.25s">
+      <div className="sidebar-cta-box ProductDetailsSidebar wow fadeInUp" data-wow-delay="0.25s">
         <div className="sidebar-cta-content">
           <h3>Need a Cleanroom-Ready Panel Solution?</h3>
           <p>
@@ -38,9 +37,7 @@ export default function ServiceSidebar() {
         </div>
 
         <div className="sidebar-cta-btn">
-          <Link href="/contact" className="btn-default">
-            Request Quote
-          </Link>
+           <Button variant="primary" href="/contact" >Request Quote</Button>
         </div>
       </div>
     </div>
