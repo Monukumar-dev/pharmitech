@@ -49,6 +49,7 @@ export default function Header() {
                   <li className="nav-item">
                     <Link className="nav-link" href="/about-us">About Us</Link>
                   </li>
+                  
 
                   {/* Turnkey Solutions */}
                   <li className="nav-item submenu">
@@ -91,6 +92,7 @@ export default function Header() {
                       <li><Link className="nav-link" href="/clientele">Clientele</Link></li>
                       <li><Link className="nav-link" href="/blogs">Blogs</Link></li>
                       <li><Link className="nav-link" href="/events">Events</Link></li>
+                      <li><Link className="nav-link" href="/gallery">Projects Gallery</Link></li>
                     </ul>
                   </li>
 
@@ -104,7 +106,6 @@ export default function Header() {
                       <li><Link className="nav-link" href="/complaints-and-feedback">Complaints & Feedback</Link></li>
                     </ul>
                   </li>
-
                 </ul>
               </div>
 

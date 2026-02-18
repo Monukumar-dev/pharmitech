@@ -10212,13 +10212,13 @@ header.main-header.header-elite .navbar{
 .about-counter-item-silver {
     position: relative;
     width: calc(32% - 80px);
-	background-image: url(/images/laurel-wreath2.svg);
+	/* background-image: url(/images/laurel-wreath2.svg);
     background-repeat: no-repeat;
     min-height: 120px;
     padding: 1rem 2rem;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: start; */
 }
 
 .about-counter-item-silver::before{

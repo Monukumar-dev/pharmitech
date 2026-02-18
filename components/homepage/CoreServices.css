@@ -1,0 +1,240 @@
+
+.cs-section {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #0d0d0d;
+  border-radius: 32px;
+  margin: 0 12px;
+  --cs-color: #f97316; /* default; overridden inline by GSAP */
+}
+
+.cs-blob {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  background: #f97316; /* initial; GSAP animates backgroundColor */
+}
+
+.cs-bg-num {
+  position: absolute;
+  right: -10px;
+  bottom: -50px;
+  font-size: clamp(260px, 36vw, 460px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.cs-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 56px 60px;
+}
+
+.cs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cs-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 12px;
+}
+
+.cs-heading {
+  font-size: clamp(22px, 5.5vw, 50px);
+  color: #fff;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin: 0;
+}
+
+.cs-count-box {
+  text-align: right;
+}
+
+.cs-count-big {
+  font-size: clamp(60px, 8vw, 94px);
+  line-height: 1;
+  display: block;
+  color: var(--cs-color);
+}
+
+.cs-count-total {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.12em;
+}
+
+/* ─── Content row ─────────────────────────────────────────── */
+.cs-content {
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.cs-name-wrap {
+  flex: 1;
+  overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+}
+
+.cs-name {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(26px, 6vw, 56px);
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1.08;
+  white-space: pre-line;
+  margin: 0;
+}
+
+/* ─── Sidebar ─────────────────────────────────────────────── */
+.cs-sidebar {
+  width: 216px;
+  flex-shrink: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cs-si {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  cursor: default;
+  transition: transform 0.35s ease;
+}
+
+.cs-si-num {
+  font-size: 13px;
+  min-width: 22px;
+  color: rgba(255, 255, 255, 0.14);
+  transition: color 0.35s ease;
+}
+
+.cs-si-dash {
+  width: 0;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--cs-color);
+  transition: width 0.35s ease;
+}
+
+.cs-si-label {
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.14);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s ease;
+}
+
+/* Sidebar active state */
+.cs-si.active               { transform: translateX(4px); }
+.cs-si.active .cs-si-num    { color: var(--cs-color); }
+.cs-si.active .cs-si-dash   { width: 14px; }
+.cs-si.active .cs-si-label  { color: #fff; }
+
+/* ─── Bottom strip ────────────────────────────────────────── */
+.cs-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  margin-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cs-segs-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.cs-segs {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+  max-width: 340px;
+}
+
+.cs-seg {
+  height: 2px;
+  flex: 1;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: background 0.4s ease;
+}
+
+.cs-seg.done {
+  background: var(--cs-color);
+}
+
+.cs-seg-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.12em;
+  margin-left: 14px;
+  white-space: nowrap;
+}
+
+.cs-scroll-hint {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-scroll-hint::after {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cs-inner   { padding: 40px 24px; }
+  .cs-sidebar { display: none; }
+  .cs-bg-num  { font-size: 180px; }
+  .cs-section { border-radius: 20px; margin: 0 8px; }
+}
+
+@media (max-width: 520px) {
+  .cs-heading    { font-size: 34px; }
+  .cs-name       { font-size: 32px; }
+  .cs-count-big  { font-size: 52px; }
+}
