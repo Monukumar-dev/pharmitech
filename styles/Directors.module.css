@@ -1,0 +1,186 @@
+/* =============================================
+   BRAND COLOR VARIABLES — Update here easily
+============================================= */
+.directorsSection {
+  --primary:         #079ed7;
+  --primary-light:   #3eb8e8;
+  --primary-xlight:  hsl(196, 79%, 95%);
+  --secondary:       #102B32;
+  --secondary-light: #1c4652;
+  --ink:             #102B32;
+  --accent:          #079ed7;
+  --accent-light:    #3eb8e8;
+  --rule:            #d6e8ee;
+  --muted:           #7fa8b4;
+
+  padding: 100px 0;
+  background-color: #f5f9fa !important;
+  margin-bottom: 100px !important; 
+}
+
+/* ── Eyebrow ── */
+.sectionEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.eyebrowText {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ── Heading ── */
+.sectionHeading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 80px;
+}
+
+.sectionHeading em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ── Director Row ── */
+.directorRow {
+  border-top: 1px solid var(--rule);
+  padding: 64px 0;
+  position: relative;
+}
+.directorRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ── Index ── */
+.dirIndex {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  padding-top: 6px;
+}
+
+/* ── Avatar ── */
+.avatarBlock {
+  position: relative;
+}
+
+.avatarFrame {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+.avatarImg {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, var(--primary-xlight) 0%, #c2e4f3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.avatarImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.3s;
+}
+.avatarImg:hover img {
+  transform: scale(1.2);
+}
+
+/* ── Name & Title ── */
+.dirName {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.dirTitle {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* ── Bio ── */
+.dirBio {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--secondary-light);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+/* ── Industries ── */
+.industriesWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.indTag {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-weight: 500;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.directorRow:hover .indTag {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--primary-xlight);
+}
+
+/* ── Experience ── */
+.dirExp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.expFig {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.expLabel {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.4;
+}

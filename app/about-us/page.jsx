@@ -4,27 +4,26 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import PageHeader from "@/components/PageHeader";
+import Preloader from "@/components/Preloader";
 import OurClient from "@/components/OurClient";
 import OurTestimonials from "@/components/homepage/OurTestimonials";
 
 import AboutWorkspace from "./AboutWorkspace";
 import AboutApproach from "./AboutApproach";
 import WhyChooseUs from "./WhyChooseUs";
-import IntroVideo from "./IntroVideo";
-import OurTeam from "./OruTeam";
+import Directors from "./Directors";
 import OurFaqs from "./OurFaqs";
 
 import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchAboutPage } from "@/store/slices/aboutSlice";
 
+
 export default function AboutUs() {
   const dispatch = useDispatch();
 
   const { aboutData, loading, error } = useSelector((state) => state.about);
-
   const clients = useSelector((state) => state.client.clients);
 
-  console.log("aboutData", aboutData);
   
 
   // 🔥 Fetch About Data
@@ -43,15 +42,9 @@ export default function AboutUs() {
   // Loading & Error UI (Premium)
   // =============================
 
-  if (loading) {
-    return (
-      <div className="text-center py-5">
-        <div className="spinner-border text-dark" />
-      </div>
-    );
-  }
+ if (loading) return <Preloader opacity={0.95} />
 
-  if (error) {
+ if (error) {
     return (
       <div className="text-center py-5 text-danger">
         {error}
@@ -82,9 +75,9 @@ export default function AboutUs() {
         businessScope={aboutData?.business_scope}
       />
 
-      <IntroVideo />
+      {/* <IntroVideo /> */}
 
-      <OurTeam directors={aboutData?.board_of_directors?.members} />
+      <Directors members={aboutData?.board_of_directors?.members} />
 
       <OurTestimonials />
 
