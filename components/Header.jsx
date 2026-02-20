@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -8,13 +8,23 @@ import Button from "@/components/UI/Button/Button";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname()
+
+
+  useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 150);
+  };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   const isHome = pathname === "/"
 
   return (
     <header className={`main-header active-sticky-header ${menuOpen ? "menu-open" : ""}`}>
-      <div className={`header-sticky ${!isHome ? "bg-section dark-section" : ""}`}>
+      <div className={`header-sticky ${!isHome ? "bg-section dark-section" : ""} ${scrolled ? "active" : ""}`}>
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <Link className="navbar-brand" href="/">

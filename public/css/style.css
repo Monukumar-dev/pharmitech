@@ -137,9 +137,20 @@ html, body {
 
 header.main-header .header-sticky {
     margin-inline: 20px;
+    transition: all 0.5s;
 }
 header.main-header .header-sticky.active {
-    background: var(--primary-color);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+
+    .main-menu ul li a {
+        color: var(--primary-color);
+    }
+    .main-menu ul ul {
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.911);
+        backdrop-filter: blur(8px);
+    }
 }
 
 .main-menu ul li a:hover, .main-menu ul li a:focus {
