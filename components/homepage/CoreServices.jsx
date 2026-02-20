@@ -129,8 +129,9 @@ export default function CoreServices() {
       // ── ScrollTrigger: pin + snap ─────────────────────────────────────────
       ScrollTrigger.create({
         trigger: sectionRef.current,
-        start: "top top",
+        //start: "top top",
         //end: () => `+=${totalSteps * 850}`,
+         start: "top+=-80 top",
         end: () => `+=${totalSteps * window.innerHeight * 0.8}`,
         pin: true,
         //pinSpacing: true,
@@ -166,6 +167,7 @@ export default function CoreServices() {
   const total    = services.length
 
   return (
+    <div className="cs-wrapper">
     <section ref={sectionRef} className="cs-section">
       <div ref={blobRef} className="cs-blob" />
       <div ref={bgNumRef} className="cs-bg-num">01</div>
@@ -225,5 +227,6 @@ export default function CoreServices() {
 
       </div>
     </section>
+    </div>
   )
 }
