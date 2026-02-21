@@ -1,3 +1,4 @@
+import Gallery from "./Gallery";
 import ProjectGallery from "./ProjectGallery";
 
 
@@ -16,7 +17,7 @@ export default async function Page() {
 
   return (
     <div className="py-4">
-      <ProjectGallery galleryData={galleryData} />
+      <Gallery apiData={galleryData} />
     </div>
   );
 }
