@@ -8,18 +8,14 @@ export default function TechSection() {
   useParallax(".tech-parallax-bg", 420)
 
   return (
-    <section className="tech-section bg-section dark-section my-5">
+    <section className="tech-section bg-section dark-section">
       <div
         className="tech-parallax-bg"
-        style={{
-          backgroundImage: "url('/images/cleanroom-wall-ceiling-door.jpg')",
-        }}
+        style={{backgroundImage: "url('/images/cleanroom-wall-ceiling-door.jpg')",}}
       />
 
-      {/* CONTENT */}
       <div className="container position-relative z-3">
         <div className="row align-items-center">
-
           <div className="col-lg-6 mb-5 mb-lg-0">
             <div className="tech-left text-end">
               <div className="tech-small">It starts with the technology</div>
@@ -30,7 +26,6 @@ export default function TechSection() {
               <div className="tech-sub">stands for</div>
             </div>
           </div>
-
           <div className="col-lg-6">
             <div className="tech-list">
               {["T", "E", "C", "H"].map((l, i) => (

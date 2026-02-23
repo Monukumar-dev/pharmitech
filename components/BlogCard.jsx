@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import {truncateToLetters} from "@/utils/helper";
 
 export default function BlogCard({ blog, index = 0 }) {
   if (!blog) return null;
@@ -22,7 +23,9 @@ export default function BlogCard({ blog, index = 0 }) {
 
         {blog.subtitle && (
           <div className="post-item-tags-silver">
-            <Link href="#" className="text-truncate-2">{blog.subtitle}</Link>
+            <Link href="#" className="text-truncate-2">
+              {truncateToLetters(blog.subtitle)}
+            </Link>
           </div>
         )}
       </div>

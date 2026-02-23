@@ -21,7 +21,7 @@ export default function OurBlog() {
 
 
   return (
-    <div className="our-blog-silver pb-0">
+    <div className="our-blog-silver">
       <div className="container">
         <div className="row section-row">
           <div className="col-xl-12">
@@ -49,7 +49,7 @@ export default function OurBlog() {
               data-wow-delay="0.8s"
             >
 
-              <Button href="/blogs" variant="primary">Back to Home</Button>
+              <Button href="/blogs" variant="primary">View All</Button>
             </div>
           </div>
         </div>

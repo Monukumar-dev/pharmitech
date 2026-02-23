@@ -12,7 +12,7 @@ export default function PdfDownloadSection() {
   if (!homeData) return null;
 
   return (
-    <div className="how-it-works">
+    <div className="how-it-works pb-0">
       <div className="container-fluid position-relative z-3">
         <div className="callToAction">
           <div className="cta-overlay"></div>

@@ -1,5 +1,5 @@
-import TextEffect from "../../components/TextEffect";
-import Accordion from "../../components/Accordion";
+import TextEffect from "./TextEffect";
+import Accordion from "./Accordion";
 import Button from "@/components/UI/Button/Button";
 
 export default function OurFaqs() {

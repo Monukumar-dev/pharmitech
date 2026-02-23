@@ -6,16 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import PageHeader from "@/components/PageHeader";
 import Preloader from "@/components/Preloader";
 import OurClient from "@/components/OurClient";
+import OurFaqs from "@/components/OurFaqs";
 import OurTestimonials from "@/components/homepage/OurTestimonials";
 
 import AboutWorkspace from "./AboutWorkspace";
 import AboutApproach from "./AboutApproach";
 import WhyChooseUs from "./WhyChooseUs";
-import Directors from "./Directors";
-import OurFaqs from "./OurFaqs";
 
 import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchAboutPage } from "@/store/slices/aboutSlice";
+import Directors from "./Directors";
 
 
 export default function AboutUs() {
@@ -77,6 +77,7 @@ export default function AboutUs() {
 
       {/* <IntroVideo /> */}
 
+      {/* <Directors members={aboutData?.board_of_directors?.members} /> */}
       <Directors members={aboutData?.board_of_directors?.members} />
 
       <OurTestimonials />

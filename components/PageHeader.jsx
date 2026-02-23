@@ -8,16 +8,16 @@ export default function PageHeader({
   return (
     <div
       className="page-header bg-section dark-section"
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }
-          : undefined
-      }
+      // style={
+      //   backgroundImage
+      //     ? {
+      //         backgroundImage: `url(${backgroundImage})`,
+      //         backgroundSize: "cover",
+      //         backgroundPosition: "center",
+      //         backgroundRepeat: "no-repeat",
+      //       }
+      //     : undefined
+      // }
     >
       <div className="container">
         <div className="row align-items-center">

@@ -19,6 +19,7 @@ import OurBlog from "@/components/homepage/OurBlog"
 import OurTestimonials from "@/components/homepage/OurTestimonials";
 import OurClient from "@/components/OurClient";
 import PdfDownloadSection from "@/components/PdfDownloadSection"
+import OurFaqs from "@/components/OurFaqs";
 
 import TextEffect from "@/components/TextEffect";
 import Preloader  from "@/components/Preloader";
@@ -87,14 +88,15 @@ export default function Home() {
       </div>
       </section>
       <CoreServices />
-      <TechSection />
+      
       <PharmintechAdvantage />
-      <OurServices />
+      <TechSection />
+      {/* <OurServices /> */}
       <WhatWeDoSilver />
       <IntroVideoBoxSilver />
 
       {/* Our Project Section Start */}
-      <div className="our-project-silver">
+      {/* <div className="our-project-silver">
         <div className="container">
           <div className="row section-row">
             <div className="col-lg-12">
@@ -164,11 +166,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Our Project Section End */}
 
       {/* How It Work Section Start */}
-      <div className="how-it-work-silver dark-section">
+      {/* <div className="how-it-work-silver dark-section">
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
@@ -229,11 +231,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <OurBlog />
 
-      <div className="our-faqs pt-0">
+      <OurTestimonials />
+      <div className="our-faqs py-0">
         <div className="container">
           <div className="col-lg-12">
             <div className="company-supports-slider-box">
@@ -242,10 +245,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <OurTestimonials />
-
       <PdfDownloadSection />
+      <div className="pb-5"><OurFaqs /></div>
 
     </>
   )

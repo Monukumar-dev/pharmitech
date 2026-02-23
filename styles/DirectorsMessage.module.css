@@ -1,0 +1,294 @@
+/* ========= GLOBAL VARIABLES ========= */
+/* MOVE this part to globals.css ideally */
+:global(:root) {
+  --primary:         #079ed7;
+  --primary-light:   #3eb8e8;
+  --primary-xlight:  #e6f6fc;
+  --primary-dark:    #0588b8;
+  --secondary:       #102B32;
+  --secondary-light: #1c4652;
+}
+
+
+/* ═════════ SECTION ═════════ */
+
+.directorsSection {
+  position: relative;
+  background: var(--secondary);
+  overflow: hidden;
+  border-radius: 20px;
+  padding-inline: 14px;
+  padding-block: 1.5rem;
+}
+
+.bgDots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(7,158,215,0.18) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgCircleTop {
+  position: absolute;
+  top: -180px;
+  right: -180px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(7,158,215,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgCircleBottom {
+  position: absolute;
+  bottom: -180px;
+  left: -100px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(7,158,215,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ═════════ DIRECTOR BLOCK ═════════ */
+
+.directorBlock {
+  position: relative;
+  z-index: 1;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(7,158,215,0.1);
+}
+
+.directorBlock:last-child {
+  border-bottom: none;
+}
+
+/* Reverse Layout */
+.reverse .contentWrap {
+  padding: 0 0 0 48px;
+}
+
+.contentWrap {
+  padding: 0 48px 0 0;
+}
+
+
+/* ═════════ TYPOGRAPHY ═════════ */
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+.heading {
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+
+/* ═════════ QUOTE ═════════ */
+
+.quoteBlock {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 18px 22px;
+  background: rgba(7,158,215,0.08);
+  border-left: 3px solid var(--primary);
+}
+
+.quoteText {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+
+
+/* ═════════ PARAGRAPH ═════════ */
+
+.para {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 14px;
+  font-weight: 300;
+}
+
+.paraHighlight {
+  display: flex;
+  gap: 10px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 400;
+}
+
+/* ═════════ IMAGE SIDE ═════════ */
+
+.imageWrap {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.imageDeco {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 430px;
+  background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: 0.15;
+}
+
+.reverse .imageDeco {
+  clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%);
+}
+
+.directorPhoto {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  height: 440px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(8%);
+  transition: filter 0.5s ease;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+
+.imageWrap:hover .directorPhoto {
+  filter: grayscale(0%);
+}
+
+
+/* ═════════ BADGES ═════════ */
+
+.statBadge {
+  position: absolute;
+  left: -16px;
+  top: 80px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 14px 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+.reverse .statBadge {
+  left: auto;
+  right: -16px;
+}
+
+.statBadgeNum {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.statBadgeLabel {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7fa8b4;
+  font-weight: 500;
+}
+
+.industryBadge {
+  position: absolute;
+  right: -10px;
+  bottom: 120px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary);
+  padding: 12px 18px;
+  box-shadow: 0 8px 30px rgba(7,158,215,0.4);
+}
+
+.reverse .industryBadge {
+  right: auto;
+  left: -10px;
+}
+
+.industryBadgeText {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+
+/* ═════════ RESPONSIVE ═════════ */
+
+@media (max-width: 767px) {
+  .directorBlock {
+    padding: 14px 0;
+  }
+
+  .contentWrap,
+  .reverse .contentWrap {
+    padding: 40px 0 0;
+  }
+
+  .imageWrap {
+    min-height: 380px;
+  }
+
+  .directorPhoto {
+    width: 240px;
+    height: 350px;
+  }
+
+  .statBadge,
+  .reverse .statBadge {
+    left: 0;
+    right: auto;
+    top: 20px;
+  }
+
+  .industryBadge,
+  .reverse .industryBadge {
+    right: 0;
+    left: auto;
+    bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 1880px){
+
+	.directorsSection {
+		width: calc(100% - 40px);
+		margin: 0 20px;
+	}	
+}

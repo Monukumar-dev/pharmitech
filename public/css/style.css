@@ -68,20 +68,25 @@ html, body {
     max-width: 150px;
 }
 .page-header {
-    padding: 120px 0;
-    background-image: url("../images/services/waterclean.jpg");
+    padding: 0;
+    /* background-image: url("../images/services/waterclean.jpg"); */
+    background-image: none;
+    background-color: transparent;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
     position: relative;
+    padding-bottom: 40px;
+    border-bottom: 1px dashed #ddd;
+    border-radius: 0;
 
     .container {
         z-index: 99;
         position: relative;
     }
 }
-.page-header::before {
+/* .page-header::before {
     content: "";
     position: absolute;
     top: 0;
@@ -89,9 +94,18 @@ html, body {
     height: 100%;
     width: 100%;
     z-index: 0;
-    /* background-color: rgba(7, 158, 215, 0.8); */
     background-color: rgba(0,0,0,0.7);
     mix-blend-mode: multiply;
+} */
+
+.page-header-box h1 {
+    color: var(--primary-color);
+}
+.page-header-box ol li.breadcrumb-item {
+   color: var(--primary-color);
+}
+.page-header-box ol .breadcrumb-item+.breadcrumb-item::before {
+    color: var(--primary-color);
 }
 
 .google-map-iframe {
@@ -101,6 +115,21 @@ html, body {
 /************************************/
 /*** 	 Header	  ***/
 /************************************/
+.nav-item.submenu > ul > .nav-item.submenu:hover > span.nav-link,
+.nav-item.submenu > ul > .nav-item.submenu:hover > a.nav-link {
+  /* background: var(--accent-color) !important; */
+  color: var(--accent-color) !important;
+}
+
+.nav-item.submenu > ul > .nav-item.submenu > span.nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.1em;
+    color: var(--primary-color) !important;
+    padding: 10px 10px !important;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+}
 .navbar-brand img {
     max-height: 60px;
 }

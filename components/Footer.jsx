@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Footer Links */}
           <div className="row">
-            <div className="col-xl-3">
+            <div className="col-xl-4">
               <div className="about-footer-silver">
                 <p>
                   We are more than just a cleanroom solutions provider – we are a
@@ -85,20 +85,21 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="col-xl-9">
+            <div className="col-xl-8">
               <div className="row footer-links-box-silver gap-0 flex-nowrap">
 
-                <div className="col-md-3 footer-links-silver ps-md-5">
+                <div className="col-md-5 footer-links-silver ps-md-5">
                   <h3>Quick Links</h3>
                   <ul>
                     <li><Link href="/">Home</Link></li>
-                    <li><Link href="/about">About Us</Link></li>
-                    <li><Link href="/projects">Projects</Link></li>
-                    <li><Link href="/contact">Contact</Link></li>
+                    <li><Link href="/about-us">About Us</Link></li>
+                    <li><Link href="/blogs">Blogs</Link></li>
+                    <li><Link href="/events">Events</Link></li>
+                    <li><Link href="/customers">Contact</Link></li>
                   </ul>
                 </div>
 
-                <div className="col-md-4 footer-links-silver">
+                {/* <div className="col-md-4 footer-links-silver">
                   <h3>Industries We Serve</h3>
                   <ul>
                     <li><Link href="#">Pharmaceutical Facilities</Link></li>
@@ -111,9 +112,9 @@ export default function Footer() {
                     <li><Link href="#">Space Research Facilities</Link></li>
                     <li><Link href="#">Semiconductors & Electronics</Link></li>
                   </ul>
-                </div>
+                </div> */}
 
-                <div className="col-md-5 footer-links-silver footer-newsletter-form-silver">
+                <div className="col-md-7 footer-links-silver footer-newsletter-form-silver">
                   <h3>Locations</h3>
                   <div className="google-map-iframe mt-0">
                     <iframe

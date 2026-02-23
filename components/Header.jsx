@@ -121,7 +121,7 @@ export default function Header() {
 
               {/* CTA Button */}
               <div className="header-btn">
-                <Button href="/contact" variant="primary">
+                <Button href="/customers" variant="primary">
                       Request a Quote
                 </Button>
               </div>

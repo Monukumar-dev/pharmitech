@@ -8,6 +8,22 @@ export const formatAmount=(amount)=>{
     }).format(num)
 }
 
+export const truncateToLetters = (text, limit = 44) => {
+  let count = 0;
+  let result = "";
+
+  for (let char of text) {
+    if (char !== " ") {
+      if (count >= limit) break;
+      count++;
+    }
+    result += char;
+  }
+
+  const isTruncated = result.trimEnd().length < text.length;
+  return isTruncated ? result.trimEnd() + "..." : text;
+};
+
 export function formatDateDMY(dateString) {
   const date = new Date(dateString);
   if (isNaN(date)) return ""; // Invalid date check

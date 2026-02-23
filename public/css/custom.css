@@ -1193,7 +1193,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .about-us{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .about-us-info{
@@ -1305,7 +1305,7 @@ header.main-header .header-sticky.active{
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100% auto;
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .services-list{
@@ -1489,7 +1489,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .why-choose-us{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .why-choose-title-img{
@@ -1757,7 +1757,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .what-we-do{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .what-we-do-item{
@@ -1892,7 +1892,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-pricing{
-    padding: 100px 0;
+    padding: 50px 0;
 	background: var(--secondary-color) url('../images/our-pricing-bg.png') no-repeat;
 	background-position: center center;
 	background-size: 100% auto;
@@ -2064,7 +2064,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .how-it-works{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .how-works-item{
@@ -2221,7 +2221,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-contact-us{
-	padding: 100px 0;
+	padding: 50px 0;
 	border-radius: 20px;
 	background-image: linear-gradient(0deg, rgba(16, 43, 50, 0.90) 14.06%, transparent 58.63%), url('../images/our-contact-us-bg.png');
 	background-repeat: no-repeat;
@@ -2309,7 +2309,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-faqs{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .faqs-content{
@@ -2428,7 +2428,7 @@ header.main-header .header-sticky.active{
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: auto 100%;
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .testimonials-content{
@@ -2552,7 +2552,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-blog{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .post-item-list{
@@ -2914,7 +2914,7 @@ header.main-header .header-sticky.active{
 }
 
 .our-approach{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .approach-item{
@@ -3286,7 +3286,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-services{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 /************************************/
@@ -3294,7 +3294,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-service-single{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .page-single-sidebar{
@@ -3815,7 +3815,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-blog{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .page-pagination{
@@ -3856,7 +3856,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-single-post{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .post-single-meta{
@@ -4178,7 +4178,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-case-study-single{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .case-study-category-list ul li{
@@ -4294,7 +4294,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-team-single{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .team-member-about-box,
@@ -4474,7 +4474,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-pricing{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .page-pricing .pricing-item{
@@ -4615,7 +4615,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-faqs{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .page-faqs .page-single-faqs{
@@ -4631,7 +4631,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .page-contact-us{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .contact-us-content{
@@ -6986,7 +6986,7 @@ header.main-header.header-elite .navbar{
 }
 
 .about-us-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .about-us-items-list-elite{
@@ -7288,7 +7288,7 @@ header.main-header.header-elite .navbar{
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100% auto;
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .service-item-elite{
@@ -7381,7 +7381,7 @@ header.main-header.header-elite .navbar{
 }
 
 .why-choose-us-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .why-choose-item-list-elite{
@@ -7640,7 +7640,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-feature-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .our-feature-info-elite{
@@ -7750,7 +7750,7 @@ header.main-header.header-elite .navbar{
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: top left;
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .what-we-do-body-elite{
@@ -7935,7 +7935,7 @@ header.main-header.header-elite .navbar{
 }
 
 .how-it-works-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .how-work-item-elite{
@@ -8020,7 +8020,7 @@ header.main-header.header-elite .navbar{
 	background: var(--secondary-color) url('../images/pricing-bg-elite.png') no-repeat;
 	background-position: center center;
 	background-size: 100% auto;
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 .pricing-item-elite{
@@ -8157,7 +8157,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-testimonials-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .our-testimonials-content-elite{
@@ -8305,7 +8305,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-faqs-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .faqs-content-elite{
@@ -8419,7 +8419,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-blog-elite{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .post-item-list-elite{
@@ -8964,7 +8964,7 @@ header.main-header.header-elite .navbar{
 	}
 
 	.our-story-elite{
-		padding: 100px 0;
+		padding: 50px 0;
 	}
 
 	.our-feature-info-elite .section-sub-title{
@@ -9980,7 +9980,7 @@ header.main-header.header-elite .navbar{
 }
 
 .about-us-silver{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .about-us-silver .section-title h2 .about-title-img-1 img{
@@ -10250,7 +10250,7 @@ header.main-header.header-elite .navbar{
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100% auto;
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .service-item-silver{
@@ -10317,7 +10317,7 @@ header.main-header.header-elite .navbar{
 }
 
 .what-we-do-silver{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .what-do-image-box-silver{
@@ -10521,7 +10521,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-project-silver{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .project-item-silver{
@@ -10625,7 +10625,7 @@ header.main-header.header-elite .navbar{
 	background-image: url('../images/how-it-work-bg-silver.png');
 	background-position: center center;
 	background-size: 100% auto;
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .how-work-content-silver{
@@ -10838,7 +10838,7 @@ header.main-header.header-elite .navbar{
 }
 
 .why-choose-us-silver{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .why-choose-list-silver{
@@ -10978,7 +10978,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-core-value-silver{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .core-value-item-1-silver{
@@ -11201,7 +11201,7 @@ header.main-header.header-elite .navbar{
 	background: url('../images/testimonial-bg-silver.jpg') no-repeat;
 	background-position: center center;
 	background-size: cover;
-	padding: 100px 0;
+	padding: 50px 0;
 	overflow: hidden;
 }
 
@@ -11399,7 +11399,7 @@ header.main-header.header-elite .navbar{
 }
 
 .our-blog-silver{
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .post-item-list-silver{
@@ -11647,7 +11647,7 @@ header.main-header.header-elite .navbar{
 }
 
 .footer-links-silver{
-	max-width: 40%;
+	/* max-width: 40%; */
 }
 
 .footer-links-silver h3{
@@ -11693,7 +11693,7 @@ header.main-header.header-elite .navbar{
 }
 
 .footer-newsletter-form-silver{
-	max-width: 45%;
+	/* max-width: 45%; */
 }
 
 .footer-newsletter-form-silver .form-group{

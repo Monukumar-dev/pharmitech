@@ -81,15 +81,19 @@
 }
 
 .avatarFrame {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   position: relative;
   overflow: hidden;
 }
+figure.avatarImg {
+    border-radius: 2rem 0 2rem 0px;
+    overflow: hidden;
+}
 .avatarImg {
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(135deg, var(--primary-xlight) 0%, #c2e4f3 100%);
+  width: 180px;
+  height: 180px;
+  /* background: linear-gradient(135deg, var(--primary-xlight) 0%, #c2e4f3 100%); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,6 +109,8 @@
   object-fit: cover;
   display: block;
   transition: all 0.3s;
+  border-radius: 2rem 0 2rem 0px;
+  border: none;
 }
 .avatarImg:hover img {
   transform: scale(1.2);
