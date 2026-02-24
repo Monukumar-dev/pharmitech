@@ -1,54 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCompany } from "../action/companyActions";
 
-
 const initialState = {
   companyDetails: null,
-  footerCopyright: '',
-  loading: false,
+  status: "idle", // idle | loading | succeeded | failed
   error: null,
-  lastFetchedAt: null,
 };
 
 const companySlice = createSlice({
-  name: 'company',
+  name: "company",
   initialState,
   reducers: {
-    setCompany(state, action) {
-      const { company, footerText } = action.payload || {};
-      if (companyDetails !== undefined) state.companyDetails = company;
-      if (footerCopyright !== undefined) state.footerCopyright = footerText;
-      state.error = null;
-    },
     clearCompany(state) {
-      state.company = null;
-      state.footerCopyright = '';
+      state.companyDetails = null;
+      state.status = "idle";
       state.error = null;
-      state.loading = false;
-      state.lastFetchedAt = null;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCompany.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.status = "loading";
       })
       .addCase(fetchCompany.fulfilled, (state, action) => {
-        state.loading = false;
-        state.error = null;
-        state.companyDetails = action.payload?.data?.company_details;
-        state.footerCopyright = action.payload?.data?.footer_text;
-        //state.lastFetchedAt = Date.now();
+        state.status = "succeeded";
+        state.companyDetails = action.payload || null;
       })
       .addCase(fetchCompany.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload?.message || 'Something went wrong';
+        state.status = "failed";
+        state.error =
+          action.payload?.message ||
+          action.error?.message ||
+          "Something went wrong";
       });
   },
 });
 
-export const { setCompany, clearCompany } = companySlice.actions;
+export const { clearCompany } = companySlice.actions;
 export default companySlice.reducer;
-
-

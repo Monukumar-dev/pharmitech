@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 
 //import authReducer from './authSlice'
 import globalReducer from './globalSlice';
-//import companyReducer from './companySlice';
+import companyReducer from './companySlice';
 // import wishlistReducer from './wishlistSlice';
 // import addressReducer from './addressSlice';
 // import cartReducer from './cartSlice';
@@ -25,8 +25,8 @@ const appReducer = combineReducers({
   contact: contactReducer,
   testimonials: testimonialReducer,
   services: servicesReducer,
+  company: companyReducer,
   global: globalReducer,
-  //company: companyReducer,
   //productDetails: productDetailsReducer,
   //reviews: reviewReducer,
 });

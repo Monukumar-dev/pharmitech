@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function ContactInfoList() {
+export default function ContactInfoList({email = "sales@pharmintech.net"}) {
   return (
     <div className="contact-info-list">
 
@@ -44,11 +44,7 @@ export default function ContactInfoList() {
         </div>
         <div className="contact-item-content">
           <h3>Email Address</h3>
-          <p>
-            <a href="mailto:sales@pharmintech.net">
-              sales@pharmintech.net
-            </a>
-          </p>
+          <p><a href={`mailto:${email}`}>{email}</a></p>
         </div>
       </div>
 

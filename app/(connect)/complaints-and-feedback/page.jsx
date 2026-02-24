@@ -5,6 +5,7 @@ import Input from "../../../components/Input/Input"
 import PageHeader from "../../../components/PageHeader"
 import OurClient from "../../../components/OurClient"
 import Button from "@/components/UI/Button/Button";
+import Preloader from "@/components/Preloader";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchClients } from "@/store/slices/clientSlice";
@@ -15,6 +16,7 @@ export default function page() {
 
   const dispatch = useDispatch();
   const clients = useSelector((state) => state.client.clients);
+  const { companyDetails, status } = useSelector((state) => state.company);
   const { loading, success, error } = useSelector((state) => state.contact);
   
   //if (!clients || clients.length === 0) return null;
@@ -84,6 +86,8 @@ const [form, setForm] = useState({
     }
   }, [success, dispatch]);
 
+  if (status === "loading") return <Preloader opacity={0.95} />;
+
   return (
     <>
       <PageHeader
@@ -113,7 +117,7 @@ const [form, setForm] = useState({
                   </p>
                 </div>
 
-                <ContactInfoList />
+                <ContactInfoList email={companyDetails?.contact_info?.complaint_feedback_email} />
               </div>
             </div>
 

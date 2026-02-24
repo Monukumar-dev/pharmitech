@@ -1,39 +1,33 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { request } from "@/services/Request";
 import * as url from "@/utils/Url";
 
-// ----------------------------
-// Generic API Client
-// ----------------------------
-const API = request(url.BASE_URL);
-
-// ----------------------------
-// Helper: Normalize Errors
-// ----------------------------
-const handleError = (error, fallback = "Something went wrong") =>
-  error?.response?.data?.message || error?.message || fallback;
-
 // ============================
-// ✅ Fetch Company / Common Data
+// ✅ Fetch Company / Footer Data
 // ============================
 export const fetchCompany = createAsyncThunk(
   "company/fetchCompany",
   async (_, { rejectWithValue }) => {
     try {
-      const data  = await API.get("/api/homepage");
-      
+      const res = await fetch(`${url.BASE_URL}/api/footer-data`);
+      if (!res.ok) {
+        return rejectWithValue({message: `HTTP error! Status: ${res.status}`,});
+      }
+
+      const data = await res.json();
+
+      // ❌ API level error (status:false)
       if (!data?.status) {
         return rejectWithValue({
-          message: "API returned status=false",
-          data,
+          message: data?.message || "API returned status=false",
         });
       }
-      // const { company_details, footer_text } = data.data || {};
-      return data; 
 
-    } catch (err) {
+      // ✅ return only useful data
+      return data.data;
+
+    } catch (error) {
       return rejectWithValue({
-        message: handleError(err, "Network error"),
+        message: error.message || "Network error",
       });
     }
   }

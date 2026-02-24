@@ -2,21 +2,48 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import Preloader from "./Preloader";
+
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Footer() {
+
+  const { companyDetails, status } = useSelector((state) => state.company);
+  if (status === "loading") return <Preloader opacity={0.95} />;
+
+  const getSocialIcon = (platform) => {
+    switch (platform?.toLowerCase()) {
+      case "facebook":
+        return "fa-brands fa-facebook-f";
+
+      case "instagram":
+        return "fa-brands fa-instagram";
+
+      case "linkedin":
+        return "fa-brands fa-linkedin-in";
+
+      case "twitter":
+      case "tweeter": // your API typo 😄
+        return "fa-brands fa-x-twitter";
+
+      case "pinterest":
+        return "fa-brands fa-pinterest-p";
+
+      default:
+        return "fa-solid fa-globe";
+    }
+  };
+
   return (
     <>
-      {/* Main Footer */}
       <footer className="main-footer-silver bg-section dark-section">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="main-footer-box-silver">
-
-                {/* Logo */}
                 <div className="footer-logo-silver">
-                  <Image
-                    src="/images/logo.png"
+                  <img
+                    src={companyDetails?.logo || '/images/logo.png'}
                     alt="Pharmintech Logo"
                     width={180}
                     height={60}
@@ -32,7 +59,9 @@ export default function Footer() {
                     <div className="footer-contact-item-content-silver">
                       <h3>Contact</h3>
                       <p>
-                        <a href="tel:+912249719996">+91-22-4971-9996</a>
+                        <a href={`tel:${companyDetails?.contact_info?.landline_no}`}>
+                          {companyDetails?.contact_info?.landline_no}
+                          </a>
                       </p>
                     </div>
                   </div>
@@ -44,7 +73,9 @@ export default function Footer() {
                     <div className="footer-contact-item-content-silver">
                       <h3>E-mail</h3>
                       <p>
-                        <a href="mailto:sales@pharmintech.net">sales@pharmintech.net</a>
+                        <a href={`mailto:${companyDetails?.contact_info?.email_id}`}>
+                          {companyDetails?.contact_info?.email_id || 'sales@pharmintech.net'}
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -55,11 +86,10 @@ export default function Footer() {
                     </div>
                     <div className="footer-contact-item-content-silver">
                       <h3>Address</h3>
-                      <p>Thane-400604, Maharashtra, India.</p>
+                      <p>{companyDetails?.contact_info?.address || 'Thane, Maharashtra, India. '}</p>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -69,17 +99,29 @@ export default function Footer() {
             <div className="col-xl-4">
               <div className="about-footer-silver">
                 <p>
-                  We are more than just a cleanroom solutions provider – we are a
-                  trusted technology partner delivering precision-engineered
-                  environments where quality, compliance, and innovation come together.
+                  {companyDetails?.footer_paragraph || 'We are more than just a cleanroom solutions provider – we are a trusted technology partner delivering precision-engineered environments where quality, compliance, and innovation come together.'}
                 </p>
 
                 <div className="footer-social-links-silver">
                   <ul>
-                    <li><a href="#"><i className="fa-brands fa-pinterest-p"></i></a></li>
+                    {companyDetails?.social_media_links
+                      ?.filter((item) => item.url)
+                      .map((item, i) => (
+                        <li key={item.platform || i}>
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i className={getSocialIcon(item.platform)}></i>
+                          </a>
+                        </li>
+                      ))}
+
+                    {/* <li><a href="#"><i className="fa-brands fa-pinterest-p"></i></a></li>
                     <li><a href="#"><i className="fa-brands fa-x-twitter"></i></a></li>
                     <li><a href="#"><i className="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i className="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i className="fa-brands fa-instagram"></i></a></li> */}
                   </ul>
                 </div>
               </div>
@@ -117,15 +159,7 @@ export default function Footer() {
                 <div className="col-md-7 footer-links-silver footer-newsletter-form-silver">
                   <h3>Locations</h3>
                   <div className="google-map-iframe mt-0">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.9315792570687!2d72.94512997381999!3d19.198190548127894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bb9141de06bb%3A0xd14cb2e05b0a20e3!2sPharmintech%20Turnkey%20Solutions%20Private%20Limited!5e0!3m2!1sen!2sin!4v1767168215499!5m2!1sen!2sin"
-                      width="100%"
-                      style={{ height: "250px", border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-
+                    <div dangerouslySetInnerHTML={{ __html: companyDetails?.contact_info?.map_embed_text }} />
                   </div>
 
                   {/* <form onSubmit={(e) => e.preventDefault()}>

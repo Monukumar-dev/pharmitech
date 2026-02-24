@@ -49,9 +49,6 @@
   user-select: none;
   z-index: 0;
 }
-
-
-
 .cs-header {
   display: flex;
   justify-content: space-between;

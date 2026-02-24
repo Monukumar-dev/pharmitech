@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './globals.css'
 
 import { ReduxProvider } from "@/store/provider";
+import AppInitializer from "./_init/AppInitializer";
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <ReduxProvider>
+          <AppInitializer /> 
           <FancyboxProvider>
           <CustomCursor />
           <Header />
