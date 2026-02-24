@@ -128,13 +128,12 @@ export default function CoreServices() {
 
       // ── ScrollTrigger: pin + snap ─────────────────────────────────────────
       ScrollTrigger.create({
-        trigger: sectionRef.current,
-        //start: "top top",
-        //end: () => `+=${totalSteps * 850}`,
-         start: "top+=-80 top",
+        trigger: sectionRef.current.parentElement,
+        start: "top top+=70",
         end: () => `+=${totalSteps * window.innerHeight * 0.8}`,
-        pin: true,
-        //pinSpacing: true,
+        pin: sectionRef.current.parentElement,
+        //pin: true,
+        pinSpacing: true,
         scrub: false,
         snap: {
           snapTo: 1 / totalSteps,

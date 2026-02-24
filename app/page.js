@@ -20,17 +20,17 @@ import OurTestimonials from "@/components/homepage/OurTestimonials";
 import OurClient from "@/components/OurClient";
 import PdfDownloadSection from "@/components/PdfDownloadSection"
 import OurFaqs from "@/components/OurFaqs";
-
-import TextEffect from "@/components/TextEffect";
 import Preloader  from "@/components/Preloader";
+import { fetchAboutPage } from "@/store/slices/aboutSlice";
 
 
 export default function Home() {
 
   const dispatch = useDispatch();
   const { loading, error, homeData } = useSelector((state) => state.home);
-  const clients = useSelector((state) => state.client.clients);
+  const { aboutData } = useSelector((state) => state.about);
   const { list:testimonialsList } = useSelector((state) => state.testimonials);
+  const clients = useSelector((state) => state.client.clients);
 
   useEffect(() => {
     dispatch(fetchHomePageData());
@@ -42,6 +42,12 @@ export default function Home() {
       dispatch(fetchClients());
     }
   }, [dispatch, clients]);
+
+  useEffect(() => {
+  if (!aboutData.business_scope.items.length) {
+    dispatch(fetchAboutPage());
+  }
+}, [dispatch, aboutData.business_scope.items.length]);
 
 
   useEffect(() => {
@@ -246,7 +252,7 @@ export default function Home() {
         </div>
       </div>
       <PdfDownloadSection />
-      <div className="pb-5"><OurFaqs /></div>
+      <div className="pb-5"><OurFaqs data={aboutData?.faqs}/></div>
 
     </>
   )

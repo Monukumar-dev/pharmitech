@@ -1,5 +1,4 @@
 import Gallery from "./Gallery";
-import ProjectGallery from "./ProjectGallery";
 
 
 async function getGallery() {

@@ -12,7 +12,7 @@ export default function Accordion({ items }) {
     <div className="faq-accordion" id="accordion">
       {items.map((item, index) => (
         <div
-          key={index}
+          key={item.id}
           className="accordion-item wow fadeInUp"
           data-wow-delay={`${index * 0.2}s`}
         >

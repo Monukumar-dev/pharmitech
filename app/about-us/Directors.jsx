@@ -2,6 +2,7 @@
 
 import styles from "@/styles/DirectorsMessage.module.css";
 import TextEffect from "@/components/TextEffect";
+import {toCapitalize} from "@/utils/helper"
 
 export default function Directors({ members = [] }) {
   return (
@@ -12,7 +13,7 @@ export default function Directors({ members = [] }) {
       <div className={styles.bgCircleBottom}></div>
 
       <div className="container position-relative">
-        <div className="row section-row align-items-center justify-content-center mb-5">
+        <div className="row section-row align-items-center justify-content-center mb-0">
               <div className="col-lg-6">
                 <div className="section-title">
                   <h3 className="wow fadeInUp">BOARD OF DIRECTORS</h3>
@@ -64,7 +65,7 @@ export default function Directors({ members = [] }) {
               >
                 {director.name}
                 <br />
-                <em>{director.experience_years}+ Years Experience</em>
+                <em>{toCapitalize(director.position)}</em>
               </h2>
 
               <div
@@ -95,7 +96,7 @@ export default function Directors({ members = [] }) {
               <div className={styles.imageDeco}></div>
 
               <img
-                src={director.image}
+                src={director.image_url}
                 alt={director.name}
                 width={300}
                 height={440}

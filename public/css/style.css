@@ -371,7 +371,7 @@ header.main-header .header-sticky.active {
 }
 .tech-small{
     font-size:20px;
-    color:#1c7ed6;
+    color:var(--accent-color);
     margin-bottom:10px;
 }
 
@@ -382,7 +382,7 @@ header.main-header .header-sticky.active {
 }
 
 .tech-title span{
-    color:#1c7ed6;
+    color:var(--accent-color);
     font-weight:700;
 }
 
@@ -408,7 +408,7 @@ header.main-header .header-sticky.active {
     width:42px;
     height:42px;
     border-radius:50%;
-    background:linear-gradient(135deg,#1c7ed6,#3b8beb);
+    background:linear-gradient(135deg,var(--accent-color),#3b8beb);
     color:#fff;
     display:flex;
     align-items:center;

@@ -2,34 +2,9 @@ import TextEffect from "./TextEffect";
 import Accordion from "./Accordion";
 import Button from "@/components/UI/Button/Button";
 
-export default function OurFaqs() {
-  const faqData = [
-    {
-      question: "What types of workspaces do you offer?",
-      answer:
-        "We offer hot desks, dedicated desks, private offices, and creative studios for individuals and teams.",
-    },
-    {
-      question: "Is high-speed internet included in all plans?",
-      answer:
-        "Yes, ultra-fast internet is included in all membership plans.",
-    },
-    {
-      question: "Are meeting rooms available to all members?",
-      answer:
-        "Meeting rooms can be booked by members depending on their selected plan.",
-    },
-    {
-      question: "What amenities are included in my membership?",
-      answer:
-        "Amenities include Wi-Fi, meeting rooms, community events, refreshments, and lounge access.",
-    },
-    {
-      question: "Are pets allowed in the coworking space?",
-      answer:
-        "Pet policies vary by location. Contact us for details.",
-    },
-  ];
+export default function OurFaqs({data}) {
+
+ if (!data) return null;
 
   return (
     <div className="our-faqs pb-0">
@@ -47,14 +22,14 @@ export default function OurFaqs() {
                 </p>
               </div>
 
-              <div className="our-faqs-btn">
+              {/* <div className="our-faqs-btn">
                 <Button variant="primary" href="/faqs" >View all FAQs</Button>
-              </div>
+              </div> */}
             </div>
           </div>
 
           <div className="col-xl-6">
-            <Accordion items={faqData} />
+            <Accordion items={data} />
           </div>
 
         </div>

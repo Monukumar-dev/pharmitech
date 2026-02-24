@@ -88,7 +88,7 @@
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--accent-color);
   margin-bottom: 18px;
 }
 
@@ -101,10 +101,10 @@
 }
 
 .heading em {
-  font-style: italic;
-  color: var(--primary);
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  color: var(--accent-color);
 }
-
 
 /* ═════════ QUOTE ═════════ */
 
@@ -114,7 +114,7 @@
   margin-bottom: 24px;
   padding: 18px 22px;
   background: rgba(7,158,215,0.08);
-  border-left: 3px solid var(--primary);
+  border-left: 3px solid var(--accent-color);
 }
 
 .quoteText {
@@ -160,7 +160,7 @@
   transform: translateX(-50%);
   width: 340px;
   height: 430px;
-  background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(160deg, var(--accent-color) 0%, var(--primary-dark) 100%);
   clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
   opacity: 0.15;
 }
@@ -229,7 +229,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--primary);
+  background: var(--accent-color);
   padding: 12px 18px;
   box-shadow: 0 8px 30px rgba(7,158,215,0.4);
 }

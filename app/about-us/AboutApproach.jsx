@@ -2,7 +2,7 @@
 import Button from "@/components/UI/Button/Button";
 import TextEffect from "../../components/TextEffect";
 
-export default function AboutApproach() {
+export default function AboutApproach(props) {
   return (
       <div className="our-approach bg-section">
         <div className="container">
@@ -33,38 +33,31 @@ export default function AboutApproach() {
           <div className="row align-items-center">
             <div className="col-xl-4">
               <div className="approach-item-list">
-                {[
-                  {
-                    img: "icon-approach-1.svg",
-                    title: "Our Mission",
-                    text: "Provide modern professionals with flexible spaces.",
-                  },
-                  {
-                    img: "icon-approach-2.svg",
-                    title: "Our Vision",
-                    text: "Redefine the way professionals connect.",
-                  },
-                  {
-                    img: "icon-approach-3.svg",
-                    title: "Our Future",
-                    text: "Build collaborative work ecosystems.",
-                  },
-                ].map((item, i) => (
-                  <div
+                <div
                     className="approach-item wow fadeInUp"
-                    data-wow-delay={`${i * 0.2}s`}
-                    key={i}
+                    data-wow-delay="0.2s"
                   >
                     <div className="icon-box">
-                      <img src={`/images/${item.img}`} alt="" />
+                      <img src={`/images/icon-approach-1.svg`} alt="" />
                     </div>
-
                     <div className="approach-item-content">
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
+                      <h3>{props?.mission?.name}</h3>
+                      <p>{props?.mission?.data}</p>
+                    </div>
+                </div>
+
+                <div
+                    className="approach-item wow fadeInUp"
+                    data-wow-delay="0.4s"
+                  >
+                    <div className="icon-box">
+                      <img src={`/images/icon-approach-2.svg`} alt="" />
+                    </div>
+                    <div className="approach-item-content">
+                      <h3>{props?.vision?.name}</h3>
+                      <p>{props?.vision?.data}</p>
                     </div>
                   </div>
-                ))}
               </div>
             </div>
 
@@ -75,7 +68,7 @@ export default function AboutApproach() {
               >
                 <div className="approach-image">
                   <figure className="image-anime">
-                    <img src="/images/approach-image.jpg" alt="" />
+                    <img src="/images/hero-bg-image-silver11.jpg" alt="" />
                   </figure>
                 </div>
 

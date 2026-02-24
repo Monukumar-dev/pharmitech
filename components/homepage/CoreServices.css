@@ -4,14 +4,23 @@
 
 
 .cs-section {
-  height: 100vh;
+  /* height: 100vh; */
+  /* overflow: hidden; */
   min-height: 100vh;
-  overflow: hidden;
   position: relative;
   background: #0d0d0d;
   border-radius: 32px;
   padding: 0 20px;
   --cs-color: #f97316; 
+}
+.cs-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 56px 60px;
+  overflow: hidden;
 }
 
 .cs-blob {
@@ -41,14 +50,7 @@
   z-index: 0;
 }
 
-.cs-inner {
-  position: relative;
-  z-index: 2;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 56px 60px;
-}
+
 
 .cs-header {
   display: flex;

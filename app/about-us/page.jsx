@@ -27,9 +27,11 @@ export default function AboutUs() {
   
 
   // 🔥 Fetch About Data
-  useEffect(() => {
+ useEffect(() => {
+  if (!aboutData.business_scope.items.length) {
     dispatch(fetchAboutPage());
-  }, [dispatch]);
+  }
+}, [dispatch, aboutData.business_scope.items.length]);
 
   // 🔥 Fetch Clients Only If Empty
   useEffect(() => {
@@ -63,28 +65,12 @@ export default function AboutUs() {
         ]}
       />
 
-      {/* 🔥 Pass API Data Down */}
       <AboutWorkspace content={aboutData?.content} />
-
-      <AboutApproach
-        vision={aboutData?.vision}
-        mission={aboutData?.mission}
-      />
-
-      <WhyChooseUs
-        businessScope={aboutData?.business_scope}
-      />
-
-      {/* <IntroVideo /> */}
-
-      {/* <Directors members={aboutData?.board_of_directors?.members} /> */}
+      <AboutApproach vision={aboutData?.vision} mission={aboutData?.mission} />
+      <WhyChooseUs businessScope={aboutData?.business_scope} />
       <Directors members={aboutData?.board_of_directors?.members} />
-
       <OurTestimonials />
-
-      <OurFaqs
-        industries={aboutData?.industries_served}
-      />
+      <OurFaqs data={aboutData?.faqs}/>
 
       {/* Clients */}
       <div className="container pb-5">
