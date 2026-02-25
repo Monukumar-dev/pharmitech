@@ -2,7 +2,7 @@
 
 import styles from "@/styles/events.module.css";
 
-export default function HeroSection({ upcomingCount }) {
+export default function HeroSection({ upcomingCount , pastEvents }) {
   return (
     <section className={styles.hero}>
       <div className={styles.heroLeft}>
@@ -36,7 +36,7 @@ export default function HeroSection({ upcomingCount }) {
           </div>
 
           <div>
-            <div className={styles.statNumber}>150+</div>
+            <div className={styles.statNumber}>{pastEvents}</div>
             <div className={styles.statLabel}>Past Events</div>
           </div>
         </div>

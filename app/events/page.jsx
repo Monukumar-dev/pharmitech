@@ -30,7 +30,7 @@ export default function EventsPage() {
   }
   return (
     <>
-    <HeroSection upcomingCount={upcomingEvents.length} />
+    <HeroSection upcomingCount={upcomingEvents.length}  pastEvents={pastEvents.length} />
     <UpcomingSection events={upcomingEvents} loading={loading} />
     <PastEvents events={pastEvents} loading={loading} />
     </>
