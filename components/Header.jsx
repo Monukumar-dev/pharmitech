@@ -6,10 +6,15 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import Button from "@/components/UI/Button/Button";
 
+import * as url from "@/utils/Url";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false);
+  const [turnkeyData, setTurnkeyData] = useState(null);
   const pathname = usePathname()
+
+  const base_url = url.BASE_URL; // use env
 
 
   useEffect(() => {
@@ -19,6 +24,24 @@ export default function Header() {
   window.addEventListener("scroll", handleScroll);
   return () => window.removeEventListener("scroll", handleScroll);
 }, []);
+
+  // ✅ Fetch Category Products
+  useEffect(() => {
+    const fetchTurnkeyMenu = async () => {
+      try {
+        const res = await fetch(`${base_url}/api/category-products`);
+        const data = await res.json();
+
+        if (data?.status) {
+          setTurnkeyData(data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching turnkey menu:", error);
+      }
+    };
+
+    fetchTurnkeyMenu();
+  }, [base_url]);
 
   const isHome = pathname === "/"
 
@@ -62,7 +85,47 @@ export default function Header() {
                   
 
                   {/* Turnkey Solutions */}
-                  <li className="nav-item submenu">
+
+                  {turnkeyData && (
+                    <li className="nav-item submenu">
+                      <a className="nav-link">{turnkeyData.name}</a>
+                      <ul>
+
+                        {turnkeyData.categories.map((category) => (
+                          <li key={category.id} className="nav-item submenu">
+                            <Link href="#" className="nav-link">{category.name}</Link>
+                            <ul>
+                              {category.subcategories.map((sub) => (
+                                <li key={sub.id} className="nav-item submenu">
+                                  <Link className="nav-link" href={`/products/${sub.id}`}>{sub.name}</Link>
+
+                                  {/* {sub.products?.length > 0 && (
+                                    <ul>
+                                      {sub.products.map((product) => (
+                                        <li key={product.product_id}>
+                                          <Link
+                                            className="nav-link"
+                                            href={`/products/${product.product_id}`}
+                                          >
+                                            {product.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  )} */}
+
+                                </li>
+                              ))}
+
+                            </ul>
+                          </li>
+                        ))}
+
+                      </ul>
+                    </li>
+                  )}
+
+                  {/* <li className="nav-item submenu">
                     <a className="nav-link">Turnkey Solutions</a>
                     <ul>
 
@@ -92,7 +155,8 @@ export default function Header() {
                       </li>
 
                     </ul>
-                  </li>
+                  </li> */}
+
 
                   {/* Insights */}
                   <li className="nav-item submenu">

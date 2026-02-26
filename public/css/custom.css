@@ -2322,7 +2322,7 @@ header.main-header .header-sticky.active{
 .faq-accordion .accordion-item{
 	position: relative;
 	border-radius: 0;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 .faq-accordion .accordion-item:last-child{
@@ -2330,7 +2330,7 @@ header.main-header .header-sticky.active{
 }
 
 .faq-accordion .accordion-header .accordion-button{
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.4em;
     background: transparent;

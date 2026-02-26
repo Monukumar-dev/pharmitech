@@ -8,8 +8,8 @@ import { fetchServiceBySlug } from "../../../store/action/servicesAction";
 
 import OurClient from "../../../components/OurClient"
 import { fetchClients } from "@/store/slices/clientSlice";
-import ServiceSidebar from "./ServiceSidebar"
 
+import ServiceSidebar from "./ServiceSidebar"
 export default function ServiceDetails({ params }) {
 
  
