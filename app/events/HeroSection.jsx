@@ -13,9 +13,8 @@ export default function HeroSection({ upcomingCount , pastEvents }) {
           </span>
         </div>
 
-        <h1 className={styles.heading}>
-          Events & <br />
-          <em>Exhibitions</em>
+        <h1 data-cursor="-opaque" className={styles.heading}>
+            Events & <br /> <em>Exhibitions</em>
         </h1>
 
         <p className={styles.description}>
@@ -30,12 +29,12 @@ export default function HeroSection({ upcomingCount , pastEvents }) {
         </p>
 
         <div className={styles.stats}>
-          <div>
+          <div data-cursor="-opaque">
             <div className={styles.statNumber}>{upcomingCount}</div>
             <div className={styles.statLabel}>Upcoming</div>
           </div>
 
-          <div>
+          <div data-cursor="-opaque">
             <div className={styles.statNumber}>{pastEvents}</div>
             <div className={styles.statLabel}>Past Events</div>
           </div>

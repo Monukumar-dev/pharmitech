@@ -2,7 +2,7 @@
 
 import "@/styles/pastEvents.css";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -13,8 +13,6 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import "yet-another-react-lightbox/styles.css";
-import TextEffect from "../../components/TextEffect";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -25,35 +23,74 @@ export default function PastEvents({ events = [] }) {
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
 
-  // 🔥 Convert API media to Lightbox slides
+  /* ---------------------------------- */
+  /* 🔥 Extract YouTube ID safely */
+  /* ---------------------------------- */
+  const extractYoutubeId = (url) => {
+    const match = url?.match(/embed\/([^?]+)/);
+    return match ? match[1] : "";
+  };
+
+  /* ---------------------------------- */
+  /* 🔥 Convert API media to slides */
+  /* ---------------------------------- */
   const buildSlides = (event) => {
-  const imageSlides =
-    event.pictures_list?.map((img) => ({
-      type: "image",
-      src: img.url,
-      title: event.title,
-      subtitle: `${event.event_from_date} – ${event.event_to_date}`,
-    })) || [];
+    const imageSlides =
+      event.pictures_list?.map((img) => ({
+        type: "image",
+        src: img.url,
+        title: event.title,
+        subtitle: `${event.event_from_date} – ${event.event_to_date}`,
+      })) || [];
 
-  const youtubeSlides =
-    event.youtube_videos_list?.map((vid) => ({
-      type: "video",
-      sources: [{ src: vid.url, type: "text/html" }],
-      title: event.title,
-      subtitle: "YouTube Video",
-    })) || [];
+    const youtubeSlides =
+      event.youtube_videos_list?.map((vid) => ({
+        type: "video",
+        sources: [
+          {
+            src: vid.url,
+            type: "text/html",
+          },
+        ],
+        poster: `https://img.youtube.com/vi/${extractYoutubeId(
+          vid.url
+        )}/hqdefault.jpg`,
+        title: event.title,
+        subtitle: "YouTube Video",
+      })) || [];
 
-  const localVideoSlides =
-    event.local_videos_list?.map((vid) => ({
-      type: "video",
-      sources: [{ src: vid.url, type: "video/mp4" }],
-      title: event.title,
-      subtitle: "Event Video",
-    })) || [];
+    const localVideoSlides =
+      event.local_videos_list?.map((vid) => ({
+        type: "video",
+        sources: [
+          {
+            src: vid.url,
+            type: "video/mp4",
+          },
+        ],
+        title: event.title,
+        subtitle: "Event Video",
+      })) || [];
 
-  return [...imageSlides, ...youtubeSlides, ...localVideoSlides];
-};
+    return [...imageSlides, ...youtubeSlides, ...localVideoSlides];
+  };
 
+  /* ---------------------------------- */
+  /* 🔥 Disable ScrollTrigger while popup open */
+  /* ---------------------------------- */
+  useEffect(() => {
+    if (open) {
+      ScrollTrigger.getAll().forEach((st) => st.disable());
+      document.body.style.overflow = "hidden";
+    } else {
+      ScrollTrigger.getAll().forEach((st) => st.enable());
+      document.body.style.overflow = "";
+    }
+  }, [open]);
+
+  /* ---------------------------------- */
+  /* 🔥 Horizontal Scroll GSAP */
+  /* ---------------------------------- */
   useGSAP(() => {
     const scope = container.current;
     if (!scope) return;
@@ -62,6 +99,8 @@ export default function PastEvents({ events = [] }) {
     const outer = scope.querySelector("#hScrollOuter");
     const sticky = scope.querySelector(".h-scroll-sticky");
     const dotsEl = scope.querySelector("#hScrollDots");
+
+    if (!track || !outer || !sticky) return;
 
     const cards = track.querySelectorAll(".ban-card");
     const totalCards = cards.length;
@@ -99,10 +138,8 @@ export default function PastEvents({ events = [] }) {
       pin: sticky,
       scrub: 1,
       onUpdate: (self) => {
-        gsap.to(track, {
+        gsap.set(track, {
           x: -self.progress * getScrollDist(),
-          ease: "none",
-          duration: 0,
         });
 
         const activeIdx = Math.round(
@@ -118,6 +155,9 @@ export default function PastEvents({ events = [] }) {
     return () => st.kill();
   }, { scope: container, dependencies: [events] });
 
+  /* ---------------------------------- */
+  /* 🔥 Card size logic */
+  /* ---------------------------------- */
   const getCardSizeClass = (index, total) => {
     if (total === 1) return "bc-xl";
     if (index === 0) return "bc-xl";
@@ -129,13 +169,14 @@ export default function PastEvents({ events = [] }) {
     <>
       <section className="upcoming-section" ref={container}>
         <div className="sec-break g-up pt-4">
-            <div className="sb-num">02</div>
-            <div className="sb-info">
-                <div className="sb-label">Look Back</div>
-                <div className="sb-title">Past Events &amp; Exhibitions</div>
+          <div className="sb-num">02</div>
+          <div className="sb-info">
+            <div className="sb-label">Look Back</div>
+            <div className="sb-title">
+              Past Events & Exhibitions
             </div>
-            <div className="sb-line"></div>
-            {/* <p className="sb-link">{events.length} Event{events.length !== 1 && "s"}</p> */}
+          </div>
+          <div className="sb-line"></div>
         </div>
 
         <div className="h-scroll-outer" id="hScrollOuter">
@@ -145,13 +186,23 @@ export default function PastEvents({ events = [] }) {
               {events.map((event, indexCard) => (
                 <div
                   key={event.id}
-                  className={`ban-card ${getCardSizeClass(indexCard, events.length)}`}
+                  className={`ban-card ${getCardSizeClass(
+                    indexCard,
+                    events.length
+                  )}`}
                   onClick={() => {
                     const allSlides = buildSlides(event);
+                    if (!allSlides.length) return;
+
                     setSlides(allSlides);
                     setIndex(0);
-                    setOpen(true);
+
+                    // Prevent blank screen
+                    setTimeout(() => {
+                      setOpen(true);
+                    }, 0);
                   }}
+                  data-cursor-text="View"
                 >
                   <img
                     className="ban-img"
@@ -191,30 +242,37 @@ export default function PastEvents({ events = [] }) {
         <div className="h-scroll-progress" id="hScrollDots"></div>
       </section>
 
-   <Lightbox
-  open={open}
-  close={() => setOpen(false)}
-  slides={slides}
-  index={index}
-  plugins={[Video, Thumbnails]}
-  thumbnails={{
-    position: "bottom",
-    width: 80,
-    height: 60,
-    borderRadius: 6,
-  }}
-  render={{
-    slideFooter: ({ slide }) => (
-      <div className="custom-lightbox-caption">
-        <div className="clb-title">{slide.title}</div>
-        {slide.subtitle && (
-          <div className="clb-subtitle">{slide.subtitle}</div>
-        )}
-      </div>
-    ),
-  }}
-/>
-          
+      {/* 🔥 SAFE LIGHTBOX */}
+      <Lightbox
+        open={open && slides.length > 0}
+        close={() => setOpen(false)}
+        slides={slides}
+        index={Math.min(index, slides.length - 1)}
+        carousel={{
+          finite: slides.length === 1,
+        }}
+        plugins={[Video, Thumbnails]}
+        thumbnails={{
+          position: "bottom",
+          width: 80,
+          height: 60,
+          borderRadius: 6,
+        }}
+        render={{
+          slideFooter: ({ slide }) => (
+            <div className="custom-lightbox-caption">
+              <div className="clb-title">
+                {slide?.title}
+              </div>
+              {slide?.subtitle && (
+                <div className="clb-subtitle">
+                  {slide.subtitle}
+                </div>
+              )}
+            </div>
+          ),
+        }}
+      />
     </>
   );
 }

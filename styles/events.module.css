@@ -19,6 +19,34 @@
   --hero-decor: rgba(255, 255, 255, 0.05);
 }
 
+
+.lightboxCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 60px 30px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  color: #fff;
+  pointer-events: none;
+  text-align: center;
+}
+
+.lbTitle {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.lbSubtitle {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.75;
+}
 /* ───────────────────────────────────────── */
 /* HERO SECTION */
 /* ───────────────────────────────────────── */
