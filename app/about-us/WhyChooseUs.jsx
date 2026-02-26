@@ -1,7 +1,7 @@
 import TextEffect from "../../components/TextEffect";
 import Button from "@/components/UI/Button/Button";
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({data}) {
   return (
     <div className="why-choose-us-elite">
       <div className="container">
@@ -12,82 +12,60 @@ export default function WhyChooseUs() {
             <div className="why-choose-content-elite">
               
               <div className="section-title">
-                <h3 className="wow fadeInUp">Why Choose Us</h3>
+                <h3 className="wow fadeInUp">{data?.name}</h3>
 
                 <div className="text-effect" data-cursor="-opaque">
-                  <TextEffect text="Designed for productivity, built for community" />
+                  <TextEffect text={data?.headline} />
                 </div>
 
                 <p className="wow fadeInUp" data-wow-delay="0.2s">
-                  Every detail of our coworking spaces is crafted to balance
-                  focus and collaboration, giving you the tools and
-                  environment you need to thrive.
+                  {data?.description}
                 </p>
               </div>
 
               <div className="why-choose-body-elite">
-                
-                {/* Items */}
                 <div className="why-choose-item-list-elite">
-                  
+
+                {data?.items?.map((item, i) =>(
                   <div
+                   key={i}
                     className="why-choose-item-elite wow fadeInUp"
                     data-wow-delay="0.4s"
                   >
                     <div className="icon-box">
-                      <img
-                        src="/images/icon-why-choose-us-1-elite.svg"
-                        alt=""
-                      />
+                      <img src={item.icon} alt={item.title} />
                     </div>
 
                     <div className="why-choose-item-content-elite">
-                      <h3>Flexible Plans That Fits</h3>
-                      <p>
-                        Choose from day passes, hot desk pay only what you
-                        need.
-                      </p>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
                     </div>
                   </div>
-
-                  <div
-                    className="why-choose-item-elite wow fadeInUp"
-                    data-wow-delay="0.6s"
-                  >
-                    <div className="icon-box">
-                      <img
-                        src="/images/icon-why-choose-us-2-elite.svg"
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="why-choose-item-content-elite">
-                      <h3>Community That Inspires</h3>
-                      <p>Work alongside startups and growing teams.</p>
-                    </div>
+                ))}
                   </div>
-
-                </div>
-
-                {/* List */}
+                
                 <div
                   className="why-choose-list-elite wow fadeInUp"
                   data-wow-delay="0.8s"
                 >
                   <ul>
-                    <li>A Thriving Community of Professional.</li>
-                    <li>Tailored Plans That Balance Flexibility.</li>
+                    {data?.highlights?.map((item,i) => (
+                        <li key={i}>{item}</li>
+                    ))}
                   </ul>
                 </div>
 
-                {/* Button */}
-                <div
-                  className="why-choose-btn-elite wow fadeInUp"
-                  data-wow-delay="1s"
-                >
-                  <Button variant="primary" href="/contact" >Get Started Now</Button>
-                </div>
-
+                {data?.button?.url && (
+                  <div
+                    className="why-choose-btn-elite wow fadeInUp"
+                    data-wow-delay="1s"
+                  >
+                    <Button variant="primary" href={data?.button?.url}>
+                      {data?.button?.text}
+                    </Button>
+                  </div>
+                )}
+              
               </div>
             </div>
           </div>
@@ -101,7 +79,7 @@ export default function WhyChooseUs() {
                 <div className="why-choose-img-1-elite">
                   <figure className="image-anime">
                     <img
-                      src="/images/services/CleanroomConceptDetailedDesign.jpg"
+                      src={data?.images?.box_1[0].image}
                       alt=""
                     />
                   </figure>
@@ -110,15 +88,15 @@ export default function WhyChooseUs() {
                 <div className="why-choose-img-2-elite">
                   <figure className="image-anime">
                     <img
-                      src="/images/cleanroom-wall-ceiling-door.jpg"
+                      src={data?.images?.box_1[1].image}
                       alt=""
                     />
                   </figure>
 
                   <div className="contact-us-circle-elite">
-                    <a href="/contact">
+                    <a href={data?.images?.box_1[1].link_url}>
                       <img
-                        src="/images/contact-us-circle-elite.svg"
+                        src={data?.images?.box_1[1].link_icon}
                         alt=""
                       />
                     </a>
@@ -131,7 +109,7 @@ export default function WhyChooseUs() {
                 <div className="why-choose-img-3-elite">
                   <figure>
                     <img
-                      src="/images/why-choose-us-image-3-elite.png"
+                      src={data?.images?.box_2[0].image}
                       alt=""
                     />
                   </figure>

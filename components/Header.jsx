@@ -98,7 +98,7 @@ export default function Header() {
                   <li className="nav-item submenu">
                     <a className="nav-link">Insights</a>
                     <ul>
-                      <li><Link className="nav-link" href="/case-studies">Case Studies</Link></li>
+                      {/* <li><Link className="nav-link" href="/case-studies">Case Studies</Link></li> */}
                       <li><Link className="nav-link" href="/clientele">Clientele</Link></li>
                       <li><Link className="nav-link" href="/blogs">Blogs</Link></li>
                       <li><Link className="nav-link" href="/events">Events</Link></li>

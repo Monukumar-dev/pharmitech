@@ -2,37 +2,33 @@
 
 import TextEffect from "../../components/TextEffect";
 
-export default function AboutWorkspace() {
+export default function AboutWorkspace({data}) {
   return (
       <div className="about-us">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3">
+            <div className="col-xl-4">
               <div className="about-us-info">
                 <div className="section-sub-title">
-                  <h3 className="wow fadeInUp">About Our Workspace</h3>
+                  <h3 className="wow fadeInUp mb-4">{data.name}</h3>
+                  <TextEffect text="Precision, Quality & Innovation in Pharmaceutical Cleanrooms" />
                 </div>
 
+
                 <div className="contact-us-circle">
-                  <a href="/contact">
+                  <a href="/customers">
                     <img src="/images/contact-us-circle.svg" alt="" />
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="col-xl-9">
+            <div className="col-xl-8">
               <div className="about-us-content">
                 <div className="section-title">
-                 
-                  <TextEffect text="Transforming the way people work by design collaborative
-                    comfortable and modern environments that spark creativity
-                    and build stronger" />
-
+                  
                   <p className="wow fadeInUp">
-                    From flexible office solutions to dedicated member
-                    services, we provide you need to thrive - fast Wi-Fi,
-                    meeting rooms, modern amenities, and a vibrant community.
+                    {data.content}
                   </p>
                 </div>
 

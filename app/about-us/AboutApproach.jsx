@@ -10,7 +10,7 @@ export default function AboutApproach(props) {
             <div className="col-xl-6">
               <div className="section-title">
                 <h3 className="wow fadeInUp">Our Approach</h3>
-                <TextEffect text="Building workspaces designed for growth and innovation" />
+                <TextEffect text="GMP-Compliant Engineering Excellence" />
               </div>
             </div>
 
@@ -18,13 +18,12 @@ export default function AboutApproach(props) {
               <div className="section-content-btn">
                 <div className="section-title-content">
                   <p className="wow fadeInUp" data-wow-delay="0.2s">
-                    At our co-working spaces, we believe work should be
-                    inspiring, flexible, and community-driven.
+                  Our approach is guided by GMP regulations and ISO standards to deliver fully compliant cleanroom solutions. We focus on precise requirement analysis, cleanroom classification, and optimized HVAC design for effective contamination control. Through expert engineering, validated installation, and strict quality assurance, we ensure reliable and energy-efficient performance tailored to pharmaceutical and allied industries.
                   </p>
                 </div>
 
                 <div className="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                  <Button variant="primary" href="/contact" >Learn More</Button>
+                  <Button variant="primary" href="/customers" >Learn More</Button>
                 </div>
               </div>
             </div>
@@ -84,7 +83,7 @@ export default function AboutApproach(props) {
                     <h2>
                       <span className="counter">150</span>+
                     </h2>
-                    <p>Networking Events</p>
+                    <p>Events</p>
                   </div>
                 </div>
               </div>

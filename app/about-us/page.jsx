@@ -65,9 +65,9 @@ export default function AboutUs() {
         ]}
       />
 
-      <AboutWorkspace content={aboutData?.content} />
+      <AboutWorkspace data={aboutData} />
       <AboutApproach vision={aboutData?.vision} mission={aboutData?.mission} />
-      <WhyChooseUs businessScope={aboutData?.business_scope} />
+      <WhyChooseUs data={aboutData?.why_choose_us} />
       <Directors members={aboutData?.board_of_directors?.members} />
       <OurTestimonials />
       <OurFaqs data={aboutData?.faqs}/>
