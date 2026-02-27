@@ -25,8 +25,6 @@ async function getProduct(id) {
 
 /* ---------- PAGE ---------- */
 export default async function ProductDetails({ params }) {
-
-  // 🔥 IMPORTANT for Next 15
   const { id } = await params;
 
   if (!id) return notFound();
@@ -34,6 +32,13 @@ export default async function ProductDetails({ params }) {
   const product = await getProduct(id);
 
   if (!product) return notFound();
+
+  return (
+    <div className="container p-5 text-center">
+       <h1 className="card-title fw-bold mb-2">Coming Soon...</h1>
+      <p className="mb-0">We're working on something awesome. Stay tuned!</p>
+    </div>
+  )
 
   return (
     <div className="container py-5">
