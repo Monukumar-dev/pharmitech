@@ -21,7 +21,7 @@ export default function OurBlog() {
 
 
   return (
-    <div className="our-blog-silver">
+    <div className="our-blog-silver bgPattern1">
       <div className="container">
         <div className="row section-row">
           <div className="col-xl-12">

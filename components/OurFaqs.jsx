@@ -7,7 +7,7 @@ export default function OurFaqs({data}) {
  if (!data) return null;
 
   return (
-    <div className="our-faqs pb-0">
+    <div className="our-faqs pb-0 bgPattern1">
       <div className="container">
         <div className="row">
           

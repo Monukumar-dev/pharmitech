@@ -13,7 +13,7 @@ export default function WhatWeDoSilver() {
   if (!homeData) return null;
 
   return (
-    <section className="what-we-do-silver">
+    <section className="what-we-do-silver bgPattern1">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-xl-6">

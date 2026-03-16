@@ -73,7 +73,7 @@ export default function AboutUs() {
       <OurFaqs data={aboutData?.faqs}/>
 
       {/* Clients */}
-      <div className="container pb-5">
+      <div className="container pb-5 bgPattern1">
         <OurClient />
       </div>
     </>

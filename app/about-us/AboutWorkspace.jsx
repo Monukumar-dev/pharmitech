@@ -4,7 +4,7 @@ import TextEffect from "../../components/TextEffect";
 
 export default function AboutWorkspace({data}) {
   return (
-      <div className="about-us">
+      <div className="about-us bgPattern1">
         <div className="container">
           <div className="row">
             <div className="col-xl-4">

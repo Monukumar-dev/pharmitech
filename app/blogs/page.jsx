@@ -33,7 +33,7 @@ export default function Blogs() {
         ]}
       />
 
-      <div className="page-blog">
+      <div className="page-blog bgPattern1">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

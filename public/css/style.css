@@ -438,8 +438,9 @@ header.main-header .header-sticky.active {
 }
 
 .company-supports-logo img {
-    max-width: 130px;
-    height: auto;
+    max-width: auto;
+    width: auto;
+    height: 60px;
 }
 
 

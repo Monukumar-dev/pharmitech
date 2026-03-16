@@ -14,7 +14,11 @@ export default function Header() {
   const [turnkeyData, setTurnkeyData] = useState(null);
   const pathname = usePathname()
 
-  const base_url = url.BASE_URL; // use env
+  const base_url = url.BASE_URL; 
+
+
+  //console.log("turnkeyData", turnkeyData);
+  
 
 
   useEffect(() => {
@@ -90,37 +94,38 @@ export default function Header() {
                     <li className="nav-item submenu">
                       <a className="nav-link">{turnkeyData.name}</a>
                       <ul>
-
                         {turnkeyData.categories.map((category) => (
                           <li key={category.id} className="nav-item submenu">
-                            <Link href="#" className="nav-link">{category.name}</Link>
+
+                            <span className="nav-link">{category.name}</span>
+
                             <ul>
                               {category.subcategories.map((sub) => (
                                 <li key={sub.id} className="nav-item submenu">
-                                  <Link className="nav-link" href={`/products/${sub.id}`}>{sub.name}</Link>
 
-                                  {/* {sub.products?.length > 0 && (
+                                  <span className="nav-link">{sub.name}</span>
+
+                                  {sub.products?.length > 0 && (
                                     <ul>
                                       {sub.products.map((product) => (
                                         <li key={product.product_id}>
                                           <Link
                                             className="nav-link"
-                                            href={`/products/${product.product_id}`}
+                                            href={`/products/${product.slug}`}
                                           >
                                             {product.name}
                                           </Link>
                                         </li>
                                       ))}
                                     </ul>
-                                  )} */}
+                                  )}
 
                                 </li>
                               ))}
-
                             </ul>
+
                           </li>
                         ))}
-
                       </ul>
                     </li>
                   )}

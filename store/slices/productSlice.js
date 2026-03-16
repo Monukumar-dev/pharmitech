@@ -1,63 +1,54 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getAllProducts, getFilter, getProductsById } from "../action/productAction";
-import { STATUS } from "../../constants/Status";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import * as url from "@/utils/Url";
+
+
+/* ---------- FETCH PRODUCT ---------- */
+
+export const fetchProduct = createAsyncThunk(
+  "product/fetchProduct",
+  async (slug) => {
+
+    const res = await fetch(`${url.BASE_URL}/api/product/${slug}`);
+    const data = await res.json();
+
+    if (data?.status) {
+      return data.data;
+    }
+
+    throw new Error("Product not found");
+  }
+);
+
 
 const productSlice = createSlice({
-    name: 'product',
-    initialState: {
-        data: [],
-        status: STATUS.IDLE,
-        filters: {},
-    },
+  name: "product",
+  initialState: {
+    product: null,
+    loading: false,
+    error: null,
+  },
 
-    reducers: {},
-    extraReducers: (builder) => {
-      //getAllProducts
-        builder
-          .addCase(getAllProducts.pending, (state, action) => {
-            state.status = STATUS.LOADING;
-          })
-          .addCase(getAllProducts.fulfilled, (state, action) => {
-            state.data = action.payload;
-            state.status = STATUS.IDLE;
-          })
-          .addCase(getAllProducts.rejected, (state, action) => {
-            state.status = STATUS.ERROR;
-          });
+  reducers: {},
 
-          //getProductsById
-          builder
-          .addCase(getProductsById.pending, (state, action) => {
-            state.status = STATUS.LOADING;
-          })
-          .addCase(getProductsById.fulfilled, (state, action) => {
-            state.data = action.payload;
-            state.status = STATUS.IDLE;
-          })
-          .addCase(getProductsById.rejected, (state, action) => {
-            state.status = STATUS.ERROR;
-          });
+  extraReducers: (builder) => {
 
-          //getProductsById
-          builder
-          .addCase(getFilter.pending, (state, action) => {
-            state.status = STATUS.LOADING;
-          })
-          .addCase(getFilter.fulfilled, (state, action) => {
-            state.status = STATUS.IDLE;
-            state.filters.category = action.payload.category;
-            state.filters.color = action.payload.color;
-            state.filters.size = action.payload.size;
-            state.filters.minPrice = action.payload.minPrice;
-            state.filters.maxPrice = action.payload.maxPrice;
-          })
-          .addCase(getFilter.rejected, (state, action) => {
-            state.status = STATUS.ERROR;
-          });
-   
-      },
+    builder
 
-})
-//console.log(productSlice);
-export const { setProducts, setStatus } = productSlice.actions;
+      .addCase(fetchProduct.pending, (state) => {
+        state.loading = true;
+      })
+
+      .addCase(fetchProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.product = action.payload;
+      })
+
+      .addCase(fetchProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+
+  },
+});
+
 export default productSlice.reducer;

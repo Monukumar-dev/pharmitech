@@ -10,7 +10,7 @@ export default function PharmintechAdvantage() {
   if (!homeData) return null;
 
   return (
-    <section className="what-we-do">
+    <section className="what-we-do bgPattern1">
       <div className="container">
 
         {/* SECTION HEADER */}

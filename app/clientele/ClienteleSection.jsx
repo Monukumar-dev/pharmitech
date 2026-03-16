@@ -31,42 +31,58 @@ export default function ClienteleSection() {
 
   /* ---------------- GSAP ---------------- */
   useGSAP(() => {
-    if (!clients.length) return;
+  if (!clients.length) return;
 
-    rowsRef.current.forEach((row, index) => {
-      if (!row) return;
+  rowsRef.current.forEach((row, index) => {
+    if (!row) return;
 
-      gsap.killTweensOf(row);
+    gsap.killTweensOf(row);
 
-      const images = row.querySelectorAll("img");
+    const images = row.querySelectorAll("img");
 
-      Promise.all(
-        Array.from(images).map(
-          (img) =>
-            new Promise((resolve) => {
-              if (img.complete) resolve();
-              else img.onload = resolve;
-            })
-        )
-      ).then(() => {
-        const width = row.scrollWidth / 2;
-        const direction = index % 2 === 0 ? -1 : 1;
+    Promise.all(
+      Array.from(images).map(
+        (img) =>
+          new Promise((resolve) => {
+            if (img.complete) resolve();
+            else img.onload = resolve;
+          })
+      )
+    ).then(() => {
+      const width = row.scrollWidth / 2;
+      const isReverse = index % 2 !== 0;
 
+      const SPEED = 80;
+      const duration = width / SPEED;
+
+      if (isReverse) {
+        // ✅ Right direction → start at -width, move to 0, loop
+        gsap.set(row, { x: -width });
         gsap.to(row, {
-          x: direction * width,
-          duration: 40,
+          x: 0,
+          duration,
           ease: "none",
           repeat: -1,
-          modifiers: {
-            x: (x) => {
-              const value = parseFloat(x);
-              return (value % width) + "px";
-            },
+          onRepeat() {
+            gsap.set(row, { x: -width });
           },
         });
-      });
+      } else {
+        // ✅ Left direction ← start at 0, move to -width, loop
+        gsap.set(row, { x: 0 });
+        gsap.to(row, {
+          x: -width,
+          duration,
+          ease: "none",
+          repeat: -1,
+          onRepeat() {
+            gsap.set(row, { x: 0 });
+          },
+        });
+      }
     });
-  }, [clients]);
+  });
+}, [clients]);
 
   /* ---------------- ERROR ---------------- */
   if (!loading && error) {
@@ -95,7 +111,7 @@ export default function ClienteleSection() {
 
       
 
-      <section ref={containerRef} className={styles.section}>
+      <section ref={containerRef} className={`${styles.section} bgPattern1`}>
         <div className={styles.wrapper}>
           {clients.length > 0 &&
             rows.map((row, rowIndex) => (

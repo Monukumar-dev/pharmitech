@@ -29,10 +29,10 @@ export default function EventsPage() {
     );
   }
   return (
-    <>
+    <div className="bgPattern1">
     <HeroSection upcomingCount={upcomingEvents.length}  pastEvents={pastEvents.length} />
     <UpcomingSection events={upcomingEvents} loading={loading} />
     <PastEvents events={pastEvents} loading={loading} />
-    </>
+    </div>
   );
 }

@@ -253,7 +253,7 @@ const [form, setForm] = useState({
 
           </div>
 
-          <div className="row">
+          <div className="row bgPattern1">
             <div className="col-lg-12">
               <OurClient />
             </div>

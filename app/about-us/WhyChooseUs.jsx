@@ -3,7 +3,7 @@ import Button from "@/components/UI/Button/Button";
 
 export default function WhyChooseUs({data}) {
   return (
-    <div className="why-choose-us-elite">
+    <div className="why-choose-us-elite bgPattern1">
       <div className="container">
         <div className="row align-items-center">
           

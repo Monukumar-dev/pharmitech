@@ -252,7 +252,7 @@ export default function Home() {
         </div>
       </div>
       <PdfDownloadSection />
-      <div className="pb-5"><OurFaqs data={aboutData?.faqs}/></div>
+      <div className="pb-5 bgPattern1"><OurFaqs data={aboutData?.faqs}/></div>
 
     </>
   )
