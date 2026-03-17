@@ -115,6 +115,10 @@ html, body {
 /************************************/
 /*** 	 Header	  ***/
 /************************************/
+.main-menu {
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+}
 .nav-item.submenu > ul > .nav-item.submenu:hover > span.nav-link,
 .nav-item.submenu > ul > .nav-item.submenu:hover > a.nav-link {
   /* background: var(--accent-color) !important; */
@@ -123,11 +127,10 @@ html, body {
 
 .nav-item.submenu > ul > .nav-item.submenu > span.nav-link {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1em;
     color: var(--primary-color) !important;
     padding: 10px 10px !important;
-    text-transform: capitalize;
     transition: all 0.3s ease-in-out;
 }
 .navbar-brand img {
@@ -156,11 +159,11 @@ html, body {
 
 .main-menu ul li a {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1em;
     padding: 15px 10px !important;
     color: #fff;
-    text-transform: capitalize;
+    text-transform: uppercase;
     transition: all 0.3s ease-in-out;
 }
 

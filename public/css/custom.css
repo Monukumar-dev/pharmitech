@@ -67,7 +67,7 @@
 	--divider-color					: #102B321A;
 	--dark-divider-color			: #FFFFFF1A;
 	--error-color					: rgb(230, 87, 87);
-	--default-font					: "Sora", sans-serif;
+	--default-font					: 'Barlow', sans-serif;
 }
 /************************************/
 /*** 	   02. General css		  ***/
@@ -79,8 +79,23 @@ body{
 	overflow-x: clip;
 }
 
+/* === HEADINGS — Barlow === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+.company-supports-content,
+.arrow-btn-text {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 body{
-	font-family: var(--default-font);
+	/* font-family: var(--default-font); */
+	font-family: 'Lora', serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1em;
@@ -456,7 +471,7 @@ a:focus{
 
 .section-title h2{
 	font-size: 46px;
-	font-weight: 500;
+	font-weight: 700;
 	letter-spacing: -0.02em;
 	margin-bottom: 0;
 	cursor: none;
@@ -2886,7 +2901,7 @@ header.main-header .header-sticky.active{
 .page-header-box h1{
 	display: inline-block;
     font-size: 52px;
-    font-weight: 500;
+    font-weight: 600;
 	color: var(--white-color);
     margin-bottom: 10px;
 	cursor: none;
