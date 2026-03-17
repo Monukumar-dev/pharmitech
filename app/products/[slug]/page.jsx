@@ -113,11 +113,14 @@ export default function ProductPage() {
               <div className="page-wrap px-0">
                 <div className="dc-label">{product.category_name}</div>
                 <h1 className="dc-prod-title">{product.name}</h1>
-                <div className="page-single-image">
+
+                {product.image_url && (
+                   <div className="page-single-image">
                   <figure>
                     <img src={product.image_url} alt={product.name} />
                   </figure>
                 </div>
+                )}
                 <div
                   className="dc-prod-desc"
                   dangerouslySetInnerHTML={{ __html: product.description }}
@@ -168,15 +171,15 @@ export default function ProductPage() {
             key={item.id}
             className="mb-4 border overflow-hidden rounded-4 subProductsItems"
           >
-            <div className="mb-4 border-bottom">
-              <figure>
-                <img
-                  className="subProductsItemsImg"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-              </figure>
-            </div>
+
+            {item.image_url && (
+              <div className="mb-4 border-bottom">
+                <figure>
+                  <img className="subProductsItemsImg" src={item.image_url} alt={item.name}/>
+                </figure>
+              </div>
+            )}
+            
 
             <div className="service-entry px-4 mb-0 flex-1">
               <div className="mt-4">
@@ -216,7 +219,7 @@ export default function ProductPage() {
         <div className="row flex-column-reverse flex-lg-row">
           <div className="col-lg-4">
             <div ref={sidebar}>
-              <Sidebar title={product.subcategory_name} />
+              <Sidebar data={product?.subcategory_products} />
             </div>
           </div>
           <div className="col-lg-8">

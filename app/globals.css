@@ -285,4 +285,11 @@ Product Details
 .dc-val {
   font-size: 13px; color: #6b7280; line-height: 1.65; font-weight: 300;
 }
+
+
+.page-category-list ul li a.text-primary::before {
+  content: '';
+   filter: brightness(0) saturate(100%) invert(29%) sepia(79%) saturate(5740%) hue-rotate(212deg) brightness(103%) contrast(104%);
+    transition: all 0.4s ease-in-out;
+}
 /* #dc .dc-item-anim { opacity: 0; transform: translateX(-12px); } */

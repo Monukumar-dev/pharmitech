@@ -1,20 +1,19 @@
 import Button from "@/components/UI/Button/Button";
+import Link from "next/link";
 
-export default function Sidebar({title}) {
+export default function Sidebar({data}) {
+
+  console.log(data.subcategory_products);
   return (
     <div className="page-single-sidebar">
       <div className="page-category-list wow fadeInUp show">
-        <h3 className="text-white">{title}</h3>
+        <h3 className="text-white">{data.subcategory_name}</h3>
         <ul>
-          <li>
-            <a href="#">Cleanroom Wall, Ceiling &amp; Riser Panels</a>
+          {data?.subcategory_products?.map((item,i) => (
+          <li key={item.id}>
+            <Link href={item.slug} className={`${item.is_active === 1 ? 'text-primary' : ''}`}>{item.name}</Link>
           </li>
-          <li>
-            <a href="#">Mobile Cleanroom</a>
-          </li>
-          <li>
-            <a href="#">Cleanroom Doors &amp; Windows</a>
-          </li>
+          ))}
         </ul>
       </div>
 
