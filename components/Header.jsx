@@ -19,7 +19,10 @@ export default function Header() {
 
   //console.log("turnkeyData", turnkeyData);
   
-
+// Close menu on route change
+useEffect(() => {
+  setMenuOpen(false);
+}, [pathname]);
 
   useEffect(() => {
   const handleScroll = () => {
@@ -66,16 +69,16 @@ export default function Header() {
 
             {/* Toggle Button (Mobile) */}
             <div
-              className="navbar-toggle"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
+                className={`navbar-toggle ${menuOpen ? "active" : ""}`}
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+              <span className="slicknav_icon-bar"></span>
+              <span className="slicknav_icon-bar"></span>
+              <span className="slicknav_icon-bar"></span>
             </div>
 
             {/* Main Menu */}
-            <div className={`collapse navbar-collapse main-menu ${menuOpen ? "show" : ""}`}>
+            <div className={`navbar-collapse main-menu ${menuOpen ? "menu-open-active" : ""}`}>
               <div className="nav-menu-wrapper">
                 <ul className="navbar-nav mr-auto" id="menu">
 

@@ -628,6 +628,7 @@ header.main-header .header-sticky.active {
 
 @media(max-width:768px){
   .service-item{font-size:20px}
+  header.main-header .header-sticky {margin-inline: 0;}
 }
 
 @media(max-width:991px){
@@ -644,4 +645,150 @@ header.main-header .header-sticky.active {
     .hero-content-silver .about-counter-item-silver {
         width: calc(30% - 40px);
     }
+}
+
+
+/* ── Mobile Menu ── */
+@media (max-width: 991px) {
+
+  /* Hide menu by default on mobile */
+  .navbar-collapse.main-menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--primary-color);          /* match your header bg */
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  /* Show when toggled */
+  .navbar-collapse.main-menu.menu-open-active {
+    display: block;
+  }
+
+  /* Stack nav items vertically */
+  .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-collapse .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .navbar-collapse .nav-link {
+    display: block;
+    padding: 0.75rem 0;
+    width: 100%;
+  }
+
+  /* Submenu dropdown on mobile */
+  .navbar-collapse .nav-item.submenu > ul {
+    display: none;
+    padding-left: 1rem;
+    margin: 0.25rem 0 0.5rem;
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+  }
+  .main-menu ul li.submenu:first-child ul {width: 100%;}
+  .main-menu ul ul {background: transparent !important}
+  .main-menu ul ul ul {left: 0;border-radius: 0;}
+
+  .nav-item.submenu > ul > .nav-item.submenu > span.nav-link {color: #fff !important;}
+
+  .navbar-collapse .nav-item.submenu:hover > ul,
+  .navbar-collapse .nav-item.submenu:focus-within > ul {
+    display: block;
+  }
+
+  /* Hide CTA button area on mobile if needed */
+  .header-btn {
+    padding-top: 1rem;
+    a {width: 100%;}
+  }
+
+}
+
+/* Desktop — always show, never hide */
+@media (min-width: 992px) {
+  .navbar-collapse.main-menu {
+    display: flex !important;
+  }
+}
+
+/* ── Hamburger Button ── */
+@media (max-width: 991px) {
+
+   .navbar-collapse .nav-link {
+        text-align: left;
+    }
+    .main-menu ul li.submenu > a:after {
+    position: absolute;
+    right: 14px;
+    }
+
+  .navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    position: relative;
+    z-index: 1100;
+  }
+
+  .navbar-toggle:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  /* The 3 bars */
+  .navbar-toggle .slicknav_icon-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* ── Active (X / Close) state ── */
+
+  /* Top bar — rotate to \ */
+  .navbar-toggle.active .slicknav_icon-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  /* Middle bar — fade out */
+  .navbar-toggle.active .slicknav_icon-bar:nth-child(2) {
+    opacity: 0;
+    width: 0;
+  }
+
+  /* Bottom bar — rotate to / */
+  .navbar-toggle.active .slicknav_icon-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 992px) {
+  .navbar-toggle {
+    display: none;
+  }
 }
