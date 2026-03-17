@@ -7,7 +7,7 @@ import TextEffect from "./TextEffect";
 export default function PdfDownloadSection() {
 
   const homeData = useSelector((state) => state.home.homeData);
-  console.log(homeData?.new_chapter);
+  //console.log(homeData?.new_chapter);
   
   if (!homeData) return null;
 
