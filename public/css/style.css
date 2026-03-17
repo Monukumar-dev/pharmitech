@@ -455,9 +455,10 @@ header.main-header .header-sticky.active {
     min-height:420px;
     background:
       linear-gradient(120deg, rgba(16, 43, 50, 1), rgba(16, 43, 50, 0.1)),
-      url("https://pharmintech.net/images/cleanroom-wall-ceiling&doors1min.jpg");
+      url("../images/project2.jpg");
     background-size:cover;
     background-position:center;
+    background-attachment: fixed;
 }
 
 /* OVERLAY */

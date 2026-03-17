@@ -167,6 +167,36 @@
   letter-spacing: 0.04em;
 }
 
+/* Skeleton base */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Shimmer animation */
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @media (max-width: 1000px) {
   .hero        { padding: 48px 24px; flex-direction: column; align-items: flex-start; }
   .controls    { padding: 0 24px 24px; }
