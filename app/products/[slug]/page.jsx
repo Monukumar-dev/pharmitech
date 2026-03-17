@@ -8,6 +8,8 @@ import { fetchProduct } from "@/store/slices/productSlice";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Preloader from "@/components/Preloader";
 import Sidebar from "./Sidebar";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -93,8 +95,14 @@ export default function ProductPage() {
   const listItems = getListItems(specification);
   const icons = ["🏗️", "📐", "🧱", "↔️", "📏", "✨", "🔗", "🔩", "⚖️", "🌡️"];
 
-  if (loading) return <div className="container py-5">Loading...</div>;
-  if (!product) return <div className="container py-5">Product not found</div>;
+  if (loading) return <Preloader opacity={0.95} />
+  if (!product) {
+      return (
+        <div className="text-center py-5 text-danger">
+          Product not found
+        </div>
+      );
+  }
 
   function renderSingleProduct() {
     return (

@@ -17,6 +17,7 @@ import contactReducer from "./contactSlice";
 import testimonialReducer from "./testimonialSlice";
 import servicesReducer from "./servicesSlice";
 import eventReducer from "./eventSlice";
+import galleryReducer from "./gallerySlice";
 import productReducer from "./productSlice";
 
 const appReducer = combineReducers({
@@ -29,6 +30,7 @@ const appReducer = combineReducers({
   services: servicesReducer,
   company: companyReducer,
   events: eventReducer,
+  gallery: galleryReducer,
   product: productReducer,
   global: globalReducer,
   //productDetails: productDetailsReducer,
