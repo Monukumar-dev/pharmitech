@@ -624,12 +624,27 @@ header.main-header .header-sticky.active {
     background-position: bottom;
 }
 
-
-
-@media(max-width:768px){
-  .service-item{font-size:20px}
-  header.main-header .header-sticky {margin-inline: 0;}
+.BannersPoint img {
+    width: 180px;
+    height: auto;
 }
+/* mobile css */
+@media(max-width:768px) {
+    .service-item {font-size: 20px}
+    header.main-header .header-sticky {margin-inline: 0;}
+    .hero-silver {min-height: 90vh;}
+    .BannersPoint img {
+        width: 120px;
+        height: auto;
+    }
+    .hero-silver::before {
+        opacity: 80%;
+    }
+
+
+}
+
+/* END mobile css */
 
 @media(max-width:991px){
     .cta-content{padding:40px 30px;}
@@ -760,10 +775,20 @@ header.main-header .header-sticky.active {
     display: block;
     width: 24px;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--primary-color);
     border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
     transform-origin: center;
+  }
+  .header-sticky.dark-section {
+      .navbar-toggle .slicknav_icon-bar {
+          background-color: #fff;
+      }
+  }
+  .header-sticky.dark-section.active {
+      .navbar-toggle .slicknav_icon-bar {
+          background-color: var(--primary-color);
+      }
   }
 
   /* ── Active (X / Close) state ── */

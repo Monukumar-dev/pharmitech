@@ -42,13 +42,13 @@ export default function HomepageBanner() {
               {/* Hero Content */}
               <div className="hero-content-silver">
                 <div className="section-title">
-                  <h3 className="wow fadeInUp mt-4">{banners[0].title}</h3>
+                  <h3 className="mt-4">{banners[0].title}</h3>
 
                   <h1 className="text-anime-style-3" data-cursor="-opaque">
                     {banners[0].heading}
                   </h1>
 
-                  <p className="wow fadeInUp" data-wow-delay="0.2s">
+                  <p className="" data-wow-delay="0.2s">
                     {banners[0].paragraph}
                   </p>
                 </div>
@@ -56,10 +56,10 @@ export default function HomepageBanner() {
                 <div className="hero-body-silver">
                  
                   {/* Counters */}
-                  <div className="d-flex gap-0">
-                     <img className="wow fadeInUp" height="auto" width="180px" src="images/icons/homeBannerCounter1.png" alt="" />
-                     <img className="wow fadeInUp" height="auto" width="180px" src="images/icons/homeBannerCounter2.png" alt="" />
-                     <img className="wow fadeInUp" height="auto" width="180px" src="images/icons/homeBannerCounter3.png" alt="" />
+                  <div className="BannersPoint d-flex flex-wrap flex-md-nowrap gap-0">
+                     <img className="" src="images/icons/homeBannerCounter1.png" alt="" />
+                     <img className="" src="images/icons/homeBannerCounter2.png" alt="" />
+                     <img className="" src="images/icons/homeBannerCounter3.png" alt="" />
                   </div>
                   {/* <div className="about-us-counter-list-silver wow fadeInUp" data-wow-delay="0.6s">
                     {homeData?.banner_metrics?.map((item, i) => (
