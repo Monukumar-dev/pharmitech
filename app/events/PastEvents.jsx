@@ -2,7 +2,7 @@
 
 import "@/styles/pastEvents.css";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -16,25 +16,22 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+// ✅ Single source of truth for mobile breakpoint — matches your CSS exactly
+const MOBILE_BREAKPOINT = 768;
+
 export default function PastEvents({ events = [] }) {
   const container = useRef(null);
-  const stRef = useRef(null); // store ScrollTrigger instance
+  const stRef = useRef(null);
 
   const [open, setOpen] = useState(false);
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
 
-  /* ---------------------------------- */
-  /* Extract YouTube ID safely          */
-  /* ---------------------------------- */
   const extractYoutubeId = (url) => {
     const match = url?.match(/embed\/([^?]+)/);
     return match ? match[1] : "";
   };
 
-  /* ---------------------------------- */
-  /* Convert API media to slides        */
-  /* ---------------------------------- */
   const buildSlides = (event) => {
     const imageSlides =
       event.pictures_list?.map((img) => ({
@@ -64,10 +61,6 @@ export default function PastEvents({ events = [] }) {
     return [...imageSlides, ...youtubeSlides, ...localVideoSlides];
   };
 
-  /* ---------------------------------- */
-  /* Disable only THIS section's ST     */
-  /* while lightbox is open             */
-  /* ---------------------------------- */
   useEffect(() => {
     if (open) {
       stRef.current?.disable();
@@ -78,9 +71,6 @@ export default function PastEvents({ events = [] }) {
     }
   }, [open]);
 
-  /* ---------------------------------- */
-  /* Horizontal Scroll GSAP             */
-  /* ---------------------------------- */
   useGSAP(() => {
     const scope = container.current;
     if (!scope || !events.length) return;
@@ -95,116 +85,153 @@ export default function PastEvents({ events = [] }) {
     const cards = track.querySelectorAll(".ban-card");
     const totalCards = cards.length;
 
-    /* ---- Few cards: no horizontal scroll ---- */
-    if (totalCards <= 2) {
-      outer.style.height = "auto";
-      sticky.style.position = "relative";
-      track.style.transform = "none";
-      track.style.justifyContent = "center";
-      if (dotsEl) dotsEl.style.display = "none";
-      return;
-    }
+    // ✅ CRITICAL FIX: Completely skip GSAP on mobile.
+    // Your CSS already handles mobile perfectly (flex-direction: column,
+    // transform: none !important, position: relative).
+    // GSAP was overriding all of that and breaking the layout.
+    const isMobile = () => window.innerWidth <= MOBILE_BREAKPOINT;
 
-    /* ---- Build dots ---- */
-    if (dotsEl) {
-      dotsEl.innerHTML = "";
-      cards.forEach((_, i) => {
-        const d = document.createElement("div");
-        d.className = "hsp-dot" + (i === 0 ? " active" : "");
-        dotsEl.appendChild(d);
-      });
-    }
-
-    const dots = dotsEl?.querySelectorAll(".hsp-dot") || [];
-
-    /* ---- Wait for all images to load so scrollWidth is accurate ---- */
-    const images = track.querySelectorAll("img");
-
-    const initScrollTrigger = () => {
-      // Kill previous instance
+    const killScrollTrigger = () => {
       if (stRef.current) {
         stRef.current.kill();
         stRef.current = null;
       }
+      // ✅ Reset any inline styles GSAP may have set so CSS takes over cleanly
+      outer.style.height = "";
+      track.style.transform = "";
+      sticky.style.transform = "";
+    };
+
+    const initDesktop = () => {
+      // ✅ Already killed or never existed — safe to re-init
+      if (stRef.current) return;
+
+      if (totalCards <= 2) {
+        outer.style.height = "auto";
+        sticky.style.position = "relative";
+        track.style.transform = "none";
+        track.style.justifyContent = "center";
+        if (dotsEl) dotsEl.style.display = "none";
+        return;
+      }
+
+      // Build dots
+      if (dotsEl) {
+        dotsEl.innerHTML = "";
+        cards.forEach((_, i) => {
+          const d = document.createElement("div");
+          d.className = "hsp-dot" + (i === 0 ? " active" : "");
+          dotsEl.appendChild(d);
+        });
+      }
+
+      const dots = dotsEl?.querySelectorAll(".hsp-dot") || [];
 
       const getScrollDist = () =>
         Math.max(0, track.scrollWidth - window.innerWidth);
 
-      /* Update outer height helper */
       const updateHeight = () => {
-        const dist = getScrollDist();
-        outer.style.height = window.innerHeight + dist + "px";
+        outer.style.height = window.innerHeight + getScrollDist() + "px";
       };
 
       updateHeight();
 
       stRef.current = ScrollTrigger.create({
         trigger: outer,
-        start: "top top+=50",
+        start: "top top",
         end: () => "+=" + getScrollDist(),
         pin: sticky,
         scrub: 1,
-        invalidateOnRefresh: true, // ✅ recalculates on resize
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
         onUpdate: (self) => {
           gsap.set(track, {
             x: -self.progress * getScrollDist(),
+            force3D: true,
           });
-
-          const activeIdx = Math.round(
-            self.progress * (totalCards - 1)
-          );
-
+          const activeIdx = Math.round(self.progress * (totalCards - 1));
           dots.forEach((d, i) =>
             d.classList.toggle("active", i === activeIdx)
           );
         },
-        onRefresh: () => {
-          // ✅ Keep outer height in sync when ScrollTrigger recalculates
-          updateHeight();
-        },
+        onRefresh: () => updateHeight(),
       });
     };
 
-    /* ✅ Wait for images before init so scrollWidth is correct */
+    // ✅ On first load: only init desktop if not mobile
+    const setup = () => {
+      if (isMobile()) {
+        killScrollTrigger(); // ensure clean state
+      } else {
+        initDesktop();
+      }
+    };
+
+    // ✅ Wait for images before init (fixes scrollWidth being wrong)
+    const images = track.querySelectorAll("img");
     const imageLoadPromises = Array.from(images).map(
       (img) =>
         new Promise((resolve) => {
-          if (img.complete) resolve();
+          if (img.complete && img.naturalWidth > 0) resolve();
           else {
             img.onload = resolve;
-            img.onerror = resolve; // don't block on broken images
+            img.onerror = resolve;
           }
         })
     );
 
     Promise.all(imageLoadPromises).then(() => {
-      // Extra tick to ensure layout is painted
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          initScrollTrigger();
+          setup();
         });
       });
     });
 
-    /* ✅ Handle resize — recalculate height and refresh */
-    const handleResize = () => {
-      const dist = Math.max(0, track.scrollWidth - window.innerWidth);
-      outer.style.height = window.innerHeight + dist + "px";
-      ScrollTrigger.refresh();
+    // ✅ Handle resize: switch between mobile/desktop cleanly
+    // Uses matchMedia so it only fires AT the breakpoint, not on every px change
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+
+    const handleBreakpoint = (e) => {
+      if (e.matches) {
+        // Switched to mobile — kill GSAP, let CSS handle it
+        killScrollTrigger();
+      } else {
+        // Switched to desktop — init GSAP
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            ScrollTrigger.refresh();
+            initDesktop();
+          });
+        });
+      }
     };
 
-    window.addEventListener("resize", handleResize);
+    mq.addEventListener("change", handleBreakpoint);
+
+    // ✅ Still handle resize for scrollWidth recalculation on desktop
+    const ro = new ResizeObserver(() => {
+      if (!isMobile() && stRef.current) {
+        const dist = getScrollDist();
+        outer.style.height = window.innerHeight + dist + "px";
+        ScrollTrigger.refresh();
+      }
+    });
+
+    // Need getScrollDist accessible in ResizeObserver
+    const getScrollDist = () =>
+      Math.max(0, track.scrollWidth - window.innerWidth);
+
+    ro.observe(outer);
 
     return () => {
       stRef.current?.kill();
       stRef.current = null;
-      window.removeEventListener("resize", handleResize);
+      mq.removeEventListener("change", handleBreakpoint);
+      ro.disconnect();
     };
   }, { scope: container, dependencies: [events] });
 
-  /* ---------------------------------- */
-  /* Card size logic                    */
-  /* ---------------------------------- */
   const getCardSizeClass = (index, total) => {
     if (total === 1) return "bc-xl";
     if (index === 0) return "bc-xl";
@@ -219,7 +246,7 @@ export default function PastEvents({ events = [] }) {
           <div className="sb-num">02</div>
           <div className="sb-info">
             <div className="sb-label">Look Back</div>
-            <div className="sb-title">Past Events & Exhibitions</div>
+            <h2 className="sb-title">Past Events & Exhibitions</h2>
           </div>
           <div className="sb-line"></div>
         </div>
@@ -244,6 +271,7 @@ export default function PastEvents({ events = [] }) {
                     className="ban-img"
                     src={event.banner_url}
                     alt={event.title}
+                    loading="eager"
                   />
                   <div className="ban-color-overlay bc1o"></div>
                   <div className="ban-grad"></div>
@@ -254,7 +282,7 @@ export default function PastEvents({ events = [] }) {
                     <div className="ban-month">
                       {event.event_from_date} – {event.event_to_date}
                     </div>
-                    <div className="ban-title">{event.title}</div>
+                    <h3 className="ban-title">{event.title}</h3>
                     <div className="ban-venue">{event.address}</div>
                   </div>
                 </div>
@@ -273,12 +301,7 @@ export default function PastEvents({ events = [] }) {
         index={Math.min(index, slides.length - 1)}
         carousel={{ finite: slides.length === 1 }}
         plugins={[Video, Thumbnails]}
-        thumbnails={{
-          position: "bottom",
-          width: 80,
-          height: 60,
-          borderRadius: 6,
-        }}
+        thumbnails={{ position: "bottom", width: 80, height: 60, borderRadius: 6 }}
         render={{
           slideFooter: ({ slide }) => (
             <div className="custom-lightbox-caption">

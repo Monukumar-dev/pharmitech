@@ -634,12 +634,13 @@ header.main-header .header-sticky.active {
     header.main-header .header-sticky {margin-inline: 0;}
     .hero-silver {min-height: 96vh;}
     .BannersPoint img {
-        width: 120px;
+        width: 100px;
         height: auto;
     }
     .hero-silver::before {
-        opacity: 80%;
+        opacity: 95%;
     }
+    .tech-left {transform: scale(1) translateX(0);}
 
 
 }

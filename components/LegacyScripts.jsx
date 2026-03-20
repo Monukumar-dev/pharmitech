@@ -9,19 +9,16 @@ export default function LegacyScripts() {
       <Script src="/js/jquery-3.7.1.min.js" strategy="beforeInteractive" />
 
       {/* Bootstrap (depends on jQuery) */}
-      {/* <Script
-        src="/js/bootstrap.min.js"
-        strategy="afterInteractive"
-      /> */}
+      {/* <Script src="/js/bootstrap.min.js" strategy="afterInteractive"/> */}
 
       {/* jQuery Plugins */}
       <Script src="/js/validator.min.js" strategy="afterInteractive" />
       <Script src="/js/jquery.slicknav.js" strategy="afterInteractive" />
-      <Script src="/js/jquery.waypoints.min.js" strategy="afterInteractive" />
+      {/* <Script src="/js/jquery.waypoints.min.js" strategy="afterInteractive" /> */}
       <Script src="/js/jquery.counterup.min.js" strategy="afterInteractive" />
-      <Script src="/js/jquery.magnific-popup.min.js" strategy="afterInteractive" />
+      {/* <Script src="/js/jquery.magnific-popup.min.js" strategy="afterInteractive" /> */}
       {/* <Script src="/js/parallaxie.js" strategy="afterInteractive" /> */}
-      <Script src="/js/jquery.mb.YTPlayer.min.js" strategy="afterInteractive" />
+      {/* <Script src="/js/jquery.mb.YTPlayer.min.js" strategy="afterInteractive" /> */}
       {/* <Script src="/js/wow.min.js" strategy="afterInteractive" /> */}
 
       {/* Non-jQuery Libraries */}

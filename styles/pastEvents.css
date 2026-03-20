@@ -1,9 +1,11 @@
-:root{
-    --blue : #0065FF;
-    --dark: #102b32;
+:root {
+  --blue: #0065FF;
+  --dark: #102b32;
 }
 
-/* 🔥 Premium Bottom Overlay Caption */
+/* ─────────────────────────────────────
+   LIGHTBOX CAPTION
+───────────────────────────────────── */
 
 .custom-lightbox-caption {
   position: absolute;
@@ -11,7 +13,12 @@
   left: 0;
   right: 0;
   padding: 40px 60px 30px;
-  background: linear-gradient(to top,rgba(0, 0, 0, 0.75) 0%,rgba(0, 0, 0, 0.45) 40%,rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
   color: #fff;
   pointer-events: none;
   text-align: center;
@@ -29,61 +36,60 @@
   opacity: 0.75;
 }
 
+/* ─────────────────────────────────────
+   SECTION TITLE BREAK
+───────────────────────────────────── */
 
-/* for title */
 .sec-break {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    padding: 72px 56px 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 72px 56px 0;
 }
 
 .sb-num {
-    color: var(--primary-blue);
-    opacity: .1;
-    font-size: 70px;
+  color: var(--primary-blue);
+  opacity: 0.1;
+  font-size: 70px;
 }
+
 .sb-info {
-    /* flex: 1; */
+  /* flex: 1; */
 }
+
 .sb-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
 }
+
 .sb-title {
-    color: var(--dark);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 600;
-    line-height: 1;
+  color: var(--dark);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1;
 }
+
 .sb-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, var(--blue-mid), transparent);
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--blue-mid), transparent);
 }
+
 .sb-link {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--blue);
-    text-decoration: none;
-    white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
 }
-/*ENd for title */
-/* ───────────────────────────────────── */
-/* SECTION WRAPPER */
-/* ───────────────────────────────────── */
-.upcoming-section {
-  position: relative;
-  background: var(--paper, #FDFCFB);
-  padding-bottom: 50px;
-}
-/* ───────────────────────────────────── */
-/* SECTION INTRO */
-/* ───────────────────────────────────── */
+
+/* ─────────────────────────────────────
+   SECTION INTRO
+───────────────────────────────────── */
 
 .section-intro {
   padding: 0px 20px 60px 20px;
@@ -149,9 +155,19 @@
   border-color: var(--blue, #0065FF);
 }
 
-/* ───────────────────────────────────── */
-/* HORIZONTAL SCROLL CONTAINER */
-/* ───────────────────────────────────── */
+/* ─────────────────────────────────────
+   SECTION WRAPPER
+───────────────────────────────────── */
+
+.upcoming-section {
+  position: relative;
+  background: var(--paper, #FDFCFB);
+  padding-bottom: 50px;
+}
+
+/* ─────────────────────────────────────
+   HORIZONTAL SCROLL CONTAINER
+───────────────────────────────────── */
 
 .h-scroll-outer {
   position: relative;
@@ -164,18 +180,20 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  /* ✅ NO will-change or translateZ here — breaks position:sticky on mobile */
 }
 
 .h-scroll-track {
   display: flex;
   gap: 24px;
   padding: 0 60px;
+  /* ✅ will-change only on the track, not the sticky wrapper */
   will-change: transform;
 }
 
-/* ───────────────────────────────────── */
-/* BANNER CARDS */
-/* ───────────────────────────────────── */
+/* ─────────────────────────────────────
+   BANNER CARDS
+───────────────────────────────────── */
 
 .ban-card {
   flex-shrink: 0;
@@ -206,7 +224,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  will-change: transform;
+  /* ✅ Removed content-visibility:auto — it caused height:0 on mobile,
+     breaking scrollWidth calculations */
   transition: transform 0.6s ease;
 }
 
@@ -214,7 +233,9 @@
   transform: scale(1.05);
 }
 
-/* COLOR OVERLAYS */
+/* ─────────────────────────────────────
+   COLOR OVERLAYS
+───────────────────────────────────── */
 
 .ban-color-overlay {
   position: absolute;
@@ -240,7 +261,9 @@
   );
 }
 
-/* CARD CONTENT */
+/* ─────────────────────────────────────
+   CARD CONTENT
+───────────────────────────────────── */
 
 .ban-top {
   position: absolute;
@@ -329,9 +352,9 @@
   color: white;
 }
 
-/* ───────────────────────────────────── */
-/* PROGRESS DOTS */
-/* ───────────────────────────────────── */
+/* ─────────────────────────────────────
+   PROGRESS DOTS
+───────────────────────────────────── */
 
 .h-scroll-progress {
   display: flex;
@@ -356,9 +379,9 @@
   border-radius: 3px;
 }
 
-/* ───────────────────────────────────── */
-/* RESPONSIVE */
-/* ───────────────────────────────────── */
+/* ─────────────────────────────────────
+   RESPONSIVE — TABLET
+───────────────────────────────────── */
 
 @media (max-width: 1024px) {
   .section-intro {
@@ -372,7 +395,25 @@
   }
 }
 
+/* ─────────────────────────────────────
+   RESPONSIVE — MOBILE
+   GSAP is fully disabled below 768px.
+   CSS handles all layout here.
+───────────────────────────────────── */
+
 @media (max-width: 768px) {
+  .sec-break {
+    padding: 48px 20px 20px;
+    gap: 12px;
+  }
+
+  .sb-num {
+    font-size: 48px;
+  }
+
+  .sb-title {
+    font-size: clamp(22px, 6vw, 32px);
+  }
 
   .section-intro {
     padding: 80px 20px 40px;
@@ -382,25 +423,40 @@
     font-size: 80px;
   }
 
+  /* ✅ Let sticky become normal flow on mobile */
   .h-scroll-sticky {
     height: auto;
     position: relative;
+    overflow: visible;
+    display: block;
   }
 
+  /* ✅ Stack cards vertically, kill any GSAP transform */
   .h-scroll-track {
     flex-direction: column;
+    padding: 0 20px;
+    gap: 16px;
     transform: none !important;
+    will-change: auto;
   }
 
+  /* ✅ All card size variants become full-width on mobile */
   .ban-card,
   .ban-card.bc-xl,
   .ban-card.bc-md,
   .ban-card.bc-sm {
     width: 100%;
-    height: 400px;
+    height: 340px;
+    border-radius: 16px;
   }
 
+  /* ✅ Hide progress dots — no horizontal scroll on mobile */
   .h-scroll-progress {
     display: none;
+  }
+
+  /* ✅ Tighten lightbox caption on small screens */
+  .custom-lightbox-caption {
+    padding: 24px 20px 16px;
   }
 }

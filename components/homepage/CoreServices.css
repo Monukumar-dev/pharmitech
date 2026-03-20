@@ -233,7 +233,7 @@
   .cs-inner   { padding: 40px 0; }
   .cs-sidebar { display: none; }
   .cs-bg-num  { font-size: 180px; }
-  .cs-section { border-radius: 20px; margin: 0 8px; }
+  .cs-section { border-radius: 20px; margin: 0; }
 }
 
 @media (max-width: 520px) {
