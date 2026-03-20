@@ -632,7 +632,7 @@ header.main-header .header-sticky.active {
 @media(max-width:768px) {
     .service-item {font-size: 20px}
     header.main-header .header-sticky {margin-inline: 0;}
-    .hero-silver {min-height: 90vh;}
+    .hero-silver {min-height: 96vh;}
     .BannersPoint img {
         width: 120px;
         height: auto;
