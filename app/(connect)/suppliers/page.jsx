@@ -95,7 +95,7 @@ export default function page() {
       {/* Page Contact Us Start */}
       <div className="page-contact-us">
         <div className="container">
-          <div className="row">
+          <div className="row flex-column-reverse flex-md-row gap-4 gap-md-0">
 
             {/* Contact Info */}
             <div className="col-lg-5">

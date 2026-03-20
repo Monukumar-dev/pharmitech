@@ -230,14 +230,14 @@
 
 /* ─── Responsive ──────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .cs-inner   { padding: 40px 24px; }
+  .cs-inner   { padding: 40px 0; }
   .cs-sidebar { display: none; }
   .cs-bg-num  { font-size: 180px; }
   .cs-section { border-radius: 20px; margin: 0 8px; }
 }
 
 @media (max-width: 520px) {
-  .cs-heading    { font-size: 34px; }
-  .cs-name       { font-size: 32px; }
-  .cs-count-big  { font-size: 52px; }
+  .cs-count-big  { font-size: 36px; }
+  .cs-heading    { font-size: 26px; }
+  .cs-name       { font-size: 24px; }
 }

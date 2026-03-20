@@ -12654,7 +12654,7 @@ header.main-header.header-elite .navbar{
     }
 
     .about-counter-item-silver{
-        width: calc(50% - 15px);
+        width: calc(50% - 15px) !important;
     }
 
     .about-counter-item-silver:nth-child(5n + 5)::before{
