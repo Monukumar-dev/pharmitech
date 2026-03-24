@@ -12,6 +12,16 @@ html, body {
 .cursor-pointer {
   cursor: pointer;
 }
+.ProductsSubcategories .no-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.main-menu ul ul li a.no-padding:hover,
+.main-menu ul ul li a.no-padding:focus {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
 /* for text effect gsap */
 .text-effect {

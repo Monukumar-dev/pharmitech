@@ -92,10 +92,10 @@ useEffect(() => {
                   
 
                   {/* Turnkey Solutions */}
+
                   {turnkeyData && (
                     <li className="nav-item submenu">
                       <a className="nav-link">{turnkeyData.name}</a>
-
                       <ul>
                         {turnkeyData.categories.map((category) => (
                           <li key={category.id} className="nav-item submenu">
@@ -103,8 +103,6 @@ useEffect(() => {
                             <span className="nav-link">{category.name}</span>
 
                             <ul>
-
-                              {/* 🔹 Subcategories */}
                               {category.subcategories.map((sub) => (
                                 <li key={sub.id} className="nav-item submenu">
 
@@ -127,19 +125,6 @@ useEffect(() => {
 
                                 </li>
                               ))}
-
-                              {/* 🔥 Direct Products (Same Level as Subcategories) */}
-                              {category.products?.map((product) => (
-                                <li className="px-2 ProductsSubcategories" key={product.product_id}>
-                                  <Link
-                                    className="nav-link no-padding"
-                                    href={`/products/${product.slug}`}
-                                  >
-                                    {product.name}
-                                  </Link>
-                                </li>
-                              ))}
-
                             </ul>
 
                           </li>
@@ -147,10 +132,6 @@ useEffect(() => {
                       </ul>
                     </li>
                   )}
-
-                  
-
-
 
                   {/* <li className="nav-item submenu">
                     <a className="nav-link">Turnkey Solutions</a>

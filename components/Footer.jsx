@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Footer() {
 
   const { companyDetails, status } = useSelector((state) => state.company);
+  
   if (status === "loading") return <Preloader opacity={0.95} />;
 
   const getSocialIcon = (platform) => {
