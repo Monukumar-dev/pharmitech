@@ -183,7 +183,7 @@ export default function ProductPage() {
 
             <div className="service-entry px-4 mb-0 flex-1">
               <div className="mt-4">
-                <h4>{item.name}</h4>
+                <h2 className="subProductTitle">{item.name}</h2>
                 <div
                   className="dc-prod-desc mb-3"
                   dangerouslySetInnerHTML={{ __html: item.description }}

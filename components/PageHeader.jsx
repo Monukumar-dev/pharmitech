@@ -23,11 +23,11 @@ export default function PageHeader({
         <div className="row align-items-center">
           <div className="col-lg-12">
             <div className="page-header-box">
-              <h1 className="text-anime-style-3" data-cursor="-opaque">
+              <h2 className="text-anime-style-3 page-header-title" data-cursor="-opaque">
                 {title}
-              </h1>
+              </h2>
 
-              <nav className="wow fadeInUp">
+              {/* <nav className="wow fadeInUp">
                 <ol className="breadcrumb">
                   {breadcrumbs.map((item, index) => (
                     <li
@@ -47,7 +47,7 @@ export default function PageHeader({
                     </li>
                   ))}
                 </ol>
-              </nav>
+              </nav> */}
             </div>
           </div>
         </div>

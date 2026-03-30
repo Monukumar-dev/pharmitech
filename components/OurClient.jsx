@@ -13,7 +13,7 @@ export default function OurClient() {
     <div className="company-supports-slider-box">
       <div className="company-supports-content">
         <hr />
-        <p>1000+ Trusted Clients Over Worldwide</p>
+        <p>300+ Trusted Clients Over Worldwide</p>
         <hr />
       </div>
       <div className="company-supports-slider">

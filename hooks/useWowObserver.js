@@ -7,42 +7,62 @@ export default function useWowFallback() {
   const pathname = usePathname()
 
   useEffect(() => {
-    let ticking = false
+    let observer
 
-    const reveal = () => {
+    const initObserver = () => {
       const elements = document.querySelectorAll('.wow')
 
-      elements.forEach(el => {
-        if (el.classList.contains('show')) return
+      if (!elements.length) return
 
-        const rect = el.getBoundingClientRect()
-        const delay = el.dataset.wowDelay || '0s'
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const el = entry.target
 
-        if (rect.top < window.innerHeight * 0.9) {
-          el.style.transitionDelay = delay
-          el.classList.add('show')
+            if (entry.isIntersecting) {
+              const delay = el.dataset.wowDelay || '0s'
+
+              el.style.transitionDelay = delay
+              el.classList.add('show')
+
+              observer.unobserve(el)
+            }
+          })
+        },
+        {
+          threshold: 0,
+          rootMargin: '0px 0px -15% 0px'
         }
+      )
+
+      elements.forEach((el) => {
+        // ✅ RESET (important for route change)
+        el.classList.remove('show')
+        el.style.transitionDelay = '0s'
+
+        observer.observe(el)
       })
-
-      ticking = false
     }
 
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(reveal)
-        ticking = true
-      }
-    }
+    // ✅ RUN AFTER DOM READY + NEXT RENDER
+    const timer1 = setTimeout(initObserver, 50)
+    const timer2 = setTimeout(initObserver, 300)
 
-    // 🔥 Run immediately after hydration
-    setTimeout(reveal, 100)
+    // ✅ HANDLE dynamic content (VERY IMPORTANT)
+    const mutationObserver = new MutationObserver(() => {
+      initObserver()
+    })
 
-    window.addEventListener('scroll', onScroll)
-    window.addEventListener('resize', reveal)
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    })
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', reveal)
+      if (observer) observer.disconnect()
+      mutationObserver.disconnect()
+      clearTimeout(timer1)
+      clearTimeout(timer2)
     }
   }, [pathname])
 }

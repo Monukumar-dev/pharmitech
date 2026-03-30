@@ -125,10 +125,10 @@ html, body {
 /************************************/
 /*** 	 Header	  ***/
 /************************************/
-.main-menu {
+/* .main-menu {
     font-family: 'Barlow', sans-serif;
     text-transform: uppercase;
-}
+} */
 .nav-item.submenu > ul > .nav-item.submenu:hover > span.nav-link,
 .nav-item.submenu > ul > .nav-item.submenu:hover > a.nav-link {
   /* background: var(--accent-color) !important; */
@@ -173,7 +173,6 @@ html, body {
     line-height: 1.1em;
     padding: 15px 10px !important;
     color: #fff;
-    text-transform: uppercase;
     transition: all 0.3s ease-in-out;
 }
 
@@ -237,9 +236,20 @@ header.main-header .header-sticky.active {
     transition: all 0.5s ease-in-out;
 }
 
-.what-we-do-item:hover .what-we-do-item-header .icon-box i {
+.what-we-do-item:hover .what-we-do-item-header .icon-box i,
+.what-we-do-item:hover .what-we-do-item-number h3 {
     color: #fff;
     transition: all 0.5s ease-in-out;
+}
+
+.what-we-do-item:hover .what-we-do-item-body h3 {
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.what-we-do-item:hover .what-we-do-item-body p, 
+.what-we-do-item:hover .what-we-do-item-body ul li {
+    color: #fff;
 }
 
 .hero-silver::before {
@@ -837,4 +847,14 @@ header.main-header .header-sticky.active {
   .navbar-toggle {
     display: none;
   }
+  .subProductTitle {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+  }
+
+  .page-header-box .page-header-title {
+    font-size: 52px;
+    font-weight: 600;
+ } 
+
 }

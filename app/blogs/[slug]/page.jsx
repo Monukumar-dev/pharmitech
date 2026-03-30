@@ -52,7 +52,7 @@ if (loading) return <Preloader opacity={0.95} />
           <div className="col-lg-12">
             <div className="post-image">
               <figure className="image-anime">
-                <img src={blogDetails?.featured_image_url} alt={blogDetails?.title} />
+                <img className="img-fluid object-fit-contain" src={blogDetails?.featured_image_url} alt={blogDetails?.title} />
               </figure>
               <div className="position-absolute top-0 end-0 m-3 dark-section rounded d-flex gap-4 align-content-end p-2 text-white">
                 <div><i class="fa-regular fa-user"></i> {blogDetails?.author || 'Admin'}</div>

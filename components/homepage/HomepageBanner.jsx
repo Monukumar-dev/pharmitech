@@ -91,8 +91,8 @@ export default function HomepageBanner() {
 
               {/* Company Slider */}
               <div className="hero-company-slider-box-silver">
-                <p className="text-start">
-                  <span className="counter">100</span>+ Trusted Clients Over Worldwide
+                <p className="text-start fw-medium">
+                  <span className="counter">300</span>+ Trusted Clients Over Worldwide
                 </p>
 
                 <div className="hero-company-slider-silver">

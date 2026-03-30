@@ -96,8 +96,8 @@ export default function WhyChooseUs({data}) {
                   <div className="contact-us-circle-elite">
                     <a href={data?.images?.box_1[1].link_url}>
                       <img
-                        src={data?.images?.box_1[1].link_icon}
-                        alt=""
+                        src='/images/contact-us-circle.svg'
+                        alt="monu"
                       />
                     </a>
                   </div>
