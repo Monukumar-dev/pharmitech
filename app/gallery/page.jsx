@@ -1,35 +1,14 @@
-"use client";
+import ClientPage from "./ClientPage";
+import { getMetaData } from "@/lib/getMeta";
 
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchGallery } from "@/store/slices/gallerySlice";
-
-import Preloader from "@/components/Preloader";
-import Gallery from "./Gallery";
-
-export default function Page() {
-  const dispatch = useDispatch();
-  const { gallery, loading, error } = useSelector((state) => state.gallery);
-
-  useEffect(() => {
-    if (!gallery.length) {
-      dispatch(fetchGallery());
-    }
-  }, [dispatch, gallery.length]);
-
-
- if (loading) return <Preloader opacity={0.95} />
- if (error) {
-    return (
-      <div className="text-center py-5 text-danger">
-        {error}
-      </div>
-    );
+export async function generateMetadata() {
+  const meta = await getMetaData("Projects Gallery"); 
+  return {
+    title: meta?.meta_title,
+    description: meta?.meta_description,
+  };
 }
 
-  return (
-    <div className="py-4 bgPattern1">
-      <Gallery apiData={gallery} />
-    </div>
-  );
+export default function Page() {
+  return <ClientPage />;
 }
