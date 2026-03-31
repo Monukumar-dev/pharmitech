@@ -15,10 +15,9 @@ export default function OurFaqs({data}) {
             <div className="faqs-content">
               <div className="section-title">
                 <h3>Frequently Asked Questions</h3>
-                <TextEffect text="Answers to help you make the most of our spaces" />
+                <TextEffect text="Everything you need to know about our cleanroom and pharma solution" />
                 <p>
-                  Explore how co-working nurtures innovation,
-                  builds community, and enhances productivity.
+                  Learn how Pharmitech empowers your operations with innovative cleanroom technologies, precision engineering, and end-to-end project support tailored for the pharmaceutical industry.
                 </p>
               </div>
 

@@ -198,8 +198,8 @@ export default function Footer() {
               <div className="col-md-5">
                 <div className="footer-privacy-policy-silver">
                   <ul className="">
-                  <li><Link href="#">Terms & Conditions</Link></li>
-                  <li><Link href="#">Privacy Policy</Link></li>
+                  <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
+                  <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                 </ul>
                 </div>
                 
