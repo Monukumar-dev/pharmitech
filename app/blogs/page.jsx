@@ -6,6 +6,7 @@ export async function generateMetadata() {
   return {
     title: meta?.meta_title,
     description: meta?.meta_description,
+    keywords: meta?.meta_keywords || "Pharmintech",
   };
 }
 

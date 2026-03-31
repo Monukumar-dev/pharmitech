@@ -9,8 +9,9 @@ export async function generateMetadata({ params }) {
   const meta = data?.data?.seo;
 
   return {
-    title: meta?.meta_title || "Pharmitech",
+    title: meta?.meta_title || "Pharmintech",
     description: meta?.meta_description || "",
+    keywords: meta?.meta_keywords || "Pharmintech",
   };
 }
 
