@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <PageHeader
-        title={pageData?.title || "Privacy Policy"}
+        title={pageData?.title || "Terms & Conditions"}
         backgroundImage="/images/careers.jpg"
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
                   <div className="spinner-border text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>
                   </div>
-                  <p className="mt-3 text-muted">Loading Privacy Policy...</p>
+                  <p className="mt-3 text-muted">Loading Terms & Conditions...</p>
                 </div>
               )}
 
