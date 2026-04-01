@@ -155,12 +155,12 @@ Background pattern END
 /* =============================================
 Product Details
 ============================================= */
-.productFeatures ul li,
+/* .productFeatures ul li,
 .Specifications ul li {
   font-size: .9rem;
   line-height: 1.4;
   margin-bottom: 6px !important;
-}
+} */
 .subProductsItems {
   background: #fbfbfb;
 
