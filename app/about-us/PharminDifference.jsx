@@ -100,9 +100,9 @@ export default function PharminDifference() {
       <div className="section-title diff-header mb-5">
         <h3>What Sets Us Apart</h3>
         <TextEffect text="The Pharmintech Difference" />
-        <p>End-to-end capability built in-house. From concept to compliance —
+        {/* <p>End-to-end capability built in-house. From concept to compliance —
           every step owned, every outcome assured.
-        </p>
+        </p> */}
       </div>
 
       {/* ── Cards grid ── */}

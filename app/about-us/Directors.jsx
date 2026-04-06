@@ -22,7 +22,9 @@ export default function Directors({ members = [] }) {
                     data-cursor="-opaque"
                   >
                     <TextEffect text="Visionary Leadership Driving Precision and Innovation" />
+                    
                   </div>
+                  <h4 className={`h4 text-white wow fadeInUp mt-3 ${styles.heading}`}><em>Board of Directors</em></h4>
                 </div>
               </div>
               {/* <div className="col-lg-6">
@@ -65,7 +67,7 @@ export default function Directors({ members = [] }) {
               >
                 {director.name}
                 <br />
-                <em>{toCapitalize(director.position)}</em>
+                {/* <em>{toCapitalize(director.position)}</em> */}
               </h2>
 
               

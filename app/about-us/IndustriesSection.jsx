@@ -9,7 +9,7 @@ export default function IndustriesSection({ content, items }) {
     <section className="industries about-us bgPattern1" id="industries">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-10">
+          <div className="col-md-10 text-center">
             {content ? (
               <p className="text-center">{content}</p>
             ) : null}

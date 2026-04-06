@@ -95,9 +95,7 @@ export default function ProductPage() {
   const listItems = getListItems(specification);
   const icons = ["🏗️", "📐", "🧱", "↔️", "📏", "✨", "🔗", "🔩", "⚖️", "🌡️"];
   const heroImageUrl =
-    product?.image_url ||
-    product?.sub_products?.find((item) => item?.image_url)?.image_url ||
-    null;
+    product?.image_url
 
   if (loading) return <Preloader opacity={0.95} />
   if (!product) {

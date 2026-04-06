@@ -30,10 +30,21 @@ article p,
 section p {
   text-align: justify;
   text-justify: inter-word;
-  text-align-last: left;
+  text-align-last: auto;
   hyphens: auto;
 }
 
+.main-menu ul li.submenu:first-child ul {
+  width: 255px !important;
+}
+
+.main-menu ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1, 1);
+  padding: 5px 0;
+  width: 245px !important;
+}
 
 * {
   box-sizing: border-box;
