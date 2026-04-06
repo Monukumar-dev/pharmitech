@@ -55,9 +55,9 @@ export default function Directors({ members = [] }) {
           <div className={`col-md-5 ${isReverse ? "order-md-2" : ""}`}>
             <div className={styles.contentWrap}>
 
-              <div className={`${styles.sectionLabel} wow fadeInUp`}>
+              {/* <div className={`${styles.sectionLabel} wow fadeInUp`}>
                 Director's Message
-              </div>
+              </div> */}
 
               <h2
                 className={`${styles.heading} wow fadeInUp`}
