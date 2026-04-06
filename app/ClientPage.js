@@ -97,10 +97,10 @@ export default function Home() {
       <CoreServices />
       
       <PharmintechAdvantage />
-      <TechSection />
+      {/* <TechSection /> */}
       {/* <OurServices /> */}
-      <WhatWeDoSilver />
-      <IntroVideoBoxSilver />
+      {/* <WhatWeDoSilver /> */}
+      {/* <IntroVideoBoxSilver /> */}
 
       {/* Our Project Section Start */}
       {/* <div className="our-project-silver">
@@ -242,7 +242,7 @@ export default function Home() {
 
       <OurBlog />
 
-      <OurTestimonials />
+      {/* <OurTestimonials /> */}
       <div className="our-faqs py-0">
         <div className="container">
           <div className="col-lg-12">

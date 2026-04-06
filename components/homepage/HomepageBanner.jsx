@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
 
 import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
 import "swiper/css"
 import useParallax from "@/hooks/useParallax"
 
@@ -21,6 +22,8 @@ export default function HomepageBanner() {
   const banners = useSelector((state) => state.home.banners);
   const homeData = useSelector((state) => state.home.homeData);
   const clients = useSelector((state) => state.client.clients);
+  const sliderClients =
+    clients.length > 0 && clients.length < 4 ? [...clients, ...clients, ...clients] : clients;
 
   
   if (!banners.length) return null;
@@ -81,11 +84,11 @@ export default function HomepageBanner() {
                       </div>
                     ))}
                   </div> */}
-                  <div className="hero-btn-silver wow fadeInUp" data-wow-delay="0.4s">
+                  {/* <div className="hero-btn-silver wow fadeInUp" data-wow-delay="0.4s">
                     <Button href={banners[0].button_url} variant="secondary" >
                         {banners[0].button_name}
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -97,19 +100,32 @@ export default function HomepageBanner() {
 
                 <div className="hero-company-slider-silver">
                   <Swiper
+                    modules={[Autoplay]}
                     slidesPerView={3}
                     spaceBetween={30}
                     loop={true}
-                    speed= {2000}
-                    autoplay={{ delay: 5000 }}
+                    watchOverflow={false}
+                    observer={true}
+                    observeParents={true}
+                    speed={2000}
+                    autoplay={{
+                      delay: 100,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: false,
+                    }}
+                    onInit={(swiper) => {
+                      if (swiper?.autoplay && !swiper.autoplay.running) {
+                        swiper.autoplay.start()
+                      }
+                    }}
                     breakpoints={{
                       320: { slidesPerView: 2 },
                       768: { slidesPerView: 3 },
                       1024: { slidesPerView: 3 },
                     }}
                   >
-                    {clients.map((logo, i) => (
-                      <SwiperSlide key={logo.id}>
+                    {sliderClients.map((logo, i) => (
+                      <SwiperSlide key={`${logo.id || "client"}-${i}`}>
                         <div className="company-logo">
                           <img
                             src={logo.client_logo_url}

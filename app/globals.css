@@ -24,6 +24,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Keep paragraph content consistently aligned across pages */
+main p,
+article p,
+section p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 
 * {
   box-sizing: border-box;
@@ -561,5 +571,40 @@ Product Details
 
   .stat-divider {
     display: none;
+  }
+}
+
+/* FAQ reveal animation without external wow dependency */
+@keyframes faqFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.faq-item-reveal.is-visible {
+  animation: faqFadeUp 0.45s ease forwards;
+}
+
+.footer-logo-silver img {
+  width: auto !important;
+  max-width: unset !important;
+  min-height: 95px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

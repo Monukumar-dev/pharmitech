@@ -21,6 +21,7 @@
   grid-template-rows: auto 1fr auto;
   padding: 56px 60px;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .cs-blob {
@@ -95,6 +96,8 @@
   display: flex;
   align-items: center;
   padding-top: 50px;
+  position: relative;
+  z-index: 2;
 }
 
 .cs-name-wrap {
@@ -103,6 +106,7 @@
   min-height: 220px;
   display: flex;
   align-items: center;
+  pointer-events: none;
 }
 
 .cs-name {
@@ -113,31 +117,49 @@
   letter-spacing: 0.02em;
   line-height: 1.08;
   white-space: pre-line;
+  text-align: left;
+  text-align-last: auto;
+  hyphens: none;
   margin: 0;
 }
 
 /* ─── Sidebar ─────────────────────────────────────────────── */
 .cs-sidebar {
-  width: 216px;
+  width: 320px;
   flex-shrink: 0;
   border-left: 1px solid rgba(255, 255, 255, 0.07);
   padding-left: 28px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
+  position: relative;
+  z-index: 999;
+  pointer-events: auto !important;
 }
 
 .cs-si {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 0;
-  cursor: default;
+  padding: 7px 0;
+  cursor: pointer;
   transition: transform 0.35s ease;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  position: relative;
+  z-index: 6;
+  pointer-events: auto !important;
+}
+
+.cs-sidebar * {
+  pointer-events: auto !important;
 }
 
 .cs-si-num {
-  font-size: 13px;
+  font-size: 15px;
   min-width: 22px;
   color: rgba(255, 255, 255, 0.14);
   transition: color 0.35s ease;
@@ -152,13 +174,20 @@
 }
 
 .cs-si-label {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.07em;
   color: rgba(255, 255, 255, 0.14);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.45;
   transition: color 0.35s ease;
+}
+
+.cs-si:focus-visible {
+  outline: 2px solid var(--cs-color);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 
 /* Sidebar active state */

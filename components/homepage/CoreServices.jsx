@@ -46,6 +46,9 @@ export default function CoreServices() {
   const segLabelRef = useRef(null)
   const sidebarItemRefs = useRef([])
   const currentIndex = useRef(-1)
+  const activateServiceRef = useRef(null)
+  const triggerRef = useRef(null)
+  const clickSyncLockUntilRef = useRef(0)
 
   useGSAP(() => {
     const services = homeData?.core_services
@@ -53,13 +56,6 @@ export default function CoreServices() {
 
     const total = services.length
     const totalSteps = total - 1
-
-    // 🔥 Kill previous triggers (prevents white screen bug)
-    ScrollTrigger.getAll().forEach((trigger) => {
-      if (trigger.trigger === wrapperRef.current) {
-        trigger.kill()
-      }
-    })
 
     const activate = (index) => {
       if (index === currentIndex.current) return
@@ -108,6 +104,7 @@ export default function CoreServices() {
           `${index + 1} / ${String(total).padStart(2, "0")}`
       }
     }
+    activateServiceRef.current = activate
 
     // Initial state
     const initColor = SERVICE_COLORS[0]
@@ -120,19 +117,21 @@ export default function CoreServices() {
     sectionRef.current.style.setProperty("--cs-color", initColor)
 
     // 🔥 Stable ScrollTrigger
-    ScrollTrigger.create({
-      trigger: wrapperRef.current,
+    triggerRef.current = ScrollTrigger.create({
+      trigger: sectionRef.current,
       start: "top top+=80",
       end: () => `+=${totalSteps * window.innerHeight * 0.8}`,
-      pin: wrapperRef.current,
+      pin: sectionRef.current,
       pinSpacing: true,
       anticipatePin: 1,
+      invalidateOnRefresh: true,
       snap: {
         snapTo: 1 / totalSteps,
         duration: 0.45,
         ease: "power2.inOut",
       },
       onUpdate: (self) => {
+        if (Date.now() < clickSyncLockUntilRef.current) return
         const index = Math.min(
           Math.round(self.progress * totalSteps),
           totalSteps
@@ -142,8 +141,34 @@ export default function CoreServices() {
     })
 
     ScrollTrigger.refresh()
+    const refreshAfterLoad = () => ScrollTrigger.refresh()
+    window.addEventListener("load", refreshAfterLoad)
+
+    return () => {
+      window.removeEventListener("load", refreshAfterLoad)
+      if (triggerRef.current) {
+        triggerRef.current.kill()
+        triggerRef.current = null
+      }
+    }
 
   }, { dependencies: [homeData?.core_services?.length] })
+
+  const handleSidebarClick = (index) => {
+    clickSyncLockUntilRef.current = Date.now() + 2000
+    activateServiceRef.current?.(index)
+
+    const trigger = triggerRef.current
+    if (!trigger || typeof window === "undefined") return
+    const progressTarget = services.length > 1 ? index / (services.length - 1) : 0
+    const nextScrollTop = trigger.start + (trigger.end - trigger.start) * progressTarget
+    if (typeof trigger.scroll === "function") {
+      trigger.scroll(nextScrollTop)
+    } else {
+      window.scrollTo({ top: nextScrollTop, behavior: "auto" })
+    }
+    ScrollTrigger.update()
+  }
 
   if (!homeData) return null
 
@@ -182,10 +207,16 @@ export default function CoreServices() {
 
             <div className="cs-sidebar">
               {services.map((s, i) => (
-                <div
+                <button
                   key={s.id}
+                  type="button"
                   ref={(el) => (sidebarItemRefs.current[i] = el)}
                   className={`cs-si${i === 0 ? " active" : ""}`}
+                  onClick={() => handleSidebarClick(i)}
+                  onPointerDown={(e) => {
+                    e.preventDefault()
+                    handleSidebarClick(i)
+                  }}
                 >
                   <span className="cs-si-num">
                     {String(i + 1).padStart(2, "0")}
@@ -194,7 +225,7 @@ export default function CoreServices() {
                   <span className="cs-si-label">
                     {shortLabel(s.title)}
                   </span>
-                </div>
+                </button>
               ))}
             </div>
           </div>
