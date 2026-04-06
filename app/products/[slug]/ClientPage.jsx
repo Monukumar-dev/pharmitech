@@ -94,6 +94,10 @@ export default function ProductPage() {
 
   const listItems = getListItems(specification);
   const icons = ["🏗️", "📐", "🧱", "↔️", "📏", "✨", "🔗", "🔩", "⚖️", "🌡️"];
+  const heroImageUrl =
+    product?.image_url ||
+    product?.sub_products?.find((item) => item?.image_url)?.image_url ||
+    null;
 
   if (loading) return <Preloader opacity={0.95} />
   if (!product) {
@@ -114,13 +118,19 @@ export default function ProductPage() {
                 <div className="dc-label">{product.category_name}</div>
                 <h1 className="dc-prod-title">{product.name}</h1>
 
-                {product.image_url && (
-                   <div className="page-single-image">
+               
+                <div className="page-single-image">
                   <figure>
-                    <img src={product.image_url} alt={product.name} />
+                    {heroImageUrl && (
+                      <img
+                        className="productHeroImage"
+                        src={heroImageUrl}
+                        alt={product.name}
+                      />
+                    )}
                   </figure>
                 </div>
-                )}
+               
                 <div
                   className="dc-prod-desc"
                   dangerouslySetInnerHTML={{ __html: product.description }}
@@ -158,6 +168,13 @@ export default function ProductPage() {
             <div className="page-wrap px-0">
               <div className="dc-label">{product.category_name}</div>
               <h1 className="dc-prod-title">{product.name}</h1>
+              {heroImageUrl && (
+                <img
+                  className="productHeroImage"
+                  src={heroImageUrl}
+                  alt={product.name}
+                />
+              )}
               <div
                 className="dc-prod-desc"
                 dangerouslySetInnerHTML={{ __html: product.description }}

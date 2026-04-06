@@ -18,6 +18,7 @@ import IntroVideoBoxSilver from "@/components/homepage/IntroVideoBoxSilver"
 import OurBlog from "@/components/homepage/OurBlog"
 import OurTestimonials from "@/components/homepage/OurTestimonials";
 import OurClient from "@/components/OurClient";
+import HomeConsultationPlanner from "@/components/homepage/HomeConsultationPlanner";
 import PdfDownloadSection from "@/components/PdfDownloadSection"
 import OurFaqs from "@/components/OurFaqs";
 import Preloader  from "@/components/Preloader";
@@ -96,10 +97,10 @@ export default function Home() {
       <CoreServices />
       
       <PharmintechAdvantage />
-      <TechSection />
+      {/* <TechSection /> */}
       {/* <OurServices /> */}
-      <WhatWeDoSilver />
-      <IntroVideoBoxSilver />
+      {/* <WhatWeDoSilver /> */}
+      {/* <IntroVideoBoxSilver /> */}
 
       {/* Our Project Section Start */}
       {/* <div className="our-project-silver">
@@ -241,7 +242,7 @@ export default function Home() {
 
       <OurBlog />
 
-      <OurTestimonials />
+      {/* <OurTestimonials /> */}
       <div className="our-faqs py-0">
         <div className="container">
           <div className="col-lg-12">
@@ -251,6 +252,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <HomeConsultationPlanner />
       <PdfDownloadSection />
       <div className="pb-5 bgPattern1"><OurFaqs data={aboutData?.faqs}/></div>
 

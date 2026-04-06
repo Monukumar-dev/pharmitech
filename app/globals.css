@@ -24,6 +24,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Keep paragraph content consistently aligned across pages */
+main p,
+article p,
+section p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 
 * {
   box-sizing: border-box;
@@ -166,10 +176,11 @@ Product Details
 
   .subProductsItemsImg {
     width: 100%;
-    height: 200px;
-    object-fit: contain;
+    height: 260px;
+    object-fit: cover;
     object-position: center;
     background: #fff;
+    border-radius: 16px;
   }
 
   /* .service-entry ul li {
@@ -191,6 +202,55 @@ Product Details
 
 .product-desc {
   padding-bottom: 1.5rem;
+}
+
+.productHeroImage {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.dc-prod-desc img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  margin: 14px 0;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .dc-prod-desc img {
+    width: 70%;
+  }
+}
+
+.page-service-single .service-single-content ul {
+  margin-bottom: 20px;
+}
+
+.page-service-single .service-single-content ul ul {
+  list-style: none;
+  padding-left: 1.25rem;
+  margin-top: 10px;
+}
+
+.page-service-single .service-single-content ul ul li {
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.page-service-single .service-single-content ul ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: 700;
 }
 .dc-label {
   display: inline-flex; 
@@ -561,5 +621,40 @@ Product Details
 
   .stat-divider {
     display: none;
+  }
+}
+
+/* FAQ reveal animation without external wow dependency */
+@keyframes faqFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.faq-item-reveal.is-visible {
+  animation: faqFadeUp 0.45s ease forwards;
+}
+
+.footer-logo-silver img {
+  width: auto !important;
+  max-width: unset !important;
+  min-height: 95px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

@@ -14,9 +14,9 @@ export default function Directors({ members = [] }) {
 
       <div className="container position-relative">
         <div className="row section-row align-items-center justify-content-center mb-0">
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div className="section-title">
-                  <h3 className="wow fadeInUp">BOARD OF DIRECTORS</h3>
+                  <h3 className="wow fadeInUp">MEET THE TEAM</h3>
                   <div
                     className="text-effect"
                     data-cursor="-opaque"
@@ -25,7 +25,7 @@ export default function Directors({ members = [] }) {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6">
+              {/* <div className="col-lg-6">
                 <div className="section-title-content">
                   <p className="mt-4 wow fadeInUp text-white" data-wow-delay="0.2s">
                     At the heart of Pharmintech stands a leadership team driven by purpose and performance.
@@ -34,7 +34,7 @@ export default function Directors({ members = [] }) {
                   </p>
 
                 </div>
-              </div>
+              </div> */}
             </div>
       </div>
 
@@ -49,10 +49,10 @@ export default function Directors({ members = [] }) {
       className={`${styles.directorBlock} ${isReverse ? styles.reverse : ""}`}
     >
       <div className="container position-relative">
-        <div className="row align-items-center g-0">
+        <div className="row align-items-center justify-content-center g-0">
 
           {/* CONTENT */}
-          <div className={`col-md-6 ${isReverse ? "order-md-2" : ""}`}>
+          <div className={`col-md-5 ${isReverse ? "order-md-2" : ""}`}>
             <div className={styles.contentWrap}>
 
               <div className={`${styles.sectionLabel} wow fadeInUp`}>
@@ -71,17 +71,18 @@ export default function Directors({ members = [] }) {
               
 
               <p
-                className={`${styles.para} wow fadeInUp`}
+                className={`${styles.quoteText} wow fadeInUp`}
                 data-wow-delay="0.3s"
               >
-                {director.profile}
+                {/* {director.profile} */}
+                {director.quote}
               </p>
 
             </div>
           </div>
 
           {/* IMAGE */}
-          <div className={`col-md-6 ${isReverse ? "order-md-1" : ""}`}>
+          <div className={`col-md-5 ${isReverse ? "order-md-1" : ""}`}>
             <div
               className={`${styles.imageWrap} wow fadeInUp`}
               data-wow-delay="0.3s"
@@ -96,7 +97,7 @@ export default function Directors({ members = [] }) {
                 className={styles.directorPhoto}
               />
 
-              <div
+              {/* <div
                 className={`${styles.statBadge} wow fadeInUp`}
                 data-wow-delay="0.5s"
               >
@@ -108,8 +109,8 @@ export default function Directors({ members = [] }) {
                     Years Experience
                   </span>
                 </div>
-              </div>
-              <div
+              </div> */}
+              {/* <div
                 className={`${styles.quoteBlock} wow fadeInUp`}
                 data-wow-delay="0.2s"
               >
@@ -125,7 +126,7 @@ export default function Directors({ members = [] }) {
                 <span className={styles.industryBadgeText}>
                   {director.specialization || "industry experts"}
                 </span>
-              </div>
+              </div> */}
 
             </div>
           </div>

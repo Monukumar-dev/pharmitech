@@ -61,7 +61,7 @@ export default function PharmintechAdvantage() {
         </div>
 
         {/* COUNTERS */}
-        <div className="row">
+        {/* <div className="row">
           <div className="col-lg-12">
             <div className="about-counter-box-silver">
               <div
@@ -84,7 +84,7 @@ export default function PharmintechAdvantage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>
