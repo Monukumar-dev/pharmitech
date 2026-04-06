@@ -68,14 +68,7 @@ export default function Directors({ members = [] }) {
                 <em>{toCapitalize(director.position)}</em>
               </h2>
 
-              <div
-                className={`${styles.quoteBlock} wow fadeInUp`}
-                data-wow-delay="0.2s"
-              >
-                <p className={styles.quoteText}>
-                  {director.quote || "Deep industry knowledge is what separates good cleanroom design from exceptional results."}
-                </p>
-              </div>
+              
 
               <p
                 className={`${styles.para} wow fadeInUp`}
@@ -115,6 +108,14 @@ export default function Directors({ members = [] }) {
                     Years Experience
                   </span>
                 </div>
+              </div>
+              <div
+                className={`${styles.quoteBlock} wow fadeInUp`}
+                data-wow-delay="0.2s"
+              >
+                <p className={styles.quoteText}>
+                  {director.quote || "Deep industry knowledge is what separates good cleanroom design from exceptional results."}
+                </p>
               </div>
 
               <div

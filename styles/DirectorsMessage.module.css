@@ -113,8 +113,12 @@
   gap: 16px;
   margin-bottom: 24px;
   padding: 18px 22px;
-  background: rgba(7,158,215,0.08);
+  background: rgba(6, 150, 202, 0.765);
   border-left: 3px solid var(--accent-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .quoteText {
@@ -224,7 +228,7 @@
 .industryBadge {
   position: absolute;
   right: -10px;
-  bottom: 120px;
+  top: 120px;
   z-index: 4;
   display: flex;
   align-items: center;
@@ -274,15 +278,29 @@
   .reverse .statBadge {
     left: 0;
     right: auto;
-    top: 20px;
+    top: 248px;
   }
 
   .industryBadge,
   .reverse .industryBadge {
     right: 0;
     left: auto;
-    bottom: 60px;
+    top: 299px;
+    height: max-content;
   }
+
+  .quoteBlock {
+    position: relative;
+    
+  }
+
+  .imageWrap {
+    flex-direction: column;
+}
+
+
+
+
 }
 
 @media only screen and (max-width: 1880px){
