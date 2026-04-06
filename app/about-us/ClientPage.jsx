@@ -168,13 +168,19 @@ function renderMeetTeamSection() {
 
       {/* <AboutWorkspace data={aboutData} /> */}
       <Directors members={aboutData?.board_of_directors?.members} />
-      <AboutApproach vision={aboutData?.vision} mission={aboutData?.mission} />
+      {/* <AboutApproach vision={aboutData?.vision} mission={aboutData?.mission} /> */}
       {/* <WhyChooseUs data={aboutData?.why_choose_us} /> */}
-      <OurTestimonials />
+      {/* <OurTestimonials /> */}
       {/* {renderMeetTeamSection()} */}
-      <OurFaqs data={aboutData?.faqs}/>
+      {/* <OurFaqs data={aboutData?.faqs}/> */}
+      {/* Clients */}
+   
       <PharminDifference />      
 
+      <div className="container pb-5 bgPattern1">
+        <OurClient />
+      </div>
+      <div className="container pb-5 ">
       <PdfDownloadSection
         cta={(() => {
           const fromAbout = ctaFromNewChapter(
@@ -194,12 +200,8 @@ function renderMeetTeamSection() {
           };
         })()}
       />
-
-      {/* Clients */}
-      <div className="container pb-5 bgPattern1">
-        <OurClient />
       </div>
-
+      
       
 
     </>
