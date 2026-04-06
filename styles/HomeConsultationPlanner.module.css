@@ -1,0 +1,414 @@
+.wrapper {
+  padding: 90px 0;
+  background: #0d1b2a;
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.headingWrap {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.headingWrap h3 {
+  color: #6fb0f5;
+}
+
+.headingWrap :global(.text-effect),
+.headingWrap :global(h1),
+.headingWrap :global(h2) {
+  color: #ffffff !important;
+}
+
+.subtitle {
+  margin: 12px auto 0;
+  max-width: 860px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.optionCard {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  padding: 18px;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.optionCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(111, 176, 245, 0.5);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.3);
+}
+
+.optionNumber {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(111, 176, 245, 0.2);
+  color: #9cc8f6;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.optionCard h4 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  color: #ffffff;
+}
+
+.optionCard p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  min-height: 84px;
+}
+
+.optionAction {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9cc8f6;
+  font-weight: 700;
+  font-size: 13px;
+  border: 1px solid rgba(111, 176, 245, 0.35);
+  background: rgba(111, 176, 245, 0.12);
+  border-radius: 999px;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+}
+
+.optionAction::after {
+  content: "↗";
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.optionCard:hover .optionAction {
+  background: #2f79c0;
+  border-color: #2f79c0;
+  color: #fff;
+}
+
+.optionCard:hover .optionAction::after {
+  transform: translate(2px, -2px);
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 13, 24, 0.62);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modalCard {
+  width: min(980px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 16px;
+  position: relative;
+}
+
+.modalClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid #d2ddea;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #fff;
+  color: #10263f;
+  font-weight: 700;
+}
+
+.modalBody {
+  padding: 20px 22px 22px;
+}
+
+.modalInnerGrid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.6fr);
+  gap: 18px;
+}
+
+.modalLeftContent {
+
+  padding: 16px;
+  height: fit-content;
+}
+
+.modalLeftContent h4 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  color: #10263f;
+}
+
+.modalLeftContent p {
+  margin: 0;
+  color: #455f79;
+}
+
+.modalActionText {
+  margin-top: 12px !important;
+  color: #176cb0 !important;
+  font-weight: 700;
+  font-size: 13px;
+  display: none;
+}
+
+.modalRightForm {
+  border: 1px solid #e2ebf5;
+  border-radius: 14px;
+  background: #fbfdff;
+  padding: 16px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.formGrid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #23384e;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.fullRow {
+  grid-column: 1 / -1;
+}
+
+.groupLabel {
+  margin: 0 0 8px;
+  color: #23384e;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sliderField {
+  border: 1px solid #dbe6f2;
+  border-radius: 12px;
+  background: #f7fbff;
+  padding: 10px 12px 12px;
+}
+
+.sliderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #23384e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sliderValue {
+  color: #176cb0;
+}
+
+.creativeRange {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #176cb0 0%,
+    #176cb0 var(--range-progress, 0%),
+    #dbe6f2 var(--range-progress, 0%),
+    #dbe6f2 100%
+  );
+  outline: none;
+  appearance: none;
+}
+
+.creativeRange::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #176cb0 0%,
+    #176cb0 var(--range-progress, 0%),
+    #dbe6f2 var(--range-progress, 0%),
+    #dbe6f2 100%
+  );
+}
+
+.creativeRange::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #176cb0 0%,
+    #176cb0 var(--range-progress, 0%),
+    #dbe6f2 var(--range-progress, 0%),
+    #dbe6f2 100%
+  );
+}
+
+.creativeRange::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1f2937;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(31, 41, 55, 0.2);
+  cursor: pointer;
+}
+
+.creativeRange::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1f2937;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(31, 41, 55, 0.2);
+  cursor: pointer;
+}
+
+.categoryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.formGrid label.checkChip {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkChip {
+  border: 1px solid #cfdceb;
+  border-radius: 0.5rem;
+  background: #f6faff;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #21374e;
+  position: relative;
+}
+
+.checkChipInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.checkChipBox {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 0.5rem;
+  border: 2px solid #94a3b8;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.checkChipInput:checked + .checkChipBox {
+  background: #1f2937;
+  border-color: #1f2937;
+}
+
+.checkChipInput:checked + .checkChipBox::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-1px);
+  margin-top: -2px;
+}
+
+.checkChipText {
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.actionRow {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+
+.successBanner,
+.errorBanner {
+  margin: 0 22px 20px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.successBanner {
+  border: 1px solid #bde2c7;
+  background: #ebfaf0;
+  color: #1f6b3a;
+}
+
+.errorBanner {
+  border: 1px solid #f2c5c5;
+  background: #fff0f0;
+  color: #a32d2d;
+}
+
+@media (max-width: 1199px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .modalInnerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 70px 0;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalBody {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
