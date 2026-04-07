@@ -119,13 +119,15 @@ export default function ProductPage() {
                
                 <div className="page-single-image">
                   <figure>
-                    {heroImageUrl && (
+                    <div className="imageWrapper">
+                      {heroImageUrl && (
                       <img
                         className="productHeroImage"
                         src={heroImageUrl}
                         alt={product.name}
                       />
                     )}
+                    </div>
                   </figure>
                 </div>
                
@@ -167,11 +169,13 @@ export default function ProductPage() {
               <div className="dc-label">{product.category_name}</div>
               <h1 className="dc-prod-title">{product.name}</h1>
               {heroImageUrl && (
-                <img
+                <div className="imageWrapper">
+                  <img
                   className="productHeroImage"
                   src={heroImageUrl}
                   alt={product.name}
                 />
+                </div>
               )}
               <div
                 className="dc-prod-desc"
@@ -190,9 +194,13 @@ export default function ProductPage() {
             <div className="row p-4 border-bottom">
               <div className="col-md-6">
                 <h2 className="subProductTitle mt-2">{item.name}</h2>
-                <div className="dc-prod-desc my-3">
-                  Short description comes here.. just for test Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores beatae minus doloremque in quo harum dolorum iure natus earum incidunt. Laudantium natus enim exercitationem beatae sed provident, distinctio temporibus saepe!
+                
+                {item.short_description && (
+                  <div className="dc-prod-desc my-3">
+                  {item.short_description}
                 </div>
+                )}
+                
               </div>
               {item.image_url && (
               <div className="col-md-6 text-end mb-4">

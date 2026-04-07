@@ -181,12 +181,16 @@ function renderMeetTeamSection() {
       {/* <OurFaqs data={aboutData?.faqs}/> */}
       {/* Clients */}
    
-      <PharminDifference />      
-
+      <PharminDifference /> 
+      <section className="mt-5">
+        <div className="position-relative text-center px-0 z-3 border rounded-3 wow rounded-4 mx-md-4" style={{background:"#0d1b2a"}}>
+          <img className="w-75 h-auto" src="images/AboutMap.png" alt="" />
+        </div>
+      </section>
       <div className="container pb-5 bgPattern1">
         <OurClient />
       </div>
-      <div className="container pb-5 ">
+      <div className="pb-5 ">
       <PdfDownloadSection
         cta={(() => {
           const fromAbout = ctaFromNewChapter(

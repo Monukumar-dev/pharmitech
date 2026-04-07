@@ -212,11 +212,19 @@ Product Details
   padding-bottom: 1.5rem;
 }
 
+.imageWrapper {
+  display: block;       
+  width: 100%;         
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+
 .productHeroImage {
   width: 100%;
   height: 550px;
-  object-fit: contain !important;
-  object-position: center;
+  /* object-fit: contain !important;
+  object-position: center; */
   border-radius: 16px;
   margin-bottom: 18px;
   display: block;

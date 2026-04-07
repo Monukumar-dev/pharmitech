@@ -30,7 +30,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const { loading, error, homeData } = useSelector((state) => state.home);
   const { aboutData } = useSelector((state) => state.about);
-  const { list:testimonialsList } = useSelector((state) => state.testimonials);
+ // const { list:testimonialsList } = useSelector((state) => state.testimonials);
   const clients = useSelector((state) => state.client.clients);
 
   useEffect(() => {
@@ -51,15 +51,14 @@ export default function Home() {
 }, [dispatch, aboutData.business_scope.items.length]);
 
 
-  useEffect(() => {
-    if (!testimonialsList.length) {
-       dispatch(fetchTestimonials());
-    }
-}, [dispatch, testimonialsList]);
+//   useEffect(() => {
+//     if (!testimonialsList.length) {
+//        dispatch(fetchTestimonials());
+//     }
+// }, [dispatch, testimonialsList]);
 
   if (loading) return <Preloader />;
   if (error) return <div className="text-danger">{error}</div>;
-
 
   return (
     <>
