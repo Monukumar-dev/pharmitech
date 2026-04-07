@@ -182,23 +182,34 @@ export default function ProductPage() {
         </div>
 
         {product.sub_products?.map((item) => (
-          <div
+          <div 
             key={item.id}
             className="mb-4 border overflow-hidden rounded-4 subProductsItems"
           >
 
-            {item.image_url && (
-              <div className="mb-4 border-bottom">
+            <div className="row p-4 border-bottom">
+              <div className="col-md-6">
+                <h2 className="subProductTitle mt-2">{item.name}</h2>
+                <div className="dc-prod-desc my-3">
+                  Short description comes here.. just for test Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores beatae minus doloremque in quo harum dolorum iure natus earum incidunt. Laudantium natus enim exercitationem beatae sed provident, distinctio temporibus saepe!
+                </div>
+              </div>
+              {item.image_url && (
+              <div className="col-md-6 text-end mb-4">
                 <figure>
                   <img className="subProductsItemsImg" src={item.image_url} alt={item.name}/>
                 </figure>
               </div>
             )}
+
+
+            </div>
+
+            
             
 
             <div className="service-entry px-4 mb-0 flex-1">
               <div className="mt-4">
-                <h2 className="subProductTitle">{item.name}</h2>
                 <div
                   className="dc-prod-desc mb-3"
                   dangerouslySetInnerHTML={{ __html: item.description }}

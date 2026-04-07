@@ -17,14 +17,9 @@ export default function Directors({ members = [] }) {
               <div className="col-lg-12">
                 <div className="section-title">
                   <h3 className="wow fadeInUp">MEET THE TEAM</h3>
-                  <div
-                    className="text-effect"
-                    data-cursor="-opaque"
-                  >
-                    <TextEffect text="Visionary Leadership Driving Precision and Innovation" />
-                    
+                  <div className="text-effect" data-cursor="-opaque">
+                    <TextEffect text="Board of Directors" />    
                   </div>
-                  <h4 className={`h4 text-white wow fadeInUp mt-3 ${styles.heading}`}><em>Board of Directors</em></h4>
                 </div>
               </div>
               {/* <div className="col-lg-6">

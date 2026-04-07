@@ -39,16 +39,14 @@
   max-width: 200px;
   max-height: 90px;
   object-fit: contain;
-  transition: all 0.5s ease;
-  filter: grayscale(100%);
+  transition: all 0.5s ease; 
 }
 
 .logoCard:hover {
   transform: translateY(-12px);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
 }
-
 .logoCard:hover img {
-  filter: grayscale(0%);
+  filter: grayscale(100%);
   transform: scale(1.08);
 }

@@ -52,12 +52,19 @@ useEffect(() => {
 
   const isHome = pathname === "/"
 
+  const handleClick = (e) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.location.reload(); // 🔥 full reload
+    }
+  };
+
   return (
     <header className={`main-header active-sticky-header ${menuOpen ? "menu-open" : ""}`}>
       <div className={`header-sticky ${!isHome ? "bg-section dark-section" : ""} ${scrolled ? "active" : ""}`}>
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link className="navbar-brand" href="/">
+            <Link className="navbar-brand" href="/" onClick={handleClick}>
               <Image
                 src="/images/logo.png"
                 alt="Logo"
@@ -81,9 +88,8 @@ useEffect(() => {
             <div className={`navbar-collapse main-menu ${menuOpen ? "menu-open-active" : ""}`}>
               <div className="nav-menu-wrapper">
                 <ul className="navbar-nav mr-auto" id="menu">
-
                   <li className="nav-item">
-                    <Link className="nav-link" href="/">Home</Link>
+                    <Link className="nav-link" href="/" onClick={handleClick}>Home</Link>
                   </li>
 
                   <li className="nav-item">
@@ -193,7 +199,7 @@ useEffect(() => {
                       <li><Link className="nav-link" href="/clientele">Clientele</Link></li>
                       <li><Link className="nav-link" href="/blogs">Blogs</Link></li>
                       <li><Link className="nav-link" href="/events">Events</Link></li>
-                      <li><Link className="nav-link" href="/gallery">Projects Gallery</Link></li>
+                      {/* <li><Link className="nav-link" href="/gallery">Projects Gallery</Link></li> */}
                     </ul>
                   </li>
 

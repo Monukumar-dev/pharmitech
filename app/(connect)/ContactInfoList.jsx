@@ -8,7 +8,7 @@ export default function ContactInfoList({email = "sales@pharmintech.net"}) {
 
       {/* Phone */}
       <div
-        className="contact-info-item wow fadeInUp"
+        className="contact-info-item"
         data-wow-delay="0.2s"
       >
         <div className="icon-box">
@@ -31,7 +31,7 @@ export default function ContactInfoList({email = "sales@pharmintech.net"}) {
 
       {/* Email */}
       <div
-        className="contact-info-item wow fadeInUp"
+        className="contact-info-item "
         data-wow-delay="0.4s"
       >
         <div className="icon-box">
@@ -44,13 +44,13 @@ export default function ContactInfoList({email = "sales@pharmintech.net"}) {
         </div>
         <div className="contact-item-content">
           <h3>Email Address</h3>
-          <p><a href={`mailto:${email}`}>{email}</a></p>
+          <p><a className="text-lowercase" href={`mailto:${email}`}>{email}</a></p>
         </div>
       </div>
 
       {/* Location */}
       <div
-        className="contact-info-item wow fadeInUp"
+        className="contact-info-item"
         data-wow-delay="0.6s"
       >
         <div className="icon-box">

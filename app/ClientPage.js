@@ -70,11 +70,10 @@ export default function Home() {
 
           {/* Content */}
           <div className="col-xl-12">
-            <div className="section-content-btn">
+            <div className="section-content-btn wow fadeInUp">
               <div className="section-title-content">
-
                   {homeData?.aboutus?.paragraphs.map((item, i) => (
-                    <p key={i} className="wow fadeInUp" data-wow-delay={`${i * 0.2}s`}>
+                    <p key={i} >
                       {item}
                     </p>
                   ))
@@ -97,7 +96,8 @@ export default function Home() {
       <CoreServices />
       
       <PharmintechAdvantage />
-      {/* <TechSection /> */}
+      <TechSection />
+      {/*  */}
       {/* <OurServices /> */}
       {/* <WhatWeDoSilver /> */}
       {/* <IntroVideoBoxSilver /> */}
@@ -254,7 +254,9 @@ export default function Home() {
       </div>
       <HomeConsultationPlanner />
       <PdfDownloadSection />
-      <div className="pb-5 bgPattern1"><OurFaqs data={aboutData?.faqs}/></div>
+      <div className="pb-5 bgPattern1">
+        <OurFaqs data={aboutData?.faqs}/>
+      </div>
 
     </>
   )

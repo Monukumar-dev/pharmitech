@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function Accordion({ items }) {
-  const [activeIndex, setActiveIndex] = useState(1); // default open 2nd like your design
+  const [activeIndex, setActiveIndex] = useState(null);
   const [visibleItems, setVisibleItems] = useState({});
   const itemRefs = useRef([]);
 

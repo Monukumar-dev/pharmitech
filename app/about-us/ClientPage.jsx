@@ -22,6 +22,7 @@ import IndustriesSection from "./IndustriesSection";
 import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchAboutPage } from "@/store/slices/aboutSlice";
 import { fetchHomePageData } from "@/store/action/homeActions";
+import TextEffect from "@/components/TextEffect";
 
 
 
@@ -75,21 +76,26 @@ export default function AboutUs() {
 function renderMeetTeamSection() {
   return (
     <section className="meet-section mx-4 rounded-4">
-      <div className="meet-intro px-5 pb-0">
+      {/* <div className="meet-intro px-5 pb-0">
         <div className="eyebrow">People & Culture</div>
-        <h2 className="meet-heading">
-          Meet the <span>Team</span>
-        </h2>
+        <h2 className="meet-heading">Meet the <span>Team</span></h2>
         <p className="meet-sub">
           The minds and hands behind every cleanroom — our engineers,
           designers, fabricators, and project specialists working as one.
         </p>
+      </div> */}
+      <div className="meet-intro px-5 pb-0">
+        <div className="section-title">
+          <h3 className="wow fadeInUp">People & Culture</h3>
+          <div className="text-effect" data-cursor="-opaque">
+            <TextEffect text="Meet the Team" />
+          </div>
+        </div>
       </div>
+      
 
       {/* Mosaic Grid */}
       <div className="mosaic px-5 pb-5 rounded-4 overflow-hidden">
-
-        {/* Office Team */}
         <div className="mosaic-cell cell-1">
           <img
             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80"
