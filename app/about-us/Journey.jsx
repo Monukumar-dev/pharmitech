@@ -170,7 +170,7 @@ const TIMELINE_ITEMS = [
   },
 ];
 
-export const CLIENTS = [
+const CLIENTS = [
   "Alembic Pharma", "Cipla", "Glenmark", "Meril",
   "AMI Lifesciences", "Sava Healthcare", "Vasudha Pharma",
   "3M India", "Ajanta Pharma", "Intas", "Kemwell",
@@ -256,12 +256,8 @@ export default function Journey() {
 
       {/* Two-column layout: sticky left panel + scrollable timeline */}
       <div className="d-flex flex-column flex-lg-row align-items-lg-start" style={{ gap: "80px" }}>
-
-        {/* ── LEFT: sticky panel ── */}
         <div style={{ flex: "1 0 0" }}>
           <div className={styles.sticky}>
-
-            {/* Section heading using your pattern */}
             <div className="section-title journey-header mb-5">
               <h3>Our Story</h3>
               <TextEffect
@@ -275,14 +271,14 @@ export default function Journey() {
             </div>
 
             {/* Clients strip */}
-            <div id="clientsStrip" className={`${styles.clientsStrip} p-4 mb-3`}>
+            {/* <div id="clientsStrip" className={`${styles.clientsStrip} p-4 mb-3`}>
               <p className={`${styles.clientsLabel} mb-3`}>Trusted By</p>
               <div className="d-flex flex-wrap gap-2">
                 {CLIENTS.map((c) => (
                   <span key={c} className={styles.clientTag}>{c}</span>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Future outlook card */}
             <div id="futureCard" className={`${styles.futureCard} position-relative p-4`}>

@@ -23,7 +23,7 @@ import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchAboutPage } from "@/store/slices/aboutSlice";
 import { fetchHomePageData } from "@/store/action/homeActions";
 import TextEffect from "@/components/TextEffect";
-//import Journey from "./Journey";
+import Journey from "./Journey";
 
 
 
@@ -181,7 +181,7 @@ function renderMeetTeamSection() {
       {/* Clients */}
    
       <PharminDifference /> 
-      {/* <Journey /> */}
+      <Journey />
       <section className="mt-5">
         <div className="position-relative text-center px-0 z-3 border rounded-3 wow rounded-4 mx-md-4" style={{background:"#0d1b2a"}}>
           <img className="w-75 h-auto" src="images/AboutMap.png" alt="" />
