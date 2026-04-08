@@ -22,14 +22,17 @@ export default function HomepageBanner() {
   const banners = useSelector((state) => state.home.banners);
   const homeData = useSelector((state) => state.home.homeData);
   const clients = useSelector((state) => state.client.clients);
-  const sliderClients =
-    clients.length > 0 && clients.length < 4 ? [...clients, ...clients, ...clients] : clients;
+  const sliderClients = clients.length > 0 && clients.length < 4 ? [...clients, ...clients, ...clients] : clients;
 
+  console.log("banners", banners);
   
   if (!banners.length) return null;
 
   return (
-    <section className="hero-silver bg-section dark-section parallaxie">
+    <section className="hero-silver bg-section dark-section parallaxie" 
+    style={{
+          backgroundImage: `url(${banners[0].media_url})`,
+      }}>
       <div
         className="tech-parallax-bg"
         style={{

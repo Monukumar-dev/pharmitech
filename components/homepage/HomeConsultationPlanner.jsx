@@ -130,7 +130,8 @@ function ModalShell({ card, children, onClose, status }) {
   );
 }
 
-export default function HomeConsultationPlanner() {
+export default function HomeConsultationPlanner({data = {}}) {
+
   const [activeModal, setActiveModal] = useState(null);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ kind: "", message: "" });
@@ -248,33 +249,75 @@ export default function HomeConsultationPlanner() {
   };
 
   return (
-    <section className={styles.wrapper}>
-      <div className="container section-title">
-        <div className={styles.headingWrap}>
-          <h2><TextEffect text="Ready to build a new greenfield facility OR upgrade your existing facility?" /></h2>
-          
-          <p className={styles.subtitle}>
+    <section className={`${styles.wrapper} mx-3 rounded-4`}>
+      <div className="orb orb1"></div>
+      <div className="orb orb2"></div>
+
+      <div className="container">
+        <div className="section-title text-center">
+            {/* <h3 className="wow fadeInUp">Core Services</h3> */}
+            <TextEffect className="text-center" text="Ready to build a new greenfield facility OR upgrade your existing facility?" />
+            <p className="mb-4 text-center">
             Select an option below to tailor your consultation and get a precise proposal.
           </p>
-        </div>
+          </div>
+      
 
         <div className={styles.cardGrid}>
           {CARD_OPTIONS.map((card, index) => (
-            <button
+            <div
               key={card.id}
               type="button"
               className={styles.optionCard}
               onClick={() => openCard(card.id)}
             >
-              <span className={styles.optionNumber}>
+              <div className="d-flex flex-column gap-1">
+                <span className={`${styles.optionNumber} flex-shrink-0`}>
                 {String(index + 1).padStart(2, "0")}
-              </span>
-              <h4>{card.title}</h4>
-              <p>{card.description}</p>
-              <span className={styles.optionAction}>{card.action}</span>
-            </button>
+                </span>
+                <h4 className="text-dark">{card.title}</h4>
+              </div>
+              <p className="py-3">{card.description}</p>
+              <Button
+                size="sm"
+                variant="outline-primary"
+                showArrow={false}
+                className='text-left w-100'>
+                {card.action}
+              </Button>
+            </div>
           ))}
         </div>
+
+        <div className="d-flex justify-content-center flex-wrap gap-3 mt-5">
+
+          {data.contact_info?.whatsapp_number && (
+            <a
+            className="cta-btn cta-btn-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://wa.me/${data.contact_info?.whatsapp_number}?text=Hello%2C%20I%20need%20a%20quote%20for%20a%20cleanroom%20project`}>
+            Connect On WhatsApp
+          </a>
+          )}
+          {data.chapter_info?.document_pdf_url && (
+            <a
+            className="cta-btn cta-btn-outline bg-secondary"
+            download=""
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download company brochure PDF"
+            href={data.chapter_info?.document_pdf_url}>
+            {data.chapter_info?.document_download_button_name}
+          </a>
+          )}
+
+          
+          
+        </div>
+
+
+
       </div>
 
       {activeModal === "consultation" ? (

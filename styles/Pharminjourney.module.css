@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════════════
+   PharminJourney.module.css
+   Light section — sticky panel, clients, future
+   card, timeline track & dots.
+   Section heading typography handled by your
+   global .section-title + TextEffect styles.
+═══════════════════════════════════════════════ */
+
+/* ─── Section shell ─────────────────────────── */
+.section {
+  background: #F4F7FB;
+  overflow: hidden;
+  padding: 100px 6vw;
+}
+
+/* Decorative right-edge gradient line */
+.accentLine {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(59, 142, 227, 0.15),
+    transparent
+  );
+}
+
+/* ─── Sticky left panel ─────────────────────── */
+.sticky {
+  position: sticky;
+  top: 100px;
+}
+
+/* ─── Clients strip ─────────────────────────── */
+.clientsStrip {
+  background: #FFFFFF;
+  border: 1px solid rgba(59, 142, 227, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(59, 142, 227, 0.10);
+}
+
+.clientsLabel {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8FA8C0;
+}
+
+.clientTag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #4A6580;
+  background: #F4F7FB;
+  border: 1px solid rgba(59, 142, 227, 0.12);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: default;
+  white-space: nowrap;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.clientTag:hover {
+  background: rgba(59, 142, 227, 0.08);
+  border-color: rgba(59, 142, 227, 0.3);
+  color: #1A5FAF;
+}
+
+/* ─── Future outlook card ───────────────────── */
+.futureCard {
+  background: linear-gradient(135deg, #1A5FAF 0%, #3B8EE3 100%);
+  border-radius: 20px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.futureOrb1 {
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+.futureOrb2 {
+  position: absolute;
+  right: 30px;
+  bottom: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.futureLabel {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.futureBody {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ─── Timeline ──────────────────────────────── */
+.timeline {
+  position: relative;
+}
+
+/* Static grey track */
+.tlTrack {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(59, 142, 227, 0.20) 5%,
+    rgba(59, 142, 227, 0.20) 95%,
+    transparent 100%
+  );
+}
+
+/* Animated blue fill driven by GSAP ScrollTrigger */
+.tlProgress {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 2px;
+  height: 0%;
+  background: linear-gradient(to bottom, #3B8EE3, #6FB0F5);
+  border-radius: 2px;
+  transition: height 0.1s linear;
+  z-index: 1;
+}
+
+/* Each timeline row */
+.tlItem {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Circle dot */
+.tlDot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid rgba(59, 142, 227, 0.20);
+  color: #8FA8C0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.4s, box-shadow 0.4s, background 0.4s, color 0.4s;
+}
+
+/* Active state toggled by GSAP classList — needs :global because the
+   parent class "tl-item" is a plain (non-module) class added by JS     */
+:global(.tl-item.tl-active) .tlDot {
+  background: #3B8EE3 !important;
+  border-color: #3B8EE3 !important;
+  box-shadow: 0 0 0 6px rgba(59, 142, 227, 0.15) !important;
+  color: #fff !important;
+}
+
+/* Year label */
+.tlYear {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3B8EE3;
+}
+
+/* Milestone title */
+.tlTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0D1B2A;
+  line-height: 1.3;
+}
+
+/* Body copy */
+.tlBody {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #4A6580;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* Bullet list item */
+.tlBulletItem {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #4A6580;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* Arrow prefix */
+.tlArrow {
+  color: #3B8EE3;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ─── Responsive ────────────────────────────── */
+@media (max-width: 900px) {
+  .sticky {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 70px 5vw;
+  }
+}

@@ -23,6 +23,7 @@ import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchAboutPage } from "@/store/slices/aboutSlice";
 import { fetchHomePageData } from "@/store/action/homeActions";
 import TextEffect from "@/components/TextEffect";
+//import Journey from "./Journey";
 
 
 
@@ -85,11 +86,9 @@ function renderMeetTeamSection() {
         </p>
       </div> */}
       <div className="meet-intro px-5 pb-0">
-        <div className="section-title">
+        <div className="section-title text-center">
           <h3 className="wow fadeInUp">People & Culture</h3>
-          <div className="text-effect" data-cursor="-opaque">
-            <TextEffect text="Meet the Team" />
-          </div>
+          <TextEffect className="text-center" text="Meet the Team" />
         </div>
       </div>
       
@@ -177,11 +176,12 @@ function renderMeetTeamSection() {
       {/* <AboutApproach vision={aboutData?.vision} mission={aboutData?.mission} /> */}
       {/* <WhyChooseUs data={aboutData?.why_choose_us} /> */}
       {/* <OurTestimonials /> */}
-      {/* {renderMeetTeamSection()} */}
+      {renderMeetTeamSection()}
       {/* <OurFaqs data={aboutData?.faqs}/> */}
       {/* Clients */}
    
       <PharminDifference /> 
+      {/* <Journey /> */}
       <section className="mt-5">
         <div className="position-relative text-center px-0 z-3 border rounded-3 wow rounded-4 mx-md-4" style={{background:"#0d1b2a"}}>
           <img className="w-75 h-auto" src="images/AboutMap.png" alt="" />

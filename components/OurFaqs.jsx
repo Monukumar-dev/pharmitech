@@ -11,7 +11,7 @@ export default function OurFaqs({data}) {
       <div className="container">
         <div className="row">
           
-          <div className="col-xl-4">
+          <div className="col-xl-5">
             <div className="faqs-content">
               <div className="section-title">
                 <h3>Frequently Asked Questions</h3>
@@ -27,7 +27,7 @@ export default function OurFaqs({data}) {
             </div>
           </div>
 
-          <div className="col-xl-8">
+          <div className="col-xl-7">
             <Accordion items={data} />
           </div>
 

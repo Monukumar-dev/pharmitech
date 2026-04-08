@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Sidebar({data}) {
 
-  console.log(data.subcategory_products);
+  //console.log(data.subcategory_products);
   return (
     <div className="page-single-sidebar">
       <div className="page-category-list wow fadeInUp show">
@@ -19,11 +19,12 @@ export default function Sidebar({data}) {
 
       <div className="sidebar-cta-box ProductDetailsSidebar">
         <div className="sidebar-cta-content">
-          <h3>Need a Cleanroom-Ready Panel Solution?</h3>
-          <p>
+          <h5 className="text-light h5">Get expert guidance on wall & ceiling panels, insulation options,
+            finishes, and installation support.</h5>
+          {/* <p>
             Get expert guidance on wall & ceiling panels, insulation options,
             finishes, and installation support.
-          </p>
+          </p> */}
         </div>
 
         <div className="sidebar-contact-list">
