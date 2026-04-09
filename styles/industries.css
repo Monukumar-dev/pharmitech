@@ -148,6 +148,10 @@
   .industry-card:nth-child(4n) {
     border-right: 1px solid var(--line);
   }
+  .card-icon-row {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 640px) {

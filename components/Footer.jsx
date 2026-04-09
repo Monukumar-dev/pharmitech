@@ -129,9 +129,9 @@ export default function Footer() {
             </div>
 
             <div className="col-xl-8">
-              <div className="row footer-links-box-silver gap-0 flex-nowrap">
+              <div className="row footer-links-box-silver gap-0 flex-md-nowrap">
 
-                <div className="col-md-5 footer-links-silver ps-md-5">
+                <div className="col-12 col-md-5 footer-links-silver ps-md-5">
                   <h3>Quick Links</h3>
                   <ul>
                     <li><Link href="/">Home</Link></li>
@@ -157,27 +157,11 @@ export default function Footer() {
                   </ul>
                 </div> */}
 
-                <div className="col-md-7 footer-links-silver footer-newsletter-form-silver">
+                <div className="col-12 col-md-7 footer-links-silver footer-newsletter-form-silver mt-4 mt-md-0">
                   <h3>Locations</h3>
-                  <div className="google-map-iframe mt-0">
-                    <div dangerouslySetInnerHTML={{ __html: companyDetails?.contact_info?.map_embed_text }} />
+                  <div className="google-map-iframe mt-0" dangerouslySetInnerHTML={{ __html: companyDetails?.contact_info?.map_embed_text }}>
+                    
                   </div>
-
-                  {/* <form onSubmit={(e) => e.preventDefault()}>
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Email Address*"
-                        required
-                      />
-                      <button type="submit" className="newsletter-btn">
-                        <i className="fa-regular fa-paper-plane"></i>
-                      </button>
-                    </div>
-                  </form> 
-                  <p>* Subscribe now for workspace tips and community updates.</p>
-                  */}
                 </div>
 
               </div>

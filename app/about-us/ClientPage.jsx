@@ -77,24 +77,14 @@ export default function AboutUs() {
 function renderMeetTeamSection() {
   return (
     <section className="meet-section mx-4 rounded-4">
-      {/* <div className="meet-intro px-5 pb-0">
-        <div className="eyebrow">People & Culture</div>
-        <h2 className="meet-heading">Meet the <span>Team</span></h2>
-        <p className="meet-sub">
-          The minds and hands behind every cleanroom — our engineers,
-          designers, fabricators, and project specialists working as one.
-        </p>
-      </div> */}
       <div className="meet-intro px-5 pb-0">
         <div className="section-title text-center">
           <h3 className="wow fadeInUp">People & Culture</h3>
           <TextEffect className="text-center" text="Meet the Team" />
         </div>
       </div>
-      
-
       {/* Mosaic Grid */}
-      <div className="mosaic px-5 pb-5 rounded-4 overflow-hidden">
+      <div className="mosaic px-3 px-md-5 pb-5 rounded-4 overflow-hidden">
         <div className="mosaic-cell cell-1">
           <img
             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80"
@@ -183,8 +173,8 @@ function renderMeetTeamSection() {
       <PharminDifference /> 
       <Journey />
       <section className="mt-5">
-        <div className="position-relative text-center px-0 z-3 border rounded-3 wow rounded-4 mx-md-4" style={{background:"#0d1b2a"}}>
-          <img className="w-75 h-auto" src="images/AboutMap.png" alt="" />
+        <div className="position-relative text-center px-0 z-3 border rounded-3 wow rounded-4 mx-md-4" style={{background:"rgb(1 25 97)"}}>
+          <img className="w-75 h-auto" src="images/AboutMap.jpg" alt="" />
         </div>
       </section>
       <div className="container pb-5 bgPattern1">

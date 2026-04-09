@@ -249,7 +249,7 @@ export default function HomeConsultationPlanner({data = {}}) {
   };
 
   return (
-    <section className={`${styles.wrapper} mx-3 rounded-4`}>
+    <section className={`${styles.wrapper} mt-4 mt-md-5 mx-3 rounded-4`}>
       <div className="orb orb1"></div>
       <div className="orb orb2"></div>
 
@@ -556,14 +556,14 @@ export default function HomeConsultationPlanner({data = {}}) {
                     >
                       Cleanroom Equipment
                     </CustomCheckbox>
-                    <CustomCheckbox
+                    {/* <CustomCheckbox
                       checked={product.cat_more}
                       onChange={(e) =>
                         setProduct((p) => ({ ...p, cat_more: e.target.checked }))
                       }
                     >
                       more ( guide towards contact page form )
-                    </CustomCheckbox>
+                    </CustomCheckbox> */}
                   </div>
                 </div>
               ) : null}

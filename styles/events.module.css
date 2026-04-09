@@ -333,6 +333,8 @@
 /* ───────────────────────────────────────── */
 
 @media (max-width: 1024px) {
+
+  
   .hero {
     grid-template-columns: 1fr;
   }
@@ -344,13 +346,13 @@
   .heroRight {
     padding: 40px 30px;
   }
-
   .grid {
     grid-template-columns: 1fr 1fr;
   }
 
   .heroCard {
     grid-row: span 1;
+    min-height: 260px;
   }
 }
 

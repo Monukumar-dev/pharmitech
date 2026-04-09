@@ -8,8 +8,8 @@ export default function TechSection() {
   useParallax(".tech-parallax-bg", 420)
 
   return (
-    <section>
-      <div className="container position-relative z-3 border rounded-3 wow">
+    <section className="mx-3 mt-5">
+      <div className="container position-relative px-0 z-3 border rounded-3 wow">
           <img className="img-fluid" src="images/pharminTECH.png" alt="" />
       </div>
     </section>

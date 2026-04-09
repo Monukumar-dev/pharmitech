@@ -37,7 +37,7 @@ export default function PharmintechAdvantage() {
         {/* CARDS */}
         <div className="row">
           {homeData?.pharminTech_advantage?.[0]?.advantages?.map((item, i) => (
-            <div className="col-xl-3 col-md-6" key={i}>
+            <div className="col-xl-3 col-md-6 mb-0" key={i}>
               <div
                 className="what-we-do-item wow fadeInUp"
                 data-wow-delay={`${i * 0.2}s`}

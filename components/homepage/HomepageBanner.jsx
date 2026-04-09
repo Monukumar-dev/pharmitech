@@ -62,7 +62,7 @@ export default function HomepageBanner() {
                 <div className="hero-body-silver">
                  
                   {/* Counters */}
-                  <div className="BannersPoint d-flex flex-wrap flex-md-nowrap gap-0">
+                  <div className="BannersPoint me-md-4">
                      <img className="" src="images/icons/homeBannerCounter1.png" alt="" />
                      <img className="" src="images/icons/homeBannerCounter2.png" alt="" />
                      <img className="" src="images/icons/homeBannerCounter3.png" alt="" />

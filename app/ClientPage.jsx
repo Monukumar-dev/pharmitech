@@ -193,9 +193,9 @@ const CoreServices = () => (
 
       {CoreServices()}
       {/* <CoreServices /> */}
-      
+      <TechSection /> 
       <PharmintechAdvantage />
-      <TechSection />
+      
       {/*  */}
       {/* <OurServices /> */}
       {/* <WhatWeDoSilver /> */}

@@ -4742,7 +4742,7 @@ header.main-header .header-sticky.active{
 .google-map-iframe iframe{
 	width: 100%;
 	height: 250px;
-	filter: grayscale(1);
+	filter: grayscale(0);
 	border-radius: 20px;
 	transition: all 0.4s ease-in-out;
 }
@@ -5207,7 +5207,7 @@ header.main-header .header-sticky.active{
 	}
 
 	.company-supports-slider-box{
-		margin-top: 50px;
+		margin-top: 14px;
 	}
 
 	.company-supports-content{
@@ -5616,7 +5616,7 @@ header.main-header .header-sticky.active{
 	}
 
 	.what-we-do{
-		padding: 50px 0;
+		padding: 20px 0;
 	}
 
 	.what-we-do-item-header{
@@ -5679,7 +5679,7 @@ header.main-header .header-sticky.active{
 	}
 
 	.our-faqs{
-		padding: 50px 0;
+		padding: 20px 0;
 	}
 
 	.faqs-content{
@@ -5687,7 +5687,7 @@ header.main-header .header-sticky.active{
 	}
 
 	.our-testimonials{
-		padding: 50px 0;
+		padding: 20px 0;
 	}
 
 	.testimonials-content{
@@ -5759,7 +5759,7 @@ header.main-header .header-sticky.active{
 	}
 
 	.our-approach{
-		padding: 50px 0;
+		padding: 20px 0;
 	}
 
 	.approach-counter-box{
@@ -11398,7 +11398,7 @@ header.main-header.header-elite .navbar{
 	color: var(--primary-color);
 }
 
-.our-blog-silver{
+.our-blog-silver {
 	padding: 50px 0;
 }
 
@@ -12544,7 +12544,7 @@ header.main-header.header-elite .navbar{
 	}
 
 	.our-blog-silver{
-		padding: 50px 0;
+		padding: 20px 0;
 	}
 
 	.main-footer-silver{

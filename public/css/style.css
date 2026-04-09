@@ -646,19 +646,22 @@ header.main-header .header-sticky.active {
     background-position: bottom;
 }
 
+.BannersPoint  {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
 .BannersPoint img {
-    width: 230px;
+    width: 100%;
     height: auto;
+    display: block;
 }
 /* mobile css */
 @media(max-width:768px) {
     .service-item {font-size: 20px}
     header.main-header .header-sticky {margin-inline: 0;}
     .hero-silver {min-height: 96vh;}
-    .BannersPoint img {
-        width: 100px;
-        height: auto;
-    }
+
     .hero-silver::before {
         opacity: 95%;
     }

@@ -109,9 +109,9 @@ export default function ProductPage() {
   function renderSingleProduct() {
     return (
       <div className="service-single-content">
-        <div className="service-entry">
+        <div className="service-entry mb-0">
           <section id="dc" className="design-section">
-            <div className="product-desc pt-0">
+            <div className="product-desc pt-0 pb-0">
               <div className="page-wrap px-0">
                 <div className="dc-label">{product.category_name}</div>
                 <h1 className="dc-prod-title">{product.name}</h1>
