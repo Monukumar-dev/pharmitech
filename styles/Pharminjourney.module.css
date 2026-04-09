@@ -1,11 +1,3 @@
-/* ═══════════════════════════════════════════════
-   PharminJourney.module.css
-   Light section — sticky panel, clients, future
-   card, timeline track & dots.
-   Section heading typography handled by your
-   global .section-title + TextEffect styles.
-═══════════════════════════════════════════════ */
-
 /* ─── Section shell ─────────────────────────── */
 .section {
   background: #F4F7FB;
@@ -43,7 +35,6 @@
 }
 
 .clientsLabel {
-  font-family: 'Syne', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -52,7 +43,6 @@
 }
 
 .clientTag {
-  font-family: 'DM Sans', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   color: #4A6580;
@@ -102,7 +92,6 @@
 }
 
 .futureLabel {
-  font-family: 'Syne', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -111,7 +100,6 @@
 }
 
 .futureBody {
-  font-family: 'DM Sans', sans-serif;
   font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.65;
@@ -185,7 +173,6 @@
 
 /* Year label */
 .tlYear {
-  font-family: 'Syne', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -195,7 +182,6 @@
 
 /* Milestone title */
 .tlTitle {
-  font-family: 'Syne', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #0D1B2A;
@@ -204,20 +190,16 @@
 
 /* Body copy */
 .tlBody {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  color: #4A6580;
+  font-size: 0.9rem;
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 /* Bullet list item */
 .tlBulletItem {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  color: #4A6580;
+  font-size: 0.9rem;
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 /* Arrow prefix */

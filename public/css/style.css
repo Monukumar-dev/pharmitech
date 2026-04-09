@@ -608,7 +608,7 @@ header.main-header .header-sticky.active {
   
 }
 
-  .service-item {
+.service-item {
   padding-top: 1rem;
   height:70px;
   display:flex;

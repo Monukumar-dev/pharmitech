@@ -24,7 +24,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Keep paragraph content consistently aligned across pages */
 main p,
 article p,
 section p {
@@ -34,20 +33,28 @@ section p {
   hyphens: auto;
 }
 
-#menu > li > ul {
+/* Keep paragraph content consistently aligned across pages */
+ #menu > li > ul {
+  width: 100% !important;
+ }
+@media (min-width:991px) {
+  #menu > li > ul {
   width: 12vw !important;
-}
-
-.main-menu ul li.submenu:first-child ul {
+ }
+ .main-menu ul li.submenu:first-child ul {
   width: 20vw !important;
 }
+.main-menu ul li:hover > ul {
+  width: 20vw !important;
+}
+}
+
 
 .main-menu ul li:hover > ul {
   visibility: visible;
   opacity: 1;
   transform: scale(1, 1);
   padding: 5px 0;
-  width: 20vw !important;
 }
 
 * {
@@ -253,8 +260,6 @@ Product Details
   border-radius: 16px;
   overflow: hidden;
 }
-
-
 .productHeroImage {
   width: 100%;
   height: 550px;
