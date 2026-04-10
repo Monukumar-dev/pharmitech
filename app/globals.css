@@ -24,6 +24,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.tlIMG {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(4%) saturate(7100%) hue-rotate(185deg) brightness(103%) contrast(105%);
+}
+
+
 main p,
 article p,
 section p {
@@ -619,6 +625,14 @@ Product Details
 }
 
 /* HOMEPAGE */
+.homepagePdfDownload {
+  .cta-btn-whatsapp,
+  .cta-btn-outline {
+    display: none;
+  }
+}
+
+
 .cursor-pointer { cursor: pointer; }
 .transition-custom { transition: all 0.3s ease-out; }
     

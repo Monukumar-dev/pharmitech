@@ -6,6 +6,10 @@ export async function generateMetadata() {
   return {
     title: meta?.meta_title,
     description: meta?.meta_description,
+    keywords: meta?.meta_keywords,
+     alternates: {
+      canonical: meta?.canonical_url || "https://pharmintech.com/sdfklsd",
+    },
   };
 }
 

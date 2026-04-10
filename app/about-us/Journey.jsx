@@ -128,7 +128,8 @@ const TIMELINE_ITEMS = [
 ];
 
 
-export default function Journey() {
+export default function Journey({data}) {
+  
   const sectionRef    = useRef(null);
   const timelineRef   = useRef(null);
   const tlProgressRef = useRef(null);
@@ -236,13 +237,14 @@ export default function Journey() {
             <div className={styles.tlTrack} />
             <div ref={tlProgressRef} className={styles.tlProgress} />
 
-            {TIMELINE_ITEMS.map((item, i) => (
+            {data?.items?.map((item, i) => (
               <div key={i} className={`${styles.tlItem} tl-item mb-5`}>
 
                 {/* Dot */}
                 <div className="tl-dot-wrap d-flex flex-column align-items-center position-relative">
                   <div className={`${styles.tlDot} tl-dot d-flex align-items-center justify-content-center`}>
-                    {item.icon}
+                    <img className="tlIMG" src={item?.icon_url} alt="" />
+                    {/* {item.icon} */}
                   </div>
                 </div>
 
@@ -255,9 +257,9 @@ export default function Journey() {
                     <p className={`${styles.tlBody} mb-0`}>{item.body}</p>
                   )} */}
 
-                  {item.bullets && (
+                  {item.points && (
                     <ul className="list-unstyled mt-2 d-flex flex-column gap-1 mb-0">
-                      {item.bullets.map((b, j) => (
+                      {item.points.map((b, j) => (
                         <li key={j} className={`${styles.tlBulletItem} d-flex align-items-start gap-2`}>
                           <span className={styles.tlArrow}><ArrowRight size={14} /></span>
                           {b}

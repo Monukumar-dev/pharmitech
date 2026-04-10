@@ -19,8 +19,8 @@ export default function Sidebar({data}) {
 
       <div className="sidebar-cta-box ProductDetailsSidebar">
         <div className="sidebar-cta-content">
-          <h5 className="text-light h5">Get expert guidance on wall & ceiling panels, insulation options,
-            finishes, and installation support.</h5>
+          <h4 className="text-anime-style-3 text-light fw-bolder">Get expert guidance on wall & ceiling panels, insulation options,
+            finishes, and installation support.</h4>
           {/* <p>
             Get expert guidance on wall & ceiling panels, insulation options,
             finishes, and installation support.

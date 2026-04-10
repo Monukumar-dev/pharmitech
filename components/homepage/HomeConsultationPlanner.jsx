@@ -248,6 +248,9 @@ export default function HomeConsultationPlanner({data = {}}) {
     if (ok) setHealth(INITIAL_HEALTH);
   };
 
+  console.log();
+  
+
   return (
     <section className={`${styles.wrapper} mt-4 mt-md-5 mx-3 rounded-4`}>
       <div className="orb orb1"></div>

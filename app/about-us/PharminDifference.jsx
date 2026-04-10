@@ -86,7 +86,7 @@ const DIFFERENCE_CARDS = [
   },
 ];
 
-export default function PharminDifference() {
+export default function PharminDifference({data}) {
  
   return (
     <section

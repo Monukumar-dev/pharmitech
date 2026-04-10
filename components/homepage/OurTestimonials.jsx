@@ -25,6 +25,11 @@ export default function OurTestimonialsSilver() {
       }
   }, [dispatch, list]);
 
+
+  if (data?.active === false) return null
+
+  
+
   return (
     <div className="our-testimonials-silver bg-section dark-section parallaxie">
 

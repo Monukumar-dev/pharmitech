@@ -74,68 +74,78 @@ export default function AboutUs() {
 
 // components/MeetTeamSection.jsx
 
-function renderMeetTeamSection() {
+function renderMeetTeamSection(data) {
+
+  const office = data?.office || [];
+  const factory = data?.factory || [];
+
+
+  console.log("office",data);
+  console.log("office",data?.office[0]?.url);
+  
+
   return (
     <section className="meet-section mx-4 rounded-4">
       <div className="meet-intro px-5 pb-0">
         <div className="section-title text-center">
-          <h3 className="wow fadeInUp">People & Culture</h3>
-          <TextEffect className="text-center" text="Meet the Team" />
+          <h3 className="wow fadeInUp">Meet the Team</h3>
+          <TextEffect className="text-center" text="People & Culture" />
         </div>
       </div>
+    
       {/* Mosaic Grid */}
       <div className="mosaic px-3 px-md-5 pb-5 rounded-4 overflow-hidden">
         <div className="mosaic-cell cell-1">
           <img
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80"
+            src={data?.office[0]?.url}
             alt="Office Team"
           />
-          <span className="cell-badge">Corporate Office</span>
+          <span className="cell-badge">Office</span>
         </div>
 
         {/* Fabrication */}
         <div className="mosaic-cell cell-2">
           <img
-            src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&q=80"
+            src={office[1]?.url}
             alt="Fabrication"
           />
-          <span className="cell-badge">Fabrication</span>
+          <span className="cell-badge">Office</span>
         </div>
 
         {/* Cleanroom */}
         <div className="mosaic-cell cell-3">
           <img
-            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1000&q=80"
-            alt="Cleanroom"
+            src={factory[0]?.url}
+            alt="Factory"
           />
-          <span className="cell-badge">Cleanroom Facility</span>
+          <span className="cell-badge">Factory</span>
         </div>
 
         {/* Full Team */}
         <div className="mosaic-cell cell-4">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80"
+            src={office[2]?.url}
             alt="Full Team"
           />
-          <span className="cell-badge">Full Team</span>
+          <span className="cell-badge">Office</span>
         </div>
 
         {/* Engineering */}
         <div className="mosaic-cell cell-5">
           <img
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80"
-            alt="Engineering"
+            src={factory[1]?.url}
+            alt="Factory"
           />
-          <span className="cell-badge">Engineering</span>
+          <span className="cell-badge">Factory</span>
         </div>
 
         {/* Site Team */}
         <div className="mosaic-cell cell-6">
           <img
-            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80"
-            alt="Site Team"
+            src={factory[2]?.url}
+            alt="Factory"
           />
-          <span className="cell-badge">Site Team</span>
+          <span className="cell-badge">Factory</span>
         </div>
 
       </div>
@@ -166,12 +176,25 @@ function renderMeetTeamSection() {
       {/* <AboutApproach vision={aboutData?.vision} mission={aboutData?.mission} /> */}
       {/* <WhyChooseUs data={aboutData?.why_choose_us} /> */}
       {/* <OurTestimonials /> */}
-      {renderMeetTeamSection()}
+      
+
+      { aboutData?.meet_our_team?.active && (
+          renderMeetTeamSection(aboutData?.meet_our_team)
+      )}
+      
       {/* <OurFaqs data={aboutData?.faqs}/> */}
       {/* Clients */}
+
+      { aboutData?.pharmintech_difference?.active && (
+          <PharminDifference data={aboutData?.pharmintech_difference} />
+      )}
    
-      <PharminDifference /> 
-      <Journey />
+      {aboutData?.journey?.active && (
+        <Journey data={aboutData?.journey} />
+      )}
+       
+
+      
       <section className="mt-5">
         <div className="position-relative text-center px-0 z-3 border rounded-3 wow rounded-4 mx-md-4" style={{background:"rgb(1 25 97)"}}>
           <img className="w-75 h-auto" src="images/AboutMap.jpg" alt="" />

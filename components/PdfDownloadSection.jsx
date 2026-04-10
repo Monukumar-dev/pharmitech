@@ -69,7 +69,7 @@ function ctaFromHome(homeData) {
  * @param {object|null|undefined} cta — Explicit CTA data. `undefined` = use Redux home `new_chapter`.
  *        Pass `null` to render nothing. Pass an object from `ctaFromNewChapter` or your own matching shape.
  */
-export default function PdfDownloadSection({ cta }) {
+export default function PdfDownloadSection({ cta , isBrochureVisible, isWhatsappVisible }) {
   const homeData = useSelector((state) => state.home.homeData);
 
   const resolved = cta !== undefined ? cta : ctaFromHome(homeData);

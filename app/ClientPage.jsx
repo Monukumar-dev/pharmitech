@@ -203,7 +203,9 @@ const CoreServices = () => (
   
       <OurBlog />
 
-      {/* <OurTestimonials /> */}
+      <OurTestimonials />
+
+      
       <div className="our-faqs py-0">
         <div className="container">
           <div className="col-lg-12">
@@ -214,7 +216,14 @@ const CoreServices = () => (
         </div>
       </div>
       <HomeConsultationPlanner data={homeData?.new_chapter} />
-      {/* <PdfDownloadSection /> */}
+
+      {homeData?.new_chapter?.active && (
+        <div className="homepagePdfDownload">
+          <PdfDownloadSection />
+        </div>
+        
+      )}
+      
       <div className="pb-5 bgPattern1">
         <OurFaqs data={aboutData?.faqs}/>
       </div>

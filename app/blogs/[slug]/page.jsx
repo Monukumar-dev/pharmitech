@@ -7,11 +7,19 @@ export async function generateMetadata({ params }) {
   const res = await getBlog(slug);
   const blog = res?.data;
   const seo = blog?.seo;
+  const canonical = blog?.canonical_url;
+
+  const baseUrl = "https://pharmintech.com";
+  const url = `${baseUrl}/blogs/${slug}`;
 
   return {
     title: seo?.meta_title || blog?.title || "Pharmitech",
     description: seo?.meta_description || blog?.title || "Read latest insights from Pharmitech blogs",
     keywords: seo?.meta_keywords || "",
+
+    alternates: {
+      canonical: seo?.canonical || url,
+    },
 
     openGraph: {
       title: seo?.meta_title || blog?.title,
