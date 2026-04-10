@@ -19,7 +19,6 @@ export default function PharmintechAdvantage() {
             <div className="section-title">
               <h3 className="wow fadeInUp">Advantage</h3>
               <TextEffect text="The PharminTECH Advantage" />
-
             </div>
           </div>
 

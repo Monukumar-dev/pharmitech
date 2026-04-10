@@ -115,7 +115,7 @@ const CoreServices = () => (
       <main className="w-100 overflow-hidden">
         <div className="container py-5">
           <div className="row g-4">
-            <div className="col-12 col-md-9 col-lg-9">
+            <div className="col-12 col-md-12 col-lg-12">
               <div className="section-title">
                   <h3 className="wow fadeInUp">Core Services</h3>
                   <TextEffect text="Commitment To Excellence" />
@@ -154,7 +154,7 @@ const CoreServices = () => (
           </div>
         </div>
       </main>
-    </div>
+  </div>
 );
 
 
