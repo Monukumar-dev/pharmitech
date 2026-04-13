@@ -278,9 +278,15 @@ export default function HomeConsultationPlanner({data = {}}) {
                 <span className={`${styles.optionNumber} flex-shrink-0`}>
                 {String(index + 1).padStart(2, "0")}
                 </span>
-                <h4 className="text-dark">{card.title}</h4>
+                <div style={{minHeight: "clamp(1.5rem, calc(4.5rem - 0.22vw), 3rem)"}}>
+                    <h4 className="text-dark">{card.title}</h4>
+                </div>
+                
               </div>
-              <p className="py-3">{card.description}</p>
+              <div className="Info" style={{minHeight:"140px"}}>
+                <p className="py-3">{card.description}</p>
+              </div>
+              
               <Button
                 size="sm"
                 variant="outline-primary"
