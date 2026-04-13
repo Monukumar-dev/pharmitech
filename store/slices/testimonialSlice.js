@@ -6,14 +6,13 @@ export const fetchTestimonials = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await fetch(`${url.BASE_URL}/api/testimonials`);
-
       const data = await res.json();
 
       if (!res.ok || !data.status) {
         return rejectWithValue(data.message || "Failed to fetch testimonials");
       }
 
-      return data.data; // 👈 return only useful data
+      return data.data;
     } catch (error) {
       return rejectWithValue("Network error");
     }
@@ -23,25 +22,29 @@ export const fetchTestimonials = createAsyncThunk(
 const testimonialSlice = createSlice({
   name: "testimonials",
   initialState: {
+    status: "idle",   // ✅ ADD THIS (very important)
     loading: false,
     error: null,
-    data: null,        // full data object
-    list: [],          // testimonials list shortcut
+    data: null,
+    list: [],
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchTestimonials.pending, (state) => {
         state.loading = true;
+        state.status = "loading";   // ✅
         state.error = null;
       })
       .addCase(fetchTestimonials.fulfilled, (state, action) => {
         state.loading = false;
+        state.status = "succeeded"; // ✅
         state.data = action.payload;
-        state.list = action.payload.list || [];
+        state.list = action.payload?.list || [];
       })
       .addCase(fetchTestimonials.rejected, (state, action) => {
         state.loading = false;
+        state.status = "failed";    // ✅
         state.error = action.payload;
       });
   },

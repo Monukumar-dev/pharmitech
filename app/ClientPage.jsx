@@ -24,7 +24,7 @@ import { fetchTestimonials } from "@/store/slices/testimonialSlice";
 import { fetchClients } from "@/store/slices/clientSlice";
 import { fetchAboutPage } from "@/store/slices/aboutSlice";
 
-import CoreServices from "@/components/homepage/CoreServices"
+//import CoreServices from "@/components/homepage/CoreServices"
 import HomepageBanner from "@/components/homepage/HomepageBanner"
 import TechSection from "@/components/homepage/TechSection"
 import PharmintechAdvantage from "@/components/homepage/PharmintechAdvantage"
@@ -40,18 +40,6 @@ import OurFaqs from "@/components/OurFaqs";
 import Preloader  from "@/components/Preloader";
 import TextEffect from "@/components/TextEffect";
 
-// const services = [
-//   { id: 1, title: "Project Guidance & Feasibility", icon: Compass },
-//   { id: 2, title: "Conceptual Design, Layout Planning & Proposal", icon: Layout },
-//   { id: 3, title: "Detailed Design & Infrastructure Engineering", icon: Settings },
-//   { id: 4, title: "In-House Manufacturing & Quality Control", icon: Factory },
-//   { id: 5, title: "Project Planning & Management", icon: Briefcase },
-//   { id: 6, title: "Installation & Commissioning", icon: Wrench },
-//   { id: 7, title: "Testing & Validation", icon: Beaker },
-//   { id: 8, title: "Qualification (IQ/OQ/PQ) & Handover", icon: ClipboardCheck },
-//   { id: 9, title: "Service, Maintenance & Lifetime Support", icon: ShieldCheck }
-// ];
-
 
 export default function Home() {
 
@@ -61,7 +49,6 @@ export default function Home() {
  // const { list:testimonialsList } = useSelector((state) => state.testimonials);
   const clients = useSelector((state) => state.client.clients);
 
-  console.log("homeData", homeData);
 
   const iconMap = {
   1: Compass,

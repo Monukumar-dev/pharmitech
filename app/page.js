@@ -8,7 +8,7 @@ export async function generateMetadata() {
     description: meta?.meta_description,
     keywords: meta?.meta_keywords,
      alternates: {
-      canonical: meta?.canonical_url || "https://pharmintech.com/sdfklsd",
+      canonical: meta?.canonical_url || "https://pharmintech.com",
     },
   };
 }

@@ -19,11 +19,11 @@ export default function OurTestimonialsSilver() {
 
   const { status, data, list, error } = useSelector((state) => state.testimonials);
 
-  useEffect(() => {
-      if (!list || list.length === 0) {
-        dispatch(fetchTestimonials());
-      }
-  }, [dispatch, list]);
+useEffect(() => {
+  if (status === "idle") {
+    dispatch(fetchTestimonials());
+  }
+}, [status, dispatch]);
 
 
   if (data?.active === false) return null

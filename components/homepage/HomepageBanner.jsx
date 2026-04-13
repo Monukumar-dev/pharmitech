@@ -24,8 +24,6 @@ export default function HomepageBanner() {
   const clients = useSelector((state) => state.client.clients);
   const sliderClients = clients.length > 0 && clients.length < 4 ? [...clients, ...clients, ...clients] : clients;
 
-  console.log("banners", banners);
-  
   if (!banners.length) return null;
 
   return (
