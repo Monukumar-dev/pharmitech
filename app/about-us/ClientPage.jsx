@@ -80,8 +80,8 @@ function renderMeetTeamSection(data) {
   const factory = data?.factory || [];
 
 
-  console.log("office",data);
-  console.log("office",data?.office[0]?.url);
+ // console.log("office",data);
+ // console.log("office",data?.office[0]?.url);
   
 
   return (
