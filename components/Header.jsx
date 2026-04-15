@@ -140,10 +140,14 @@ export default function Header() {
                   <li className="nav-item submenu">
                     <a className="nav-link">Insights</a>
                     <ul>
-                      {pageData?.["Clientele"]?.active && <li><Link href="/clientele">Clientele</Link></li>}
-                      {pageData?.["Blogs"]?.active && <li><Link href="/blogs">Blogs</Link></li>}
-                      {pageData?.["Events"]?.active && <li><Link href="/events">Events</Link></li>}
-                      {pageData?.["Projects Gallery"]?.active && <li><Link href="/gallery">Projects Gallery</Link></li>}
+                      {pageData?.["Clientele"]?.active && <li>
+                        <Link className="nav-link" href="/clientele">Clientele</Link></li>}
+                      {pageData?.["Blogs"]?.active && <li>
+                        <Link className="nav-link" href="/blogs">Blogs</Link></li>}
+                      {pageData?.["Events"]?.active && <li>
+                        <Link className="nav-link" href="/events">Events</Link></li>}
+                      {pageData?.["Projects Gallery"]?.active && <li>
+                        <Link className="nav-link" href="/gallery">Projects Gallery</Link></li>}
                     </ul>
                   </li>
 
@@ -151,11 +155,11 @@ export default function Header() {
                   <li className="nav-item submenu">
                     <a className="nav-link">Connect</a>
                     <ul>
-                      {pageData?.["Customers"]?.active && <li><Link href="/customers">Customers</Link></li>}
-                      {pageData?.["Suppliers"]?.active && <li><Link href="/suppliers">Suppliers</Link></li>}
-                      {pageData?.["Careers"]?.active && <li><Link href="/careers">Careers</Link></li>}
+                      {pageData?.["Customers"]?.active && <li><Link className="nav-link" href="/customers">Customers</Link></li>}
+                      {pageData?.["Suppliers"]?.active && <li><Link className="nav-link" href="/suppliers">Suppliers</Link></li>}
+                      {pageData?.["Careers"]?.active && <li><Link className="nav-link" href="/careers">Careers</Link></li>}
                       {pageData?.["Complaints & Feedback"]?.active && (
-                        <li><Link href="/complaints-and-feedback">Complaints & Feedback</Link></li>
+                        <li><Link className="nav-link" href="/complaints-and-feedback">Complaints & Feedback</Link></li>
                       )}
                     </ul>
                   </li>
