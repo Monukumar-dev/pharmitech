@@ -13,6 +13,7 @@
 	transition: opacity 0.3s, color 0.4s;
 }
 
+
 .cb-cursor:before {
 	content: "";
 	position: absolute;
@@ -310,3 +311,25 @@
 	transition: box-shadow 0.2s;
 	transition: box-shadow 0.2s, -webkit-box-shadow 0.2s, -moz-box-shadow 0.2s;
 }
+
+
+
+/* ❌ Hide dot by default */
+.cb-cursor:before {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* ✅ Show dot ONLY when these states are active */
+.cb-cursor.-text:before,
+.cb-cursor.-opaque:before,
+.cb-cursor.-normal:before {
+  opacity: 1;
+  transform: scale(1.7); /* keep your existing effect */
+}
+
+/* @media (max-width:768px) {
+	.cb-cursor:before {
+		display: none !important;
+	}
+} */

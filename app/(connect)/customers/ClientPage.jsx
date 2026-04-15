@@ -152,12 +152,21 @@ useEffect(() => {
                       
                       <div className="form-group col-md-6 mb-4">
                         <Input
+                          className="rounded-"
                           label="Contact Number"
                           name="contact"
                           type="tel"
                           value={form.contact}
                           onChange={handleChange}
                           placeholder="Enter Contact Number *"
+                          onKeyDown={(e) => {
+                            if (!/[0-9]/.test(e.key) && e.key !== "Backspace") {
+                              e.preventDefault();
+                            }
+                          }}
+                          prefix="+91"
+                          maxLength={10}
+                          minLength={10}
                           required
                         />
                       </div>
@@ -191,7 +200,7 @@ useEffect(() => {
                           placeholder="Briefly describe your requirements..."
                           value={form.requirements}
                           onChange={handleChange}
-                          required
+                          //required
                         />
                       </div>
 

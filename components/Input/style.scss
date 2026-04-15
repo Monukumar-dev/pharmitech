@@ -90,3 +90,11 @@ input.input-disabled{
 input.form-control {
   border-radius: 8px !important;
 }
+
+
+.input-group {
+  input {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}

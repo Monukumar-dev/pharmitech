@@ -160,6 +160,14 @@ export default function page() {
                           value={form.contact}
                           onChange={handleChange}
                           placeholder="Enter Contact Number *"
+                          onKeyDown={(e) => {
+                            if (!/[0-9]/.test(e.key) && e.key !== "Backspace") {
+                              e.preventDefault();
+                            }
+                          }}
+                          prefix="+91"
+                          maxLength={10}
+                          minLength={10}
                           required
                         />
                       </div>
@@ -201,7 +209,7 @@ export default function page() {
                           placeholder="Briefly describe the products you manufacture..."
                           value={form.products}
                           onChange={handleChange}
-                          required
+                          
                         />
                       </div>
 

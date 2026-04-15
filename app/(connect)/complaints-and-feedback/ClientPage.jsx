@@ -206,6 +206,14 @@ const [form, setForm] = useState({
                           value={form.contact}
                           onChange={handleChange}
                           placeholder="Enter Contact Number *"
+                          onKeyDown={(e) => {
+                            if (!/[0-9]/.test(e.key) && e.key !== "Backspace") {
+                              e.preventDefault();
+                            }
+                          }}
+                          prefix="+91"
+                          maxLength={10}
+                          minLength={10}
                           required
                         />
                       </div>
@@ -220,7 +228,7 @@ const [form, setForm] = useState({
                           placeholder="Briefly describe your complaint or feedback..."
                           value={form.response}
                           onChange={handleChange}
-                          required
+                          
                         />
                       </div>
 

@@ -126,7 +126,20 @@ export default function Input(props) {
                 {getInput()}
               </Tooltip>} */}
 
-              {undefinedOrNull(props.tooltipTitle) &&getInput()}
+              {/* {undefinedOrNull(props.tooltipTitle) &&getInput()} */}
+
+              {undefinedOrNull(props.tooltipTitle) && (
+                props.prefix ? (
+                  <div className="input-group">
+                    <span className="input-group-text">{props.prefix}</span>
+                    {getInput()}
+                  </div>
+                ) : (
+                  getInput()
+                )
+              )}
+
+
               {props.showEyeIcon&&
                 <span onClick={props.onClickEye} className='eye'>
                   {(props.type==="password") ? closeEyeIcon()  :  openEyeIcon()}
