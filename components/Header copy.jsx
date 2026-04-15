@@ -12,12 +12,13 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false);
   const [turnkeyData, setTurnkeyData] = useState(null);
+  const [pageData, setPageData] = useState(null);
   const pathname = usePathname()
 
   const base_url = url.BASE_URL; 
 
 
-  //console.log("turnkeyData", turnkeyData);
+ // console.log("pageData", pageData);
   
 // Close menu on route change
 useEffect(() => {
@@ -50,14 +51,38 @@ useEffect(() => {
     fetchTurnkeyMenu();
   }, [base_url]);
 
+  useEffect(() => {
+    const fetchPageMenuData = async () => {
+      try {
+        const res = await fetch(`${base_url}/api/pages/page-meta`);
+        const data = await res.json();
+
+        if (data?.success) {
+          setPageData(data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching fetchPageMenuData:", error);
+      }
+    };
+
+    fetchPageMenuData();
+  }, [base_url]);
+
   const isHome = pathname === "/"
+
+  const handleClick = (e) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.location.reload(); // 🔥 full reload
+    }
+  };
 
   return (
     <header className={`main-header active-sticky-header ${menuOpen ? "menu-open" : ""}`}>
       <div className={`header-sticky ${!isHome ? "bg-section dark-section" : ""} ${scrolled ? "active" : ""}`}>
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link className="navbar-brand" href="/">
+            <Link className="navbar-brand" href="/" onClick={handleClick}>
               <Image
                 src="/images/logo.png"
                 alt="Logo"
@@ -81,21 +106,24 @@ useEffect(() => {
             <div className={`navbar-collapse main-menu ${menuOpen ? "menu-open-active" : ""}`}>
               <div className="nav-menu-wrapper">
                 <ul className="navbar-nav mr-auto" id="menu">
-
                   <li className="nav-item">
-                    <Link className="nav-link" href="/">Home</Link>
+                    <Link className="nav-link" href="/" onClick={handleClick}>Home</Link>
                   </li>
 
-                  <li className="nav-item">
-                    <Link className="nav-link" href="/about-us">About Us</Link>
-                  </li>
+                  {pageData?.["About Us"]?.active && (
+                    <li className="nav-item">
+                      <Link className="nav-link" href="/about-us">About Us</Link>
+                    </li>      
+                  )}
+
+                  
                   
 
                   {/* Turnkey Solutions */}
-
                   {turnkeyData && (
                     <li className="nav-item submenu">
                       <a className="nav-link">{turnkeyData.name}</a>
+
                       <ul>
                         {turnkeyData.categories.map((category) => (
                           <li key={category.id} className="nav-item submenu">
@@ -103,6 +131,8 @@ useEffect(() => {
                             <span className="nav-link">{category.name}</span>
 
                             <ul>
+
+                              {/* 🔹 Subcategories */}
                               {category.subcategories.map((sub) => (
                                 <li key={sub.id} className="nav-item submenu">
 
@@ -125,6 +155,19 @@ useEffect(() => {
 
                                 </li>
                               ))}
+
+                              {/* 🔥 Direct Products (Same Level as Subcategories) */}
+                              {category.products?.map((product) => (
+                                <li className="px-2 ProductsSubcategories" key={product.product_id}>
+                                  <Link
+                                    className="nav-link no-padding"
+                                    href={`/products/${product.slug}`}
+                                  >
+                                    {product.name}
+                                  </Link>
+                                </li>
+                              ))}
+
                             </ul>
 
                           </li>
@@ -133,48 +176,26 @@ useEffect(() => {
                     </li>
                   )}
 
-                  {/* <li className="nav-item submenu">
-                    <a className="nav-link">Turnkey Solutions</a>
-                    <ul>
-
-                      <li className="nav-item submenu">
-                        <span className="nav-link">Inhouse Products</span>
-                        <ul>
-                          <li className="nav-item">
-                            <Link className="nav-link" href="#">Modular Cleanroom</Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link className="nav-link" href="#">Equipment & Furniture</Link>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li className="nav-item submenu">
-                        <span className="nav-link">Services</span>
-                        <ul>
-                          <li><Link className="nav-link" href="#">Cleanroom Concept & Detailed Design</Link></li>
-                          <li><Link className="nav-link" href="#">HVAC Design & Engineering</Link></li>
-                          <li><Link className="nav-link" href="#">Electrical</Link></li>
-                          <li><Link className="nav-link" href="#">Testing & Validation</Link></li>
-                          <li><Link className="nav-link" href="#">Water System</Link></li>
-                          <li><Link className="nav-link" href="#">Utility</Link></li>
-                          <li><Link className="nav-link" href="#">Modular Laboratory Design</Link></li>
-                        </ul>
-                      </li>
-
-                    </ul>
-                  </li> */}
-
+                
 
                   {/* Insights */}
                   <li className="nav-item submenu">
                     <a className="nav-link">Insights</a>
                     <ul>
                       {/* <li><Link className="nav-link" href="/case-studies">Case Studies</Link></li> */}
-                      <li><Link className="nav-link" href="/clientele">Clientele</Link></li>
-                      <li><Link className="nav-link" href="/blogs">Blogs</Link></li>
-                      <li><Link className="nav-link" href="/events">Events</Link></li>
-                      <li><Link className="nav-link" href="/gallery">Projects Gallery</Link></li>
+                      
+                      {pageData?.["Clientele"]?.active && (
+                          <li><Link className="nav-link" href="/clientele">Clientele</Link></li>    
+                      )}
+                       {pageData?.["Blogs"]?.active && (
+                          <li><Link className="nav-link" href="/blogs">Blogs</Link></li>    
+                      )}
+                      {pageData?.["Events"]?.active && (
+                        <li><Link className="nav-link" href="/events">Events</Link></li>   
+                      )}
+                      {pageData?.["Projects Gallery"]?.active && (
+                        <li><Link className="nav-link" href="/gallery">Projects Gallery</Link></li>
+                      )}
                     </ul>
                   </li>
 
@@ -182,10 +203,25 @@ useEffect(() => {
                   <li className="nav-item submenu">
                     <a className="nav-link">Connect</a>
                     <ul>
-                      <li><Link className="nav-link" href="/customers">Customers</Link></li>
-                      <li><Link className="nav-link" href="/suppliers">Suppliers</Link></li>
-                      <li><Link className="nav-link" href="/careers">Careers</Link></li>
-                      <li><Link className="nav-link" href="/complaints-and-feedback">Complaints & Feedback</Link></li>
+                      {pageData?.["Customers"]?.active && (
+                        <li><Link className="nav-link" href="/customers">Customers</Link></li>
+                      )}
+
+                      {pageData?.["Suppliers"]?.active && (
+                        <li><Link className="nav-link" href="/suppliers">Suppliers</Link></li>
+                      )}
+
+                      {pageData?.["Careers"]?.active && (
+                        <li><Link className="nav-link" href="/careers">Careers</Link></li>
+                      )}
+
+                      {pageData?.["Complaints & Feedback"]?.active && (
+                        <li>
+                          <Link className="nav-link" href="/complaints-and-feedback">
+                            Complaints & Feedback
+                          </Link>
+                        </li>
+                      )}
                     </ul>
                   </li>
                 </ul>

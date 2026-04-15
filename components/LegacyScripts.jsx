@@ -36,6 +36,11 @@ export default function LegacyScripts() {
       {/* Your legacy initialization file (LAST) */}
       {/* <Script src="/js/function.js" strategy="afterInteractive" onLoad={() => {console.log("Legacy scripts loaded")}}
       /> */}
+
+      <Script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  strategy="afterInteractive"
+/>
     </>
   )
 }

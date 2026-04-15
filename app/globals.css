@@ -690,3 +690,169 @@ Product Details
     .design-3-card h4 { transition: color 0.3s ease; }
     .design-3-card:hover h4 { color: #6fb0f5 !important; }
 /* HOMEPAGE */
+
+
+
+
+/* =========================
+   MOBILE TOGGLE BUTTON
+========================= */
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  z-index: 99999;
+}
+
+.navbar-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #00a5e0; 
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Toggle animation */
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Show only on mobile */
+@media (max-width: 991px) {
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+
+/* =========================
+   MOBILE MENU WRAPPER
+========================= */
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: #fff;
+  overflow-y: auto;
+  z-index: 9999;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-menu-inner {
+  padding: 15px;
+}
+
+
+
+
+/* =========================
+   MOBILE LINKS
+========================= */
+.mobile-link {
+  display: block;
+  padding: 12px 10px;
+  font-size: 15px;
+  color: #222;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.mobile-link:hover {
+  background: #f8f9fa;
+}
+
+.mobile-link.small {
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+
+/* =========================
+   TOGGLE ITEMS (ACCORDION)
+========================= */
+.mobile-toggle {
+  width: 100%;
+  padding: 12px 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #222;
+}
+
+.mobile-toggle.small {
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+/* Arrow */
+.mobile-toggle span {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when open */
+.mobile-toggle[aria-expanded="true"] span {
+  transform: rotate(90deg);
+}
+
+
+/* =========================
+   SUBMENU STYLE
+========================= */
+.mobile-submenu {
+  padding-left: 10px;
+}
+
+
+/* =========================
+   SECTION DIVIDER
+========================= */
+.mobile-item {
+  border-bottom: 1px solid #eee;
+}
+
+
+/* =========================
+   FIX CLICK ISSUES
+========================= */
+.navbar {
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-menu {
+  z-index: 9999;
+}
+
